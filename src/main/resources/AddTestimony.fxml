@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="333.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddTestimonyController">
+   <children>
+      <Pane layoutX="7.0" prefHeight="335.0" prefWidth="600.0">
+         <children>
+            <TextField fx:id="titleFl" layoutX="129.0" layoutY="91.0" />
+            <Label layoutX="31.0" layoutY="27.0" text="Share your testimony ! ">
+               <font>
+                  <Font name="Avenir Roman" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="64.0" layoutY="99.0" text="Title" />
+            <Label layoutX="16.0" layoutY="159.0" text="Your testimony">
+               <font>
+                  <Font name="Avenir Roman" size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="333.0" fitWidth="226.0" layoutX="374.0" layoutY="1.0" pickOnBounds="true">
+               <image>
+                  <Image url="@img/testimGraph.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtFl" layoutX="125.0" layoutY="146.0" prefHeight="121.0" prefWidth="191.0" />
+            <Button id="button" layoutX="229.0" layoutY="295.0" mnemonicParsing="false" onAction="#addTestimonyBt" text="Add" />
+            <Button layoutX="299.0" layoutY="295.0" mnemonicParsing="false" onAction="#cancelbt" text="Cancel" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
