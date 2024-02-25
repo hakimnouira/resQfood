@@ -1,0 +1,83 @@
+/* comments.css */
+
+
+.post-background{
+    -fx-background-color: #580f0f;
+    -fx-background-radius: 15;
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1) , 5.0, 0.0, 0.0, 5.0);
+}
+
+#comments {
+    -fx-box-shadow: 0 -1px 6px 1px rgba(0,0,0,0.1);
+    -fx-background-color: #FFFFFF;
+}
+
+#comments form {
+    -fx-margin-bottom: 30px;
+}
+
+#comments .btn {
+    -fx-margin-top: 7px;
+}
+
+#comments form fieldset {
+    -fx-clear:both;
+}
+
+#comments form textarea {
+    -fx-height: 100px;
+}
+
+#comments .media {
+    -fx-border-top: 1px dashed #DDDDDD;
+    -fx-padding: 20px 0;
+    -fx-margin: 0;
+}
+
+#comments .media > .pull-left {
+    -fx-margin-right: 20px;
+}
+
+#comments .media img {
+    -fx-max-width: 100px;
+}
+
+#comments .media h4 {
+    -fx-margin: 0 0 10px;
+}
+
+#comments .media h4 span {
+    -fx-font-size: 14px;
+    -fx-float:right;
+    -fx-color: #999999;
+}
+
+#comments .media p {
+    -fx-margin-bottom: 15px;
+    -fx-text-align:justify;
+}
+
+#comments .media-detail {
+    -fx-margin: 0;
+}
+
+#comments .media-detail li {
+    -fx-color: #AAAAAA;
+    -fx-font-size: 12px;
+    -fx-padding-right: 10px;
+    -fx-font-weight: 600;
+}
+
+#comments .media-detail a:hover {
+    -fx-text-decoration:underline;
+}
+
+#comments .media-detail li:last-child {
+    -fx-padding-right:0;
+}
+
+#comments .media-detail li i {
+    -fx-color: #666666;
+    -fx-font-size: 15px;
+    -fx-margin-right: 10px;
+}
