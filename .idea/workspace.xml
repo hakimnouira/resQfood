@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9ca77840-0faa-409c-8c20-6f70faecd38c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/resQfood.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/AddNewuserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/AddTestimonyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/AdminDashController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/DisplayTestimonyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/DisplayUsersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/LogInController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/ModifTestimonyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/ModifUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/ParticipDashController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/ParticipViewTestimController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/Testimony.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/IService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/PersonService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/TestimonyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/MainFX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/toolkit/MyAnimation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/toolkit/PasswordEncryptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/toolkit/ToolsFeriel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/MyDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AddNewuser.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AddTestimony.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AdminDash.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/DisplayTestimonies.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/DisplayUsers.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/LogIn.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ModifTestimony.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ModifUser.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ParticipDash.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ParticipViewTestim.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/Screenshot 2024-02-24 at 7.32.32 PM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/brooke-lark-08bOYnH_r_E-unsplash.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/dose-juice-ocnsb17U6FE-unsplash.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/dose-juice-sTPy-oeA3h0-unsplash(1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/group.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/icons8-download-48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/icons8-event-30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/icons8-forum-50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/icons8-repository-30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/icons8-search-50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/icons8-users-50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/icons8testimony.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/loginpage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/logoRSF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/nadine-primeau-l5Mjl9qH8VU-unsplash.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/testimGraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/style/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/AddNewuser.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/AdminDash.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/LogIn.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ModifUser.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controllers/AddNewuserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controllers/AdminDashController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controllers/LogInController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controllers/ModifUserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/models/Person.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/models/Testimony.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/models/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/services/IService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/services/PersonService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/services/TestimonyService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/services/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/MainFX.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/utils/MyDatabase.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/projresqfood-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/css/maven-base.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/css/maven-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/css/print.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/css/site.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/dependencies.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/dependency-info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/images/close.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/images/collapsed.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/images/expanded.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/images/external.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/images/icon_error_sml.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/images/icon_info_sml.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/images/icon_success_sml.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/images/icon_warning_sml.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/images/logos/build-by-maven-black.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/images/logos/build-by-maven-white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/images/logos/maven-feather.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/images/newwindow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/plugin-management.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/plugins.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/project-info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/site/summary.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2csQ4t3pJsjjYpM3cJcyPwda4Y0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-jbr-17.0.9-4caba194b151-f5d63804" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9ca77840-0faa-409c-8c20-6f70faecd38c" name="Changes" comment="" />
+      <created>1708897618260</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708897618260</updated>
+      <workItem from="1708897619533" duration="186000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
