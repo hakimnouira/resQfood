@@ -192,3 +192,33 @@
     -fx-border-radius: 4px;
     -fx-padding: 0px 0px 0px 5px;
 }
+/* Update the color to #083A39 */
+.donbck {
+    -fx-background-color: transparent;
+    -fx-border-color: #083A39;
+    -fx-border-width: .8px;
+    -fx-text-fill: #083A39; /* Set the text color to match the border color */
+    -fx-font-family: "Tahoma";
+    -fx-font-size: 14px;
+    -fx-padding: 6px 12px; /* Adjust padding as needed */
+    -fx-border-radius: 4px;
+}
+.donbck:hover {
+    -fx-background-color: #083A39; /* Change background color on hover */
+    -fx-text-fill: #fff; /* Change text color on hover */
+}
+
+
+/* Update the color to #083A39 */
+.sortcategoriesbckComboBox {
+    -fx-background-color: linear-gradient(to bottom, #efefef, #eee);
+    -fx-background-radius: 4px;
+    -fx-border-color: #083A39;
+    -fx-border-width: .8px;
+    -fx-font-family: "Tahoma";
+    -fx-border-radius: 4px;
+}
+.sortcategoriesbckComboBox:focused {
+    -fx-background-color: #fff;
+    -fx-border-width: 1px;
+}

@@ -66,7 +66,7 @@
             </Button>
             <Button fx:id="AddB" layoutX="7.0" layoutY="5.0" mnemonicParsing="false" onAction="#AddDonationButton" prefHeight="34.0" prefWidth="34.0">
                <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="25.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Imagesdesignf/Add.png" />
                      </image>

@@ -80,10 +80,11 @@ public class AddDonationController implements Initializable {
             }
 
             // Créer une observable list à partir de la liste de noms de categories
-            ObservableList<String> observableNomEquipes = FXCollections.observableArrayList(categories);
+            ObservableList<String> observablecategories = FXCollections.observableArrayList(categories);
 
             // Ajouter la liste de noms categories au ComboBox
-            comb.setItems(observableNomEquipes);
+            comb.setItems(observablecategories);
+
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -98,70 +99,77 @@ public class AddDonationController implements Initializable {
     }
 /*
     }*/
-    @FXML
-    void AddDonationButton(ActionEvent event) {
-        try {
-            // Validate input
-            String donationCategory = comb.getSelectionModel().getSelectedItem().toString();
-            double donationAmount = 0; // Default value
-
-            // Check if the category is Money and validate the amount field
-            if (donationCategory.equals("Money")) {
-                if (moneyamountid.getText().isEmpty()) {
-                    showAlert("Error", "Please enter the donation amount.");
-                    return; // Exit the method if the amount field is empty
-                }
-                donationAmount = Double.parseDouble(moneyamountid.getText());
-            }
-
-            // For other categories (e.g., Raw Materials or Food), additional fields are needed
-            String foodName = namefoodid.getText();
-            double foodQuantity = 0; // Default value
-
-            // Validate the name and quantity fields for Food and Raw Materials categories
-            if (!donationCategory.equals("Money")) {
-                if (foodName.isEmpty()) {
-                    showAlert("Error", "Please enter the food name.");
-                    return; // Exit the method if the food name field is empty
-                }
-                if (quantityfoodid.getText().isEmpty()) {
-                    showAlert("Error", "Please enter the food quantity.");
-                    return; // Exit the method if the quantity field is empty
-                }
-                foodQuantity = Double.parseDouble(quantityfoodid.getText());
-            }
-
-            int categoryId= categoryservice.getIdByName(donationCategory);
-            // Create a new Donation object
-            Donation donation = new Donation(donationCategory, donationAmount, foodName, foodQuantity, categoryId, 1); // Assuming 2 is the ID for the "Food" category
-
-            // Save the donation to the database
-            DonationService donationService = new DonationService();
-            donationService.create(donation);
-
-            // Show success message
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setContentText("Thank you for your donation!");
-            alert.showAndWait();
-
-            // Load ShowDonation.fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ShowDonation.fxml"));
-            Parent root = loader.load();
-            ShowDonationController controller = loader.getController();
-            controller.initialize(1); // Assuming udonor_id is 1
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException | NumberFormatException | SQLException e) {
-            // Show error message for invalid input or database error
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setContentText("Invalid input or error adding donation to the database: " + e.getMessage());
-            alert.showAndWait();
+@FXML
+void AddDonationButton(ActionEvent event) {
+    try {
+        // Validate input
+        String donationCategory = comb.getSelectionModel().getSelectedItem(); // Get selected category
+        if (donationCategory == null) {
+            showAlert("Error", "Please select a category first.");
+            return; // Exit the method if no category is selected
         }
+
+        double donationAmount = 0; // Default value
+
+        // Check if the category is Money and validate the amount field
+        if (donationCategory.equals("Money")) {
+            if (moneyamountid.getText().isEmpty()) {
+                showAlert("Error", "Please enter the donation amount.");
+                return; // Exit the method if the amount field is empty
+            }
+            donationAmount = Double.parseDouble(moneyamountid.getText());
+        }
+
+        // For other categories (e.g., Raw Materials or Food), additional fields are needed
+        String foodName = namefoodid.getText();
+        double foodQuantity = 0; // Default value
+
+        // Validate the name and quantity fields for Food and Raw Materials categories
+        if (!donationCategory.equals("Money")) {
+            if (foodName.isEmpty()) {
+                showAlert("Error", "Please enter the food name.");
+                return; // Exit the method if the food name field is empty
+            }
+            if (quantityfoodid.getText().isEmpty()) {
+                showAlert("Error", "Please enter the food quantity.");
+                return; // Exit the method if the quantity field is empty
+            }
+            foodQuantity = Double.parseDouble(quantityfoodid.getText());
+        }
+
+        // Get the category ID
+        int categoryId = categoryservice.getIdByName(donationCategory);
+
+        // Create a new Donation object
+        Donation donation = new Donation(donationCategory, donationAmount, foodName, foodQuantity, categoryId, 1); // Assuming 2 is the ID for the "Food" category
+
+        // Save the donation to the database
+        DonationService donationService = new DonationService();
+        donationService.create(donation);
+
+        // Show success message
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setContentText("Thank you for your donation!");
+        alert.showAndWait();
+
+        // Load ShowDonation.fxml
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ShowDonation.fxml"));
+        Parent root = loader.load();
+        ShowDonationController controller = loader.getController();
+        controller.initialize(1); // Assuming udonor_id is 1
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    } catch (IOException | NumberFormatException | SQLException e) {
+        // Show error message for invalid input or database error
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setContentText("Invalid input or error adding donation to the database: " + e.getMessage());
+        alert.showAndWait();
     }
+}
 
 
 
