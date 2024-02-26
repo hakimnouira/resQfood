@@ -61,5 +61,26 @@ public class CommentService implements IService<Comment> {
     }
 
 
+public int  count_comment(int id) throws SQLException {
+    PreparedStatement statement = connection.prepareStatement( "SELECT COUNT(*) AS comment_count FROM comments WHERE post_id =  ?" );
+    statement.setInt(1, id);
+    statement.toString();
+    ResultSet resultSet = statement.executeQuery();
 
+
+    int commentCount = 0;
+    // Retrieve the result
+    if (resultSet.next()) {
+        commentCount = resultSet.getInt("comment_count");
+    }
+
+    // Close resources
+    resultSet.close();
+    statement.close();
+
+    return commentCount;
+
+
+
+}
 }

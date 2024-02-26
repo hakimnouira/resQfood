@@ -20,10 +20,12 @@ import objects.Account;
 import objects.Post;
 import objects.PostAudience;
 import objects.Reactions;
+import services.CommentService;
 import services.PostService;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -131,6 +133,62 @@ public class PostController implements Initializable {
     public models.Post update_button_pressed() {
         System.out.println(cat1.getId());
 int A;
+
+
+        if (title.getText() == null || title.getText().trim().isEmpty()) {
+            // Display an alert indicating that the title is required
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a title.");
+            alert.showAndWait();
+
+            // Return null or handle the error as needed in your application
+            return null;
+        }
+
+
+
+
+        if (caption1.getText() == null || caption1.getText().trim().isEmpty()) {
+            // Display an alert indicating that the caption is required
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a caption.");
+            alert.showAndWait();
+
+            // Return null or handle the error as needed in your application
+            return null;
+        }
+
+        // Check if the img field is empty or null
+        if (img.getText() == null || img.getText().trim().isEmpty()) {
+            // Display an alert indicating that the img field is required
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid image URL.");
+            alert.showAndWait();
+
+            // Return null or handle the error as needed in your application
+            return null;
+        } else {
+            // Validate if the URL ends with a common image file extension
+            String imageUrl = img.getText().trim();
+            if (!imageUrl.matches("^.*\\.(jpg|jpeg|png|gif)$")) {
+                // Display an alert indicating that the provided URL is not an image
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Input Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Please enter a valid image URL.");
+                alert.showAndWait();
+
+                // Return null or handle the error as needed in your application
+                return null;
+            }
+        }
+
         switch (cat1.getValue()) {
             case "user problem":
                 A=1;
@@ -292,12 +350,12 @@ public void img_change( ){
 
 
     private final PostService ps = new PostService();
-    private Post getPost(){
+    private Post getPost() throws SQLException {
 
         Post post = new Post();
         Account account = new Account();
 
-     //   titre.setText(data.getTitle());
+      //  titre.setText(data.getTitle());
         if (data.getTitle() == "") {
 
             account.setName("");
@@ -321,25 +379,28 @@ public void img_change( ){
         //post.setCaption(data.getContent());
         post.setImage("/img/img2.jpg");
         post.setTotalReactions(10);
-        post.setNbComments(2);
+        post.setNbComments(CS.count_comment(data.getPostId()));
         post.setNbShares(3);
 
         return post;
     }
+CommentService CS=new CommentService();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
        // setData(getPost());
     }
 models.Post data;
-    public void receiveData(models.Post data) throws MalformedURLException {
+    public void receiveData(models.Post data) throws MalformedURLException, SQLException {
         this.data=data;
         setData(getPost());
+        titre.setText(data.getTitle());
 
     }
-    public void receiveData1(models.Post data) {
+    public void receiveData1(models.Post data) throws SQLException {
         this.data=data;
         setData1(getPost());
+
 
     }
 

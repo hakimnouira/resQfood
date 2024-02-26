@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 <VBox fx:id="all" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="915.0" prefWidth="565.0" spacing="10.0" styleClass="post-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PostController">
-   <children >
+   <children>
 
       <HBox prefHeight="60.0" spacing="10.0">
          <children>
@@ -65,8 +65,14 @@
       </HBox>
       <HBox prefHeight="49.0" prefWidth="566.0">
          <children>
-            <Label prefHeight="62.0" prefWidth="105.0" text="titre" />
-            <Label fx:id="titre" prefHeight="50.0" prefWidth="110.0" />
+            <Label prefHeight="62.0" prefWidth="105.0" text="titre">
+               <font>
+                  <Font name="Bauhaus 93" size="29.0" />
+               </font></Label>
+            <Label fx:id="titre" prefHeight="43.0" prefWidth="121.0">
+               <font>
+                  <Font size="29.0" />
+               </font></Label>
          </children>
       </HBox>
       <Label fx:id="cat" prefHeight="18.0" prefWidth="239.0" textFill="#a3451d">

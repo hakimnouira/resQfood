@@ -58,10 +58,24 @@ public Button get_submit(){
 
 
 
-public String get_submit_information(){
-    return  messageTextArea.getText();
+    public String get_submit_information() {
+        String message = messageTextArea.getText().trim(); // Trim to remove leading and trailing whitespaces
 
-}
+        if (message.isEmpty()) {
+            // Display an alert indicating that the message is required
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a message.");
+            alert.showAndWait();
+
+            // Return null or handle the error as needed in your application
+            return null;
+        } else {
+            return message;
+        }
+    }
+
 
 
 

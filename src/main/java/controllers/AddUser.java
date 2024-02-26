@@ -103,9 +103,9 @@ loadFXML("file:src\\main\\resources\\post1.fxml", (o.get(o.size()-1)));
 
             } catch (IOException e) {
                 throw new RuntimeException(e);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-
-
 
 
     });
@@ -224,7 +224,11 @@ Button create_comment_button =new Button("Create comment");
                 submit=C.get_submit();
                 submit.setOnAction(event5 -> {
                     Comment cc= new Comment();
-                    cc.setContent(C.get_submit_information());
+                    String message = C.get_submit_information();
+                    if (message == null) {
+                        return; // Exit the event handler if the message is empty
+                    }
+                    cc.setContent(message);
                     cc.setUserId(id.getUserId());
                     cc.setPostId(id.getPostId());
 
@@ -239,6 +243,8 @@ Button create_comment_button =new Button("Create comment");
                         Comment cm=(Cs.read(id.getPostId())  ).get(Cs.read(id.getPostId()) .size()-1  );
                         csum.initialize(cm    );
                         comment_update_button_fn( root7 ,vbox, cm , csum );
+                        delete_button_comment_fn(vbox,csum,cm,root7 );
+
                         vbox.getChildren().add(root7);
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
@@ -308,6 +314,7 @@ Button create_comment_button =new Button("Create comment");
 
 
             comment_update_button_fn(root1 ,vbox,usersList.get(i) ,c);
+            delete_button_comment_fn(vbox,c,usersList.get(i),root1 );
 
 
 
@@ -350,6 +357,11 @@ Button create_comment_button =new Button("Create comment");
                 vbox.getChildren().add(root_comment_update);
 
                 c_update.get_submit().setOnAction(event_update -> {
+                    String message =c_update.get_submit_information();
+                    if (message == null) {
+                        return; // Exit the event handler if the message is empty
+                    }
+
                     cm.setContent( c_update.get_submit_information());
                     try {
                         Cs.update(cm);
@@ -528,6 +540,8 @@ VBox vbox=p.get_comment_section();
                             throw new RuntimeException(ex);
                         } catch (IOException ex) {
                             throw new RuntimeException(ex);
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
                         }
 
 
@@ -548,7 +562,29 @@ VBox vbox=p.get_comment_section();
         } catch (IOException e) {
             System.out.println("rrrrrrrrrrrrrrrrrr");
             e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+
+    }
+
+
+
+
+    public void delete_button_comment_fn(VBox vbox,comment_sum cm ,Comment c,Parent root ){
+
+        cm.get_delete_button().setOnAction(actionEvent -> {
+
+            vbox.getChildren().remove(root);
+            try {
+                Cs.delete(c.getCommentId());
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+
+
 
     }
 
