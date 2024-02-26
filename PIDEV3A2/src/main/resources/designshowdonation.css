@@ -1,0 +1,65 @@
+.search {
+    -fx-background-color: transparent;
+    -fx-border-color: linear-gradient(to bottom right, #2d658c, #2ca772);
+    -fx-border-width: .8px;
+    -fx-border-radius: 8px;
+    -fx-font-family: "Tahoma";
+    -fx-font-size: 14px;
+    -fx-padding: 0px 0px 0px 28px;
+    -fx-text-fill: white; /* Set text color to white */
+}
+
+.search:focused {
+    -fx-border-width: 1.8px;
+}
+
+.button {
+    -fx-background-color: transparent; /* Set background color to transparent */
+    -fx-text-fill: white; /* Set text color to white */
+    -fx-border-color: transparent; /* Set border color to transparent */
+    -fx-font-family: "Tahoma";
+    -fx-font-size: 14px;
+    -fx-padding: 5px 10px; /* Adjust padding as needed */
+}
+
+.button:hover {
+    -fx-background-color: #555555; /* Change background color on hover to dark gray */
+}
+
+#updateDonation:hover,
+#removeDonation:hover,
+#BackButton:hover {
+    -fx-background-color: #555555; /* Change background color of specific buttons on hover */
+}
+.combo-box {
+    -fx-background-color: transparent;
+    -fx-border-color: linear-gradient(to bottom right, #2d658c, #2ca772);
+    -fx-border-width: .8px;
+    -fx-border-radius: 8px;
+    -fx-font-family: "Tahoma";
+    -fx-font-size: 14px;
+    -fx-padding: 0px 0px 0px 28px;
+    -fx-text-fill: white;
+}
+
+.combo-box:focused {
+    -fx-border-width: 1.8px;
+}
+
+.combo-box .list-cell:selected .text {
+    -fx-text-fill: white; /* Set text color to white for selected item */
+}
+#backtoaddD {
+    -fx-background-color: transparent; /* Set background color to transparent */
+    -fx-text-fill: white; /* Set text color to white */
+    -fx-border-color: transparent; /* Set border color to transparent */
+    -fx-font-family: "Tahoma";
+    -fx-font-size: 14px;
+    -fx-padding: 5px 10px; /* Adjust padding as needed */
+}
+
+#backtoaddD:hover {
+    -fx-background-color: #555555; /* Change background color on hover to dark gray */
+}
+
+

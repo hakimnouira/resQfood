@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="585.0" prefWidth="873.0" stylesheets="@designshowdonation.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowDonationController">
+   <children>
+      <AnchorPane layoutX="229.0" layoutY="20.0" prefHeight="68.0" prefWidth="629.0" style="-fx-background-color: #083A39;">
+         <children>
+            <Label layoutX="84.0" layoutY="16.0" prefHeight="38.0" prefWidth="211.0" text="Add Donation" textFill="WHITE">
+               <font>
+                  <Font name="Cambria Bold Italic" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="68.0" fitWidth="85.0" layoutX="532.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagesdesignf/AddDonation.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="295.0" layoutY="6.0" mnemonicParsing="false" onAction="#backtoaddD" prefHeight="60.0" prefWidth="75.0">
+               <graphic>
+                  <ImageView fitHeight="62.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Imagesdesignf/addd.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="101.0" layoutY="77.0" prefHeight="417.0" prefWidth="746.0">
+         <children>
+            <TableView fx:id="donationsTableView" layoutX="160.0" layoutY="37.0" prefHeight="387.0" prefWidth="557.0">
+              <columns>
+                <TableColumn fx:id="DCategoryCol" prefWidth="141.0" text="Donation Category" />
+                <TableColumn fx:id="DAmountCol" prefWidth="141.0" text="Donation Amount" />
+                  <TableColumn fx:id="FNameCol" prefWidth="137.0" text="Food Name" />
+                  <TableColumn fx:id="FQuantityCol" prefWidth="137.0" text="Food Quantity" />
+              </columns>
+            </TableView>
+            <AnchorPane layoutX="142.0" layoutY="445.0" prefHeight="60.0" prefWidth="594.0" style="-fx-background-color: #083A39;">
+               <children>
+                  <Text fill="WHITE" layoutX="225.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Banking Application" wrappingWidth="200.0">
+                     <font>
+                        <Font name="Tahoma Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="Backb" layoutX="544.0" layoutY="13.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="34.0" prefWidth="35.0">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Imagesdesignf/back.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#updateDonation" prefHeight="26.0" prefWidth="82.0">
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Imagesdesignf/update.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="104.0" layoutY="13.0" mnemonicParsing="false" onAction="#removeDonation" prefHeight="34.0" prefWidth="75.0">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Imagesdesignf/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-3.0" prefHeight="586.0" prefWidth="211.0" style="-fx-background-color: #083A39;">
+         <children>
+            <TextField fx:id="searchTextField" layoutX="113.0" layoutY="28.0" onAction="#SearchBtn" prefHeight="38.0" prefWidth="92.0" promptText="Search" styleClass="search" stylesheets="@designshowdonation.css">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="68.0" fitWidth="92.0" layoutX="13.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagesdesignf/logo.jpg" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="13.0" layoutY="157.0" prefHeight="353.0" prefWidth="182.0" style="-fx-background-color: #F9EDEF;">
+               <children>
+                  <Label layoutX="13.0" layoutY="32.0" prefHeight="38.0" prefWidth="134.0" text="Message of the day">
+                     <font>
+                        <Font name="Cambria Bold Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextArea layoutX="13.0" layoutY="125.0" prefHeight="137.0" prefWidth="155.0" style="-fx-background-color: #F9EDEF;" text="Your generosity can spark&#10; hope and change lives.&#10; With every donation,&#10; you're empowering &#10;individuals and &#10;communities to thrive.">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </TextArea>
+                  <ImageView fitHeight="38.0" fitWidth="50.0" layoutX="137.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Imagesdesignf/message.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="103.0" layoutX="61.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Imagesdesignf/Thankyou.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="30.0" fitWidth="26.0" layoutX="113.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagesdesignf/search.png" />
+               </image>
+            </ImageView>
+            <ComboBox fx:id="sortDonationComboBox" layoutX="22.0" layoutY="100.0" prefWidth="150.0" promptText="Sort By" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
