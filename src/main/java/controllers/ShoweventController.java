@@ -1,0 +1,185 @@
+package controllers;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import models.event;
+import javafx.fxml.FXML;
+import services.eventService;
+import javafx.event.ActionEvent;
+import javafx.scene.layout.GridPane;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.List;
+import javafx.scene.control.Alert;
+import utils.MyDataBase;
+import javafx.scene.layout.AnchorPane;
+import java.util.Optional;
+import java.util.ResourceBundle;
+import java.net.URL;
+
+public class ShoweventController {
+    private final eventService es = new eventService();
+    private ObservableList<event> observableList;
+
+    @FXML
+    private TableColumn<event, Integer> capacitycol;
+
+    @FXML
+    private TableColumn<event, Date> datecol;
+
+    @FXML
+    private TableColumn<event, String> desccol;
+
+    @FXML
+    private TableView<event> eventtable;
+
+    @FXML
+    private TableColumn<event, String> locatcol;
+
+    @FXML
+    private TableColumn<event, String> namecol;
+
+    @FXML
+    private TableColumn<event, String> statuscol;
+
+    @FXML
+    private TableColumn<event, String> timecol;
+
+    private eventService Eventservice = new eventService();
+
+
+
+    @FXML
+    void initialize() {
+
+
+        try {
+            List<event> eventsList = es.read();
+            observableList = FXCollections.observableList(eventsList);
+            eventtable.setItems(observableList);
+            namecol.setCellValueFactory(new PropertyValueFactory<>("Name"));
+            datecol.setCellValueFactory(new PropertyValueFactory<>("Date"));
+            timecol.setCellValueFactory(new PropertyValueFactory<>("Time"));
+            locatcol.setCellValueFactory(new PropertyValueFactory<>("Location"));
+            capacitycol.setCellValueFactory(new PropertyValueFactory<>("Capacity"));
+            statuscol.setCellValueFactory(new PropertyValueFactory<>("Status"));
+            desccol.setCellValueFactory(new PropertyValueFactory<>("Description"));
+
+
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+
+
+    }
+
+    @FXML
+    void navigate(ActionEvent event) {
+        try {
+            // FXMLLoader loader = new FXMLLoader(getClass().getResource("/addevent.fxml"));
+            //  Parent root= loader.load();
+
+            Parent root = FXMLLoader.load(getClass().getResource("/addevent.fxml"));
+            eventtable.getScene().setRoot(root);
+
+
+        } catch (IOException e) {
+            System.out.println("error" + e.getMessage());
+        }
+
+
+    }
+
+
+    public event getSelectedEvent() {
+        event selectedEvent = eventtable.getSelectionModel().getSelectedItem();
+        if (selectedEvent == null) {
+            throw new IllegalArgumentException("No event selected.");
+        }
+        return selectedEvent;
+    }
+
+
+    @FXML
+    void update(ActionEvent event) {
+        event selectedEvent = eventtable.getSelectionModel().getSelectedItem();
+        if (selectedEvent != null) {
+            // FXMLLoader loader = new FXMLLoader(getClass().getResource("/addevent.fxml"));
+            // Parent root;
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/addevent.fxml"));
+                Parent root = loader.load();
+
+               /* Parent root = FXMLLoader.load(getClass().getResource("/addevent.fxml"));
+                eventtable.getScene().setRoot(root);*/
+                // root = loader.load();
+                addeventController addEventController = loader.getController();
+                addEventController.populateFieldsWithSelectedEvent(selectedEvent);
+                eventtable.getScene().setRoot(root);
+
+            } catch (IOException e) {
+                System.out.println("error" + e.getMessage());
+                e.printStackTrace();
+            }
+
+
+        }
+    }
+
+
+    @FXML
+    void deleteevent(ActionEvent event) {
+        event selectedEvent = eventtable.getSelectionModel().getSelectedItem();
+
+        if (selectedEvent != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Delete Event");
+            alert.setContentText("Are you sure you want to delete this event?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                try {
+                    // Call the delete method on the instance
+                    Eventservice.delete(selectedEvent.getId());
+                    eventtable.getItems().remove(selectedEvent);
+                    // Optionally, update your UI or perform any other actions after deletion
+                } catch (SQLException e) {
+                    // Handle error
+                    e.printStackTrace(); // or handle it according to your application's error handling strategy
+                }
+            } else {
+                // No event selected, handle this case accordingly (e.g., display an error message)
+                System.out.println("No event selected for deletion.");
+            }
+        }
+    }
+    @FXML
+    void particip(ActionEvent event) {
+        try {
+
+
+            Parent root = FXMLLoader.load(getClass().getResource("/ShowP.fxml"));
+            eventtable.getScene().setRoot(root);
+
+
+        } catch (IOException e) {
+            System.out.println("error" + e.getMessage());
+        }
+
+    }
+
+
+
+    }
+
