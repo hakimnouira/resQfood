@@ -10,7 +10,7 @@ public class MainFX extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         // load the fxml file
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Calendar.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Dashboard.fxml"));
        // FXMLLoader loader = new FXMLLoader(getClass().getResource("/designation.fxml"));
         // load fxml code in a sceen
         Parent root= loader.load();

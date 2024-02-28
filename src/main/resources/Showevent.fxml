@@ -9,7 +9,10 @@
 
 <AnchorPane prefHeight="473.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShoweventController">
    <children>
-      <TableView fx:id="eventtable" layoutX="25.0" layoutY="73.0" prefHeight="316.0" prefWidth="631.0">
+
+       <fx:include source="Dashboard.fxml" />
+
+      <TableView fx:id="eventtable" layoutX="263.0" layoutY="135.0" prefHeight="374.0" prefWidth="650.0">
         <columns>
           <TableColumn fx:id="namecol" prefWidth="75.0" text="Name" />
             <TableColumn fx:id="datecol" prefWidth="75.0" text="Date" />
@@ -21,23 +24,23 @@
             <TableColumn fx:id="userjcol" prefWidth="75.0" text="users_joined" />
         </columns>
       </TableView>
-      <Button layoutX="687.0" layoutY="90.0" mnemonicParsing="false" onAction="#navigate" text="add an event" textFill="#df0f0f">
+      <Button layoutX="974.0" layoutY="256.0" mnemonicParsing="false" onAction="#navigate" text="add an event" textFill="#df0f0f">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="693.0" layoutY="124.0" mnemonicParsing="false" onAction="#update" prefHeight="26.0" prefWidth="77.0" text="update ">
+      <Button layoutX="980.0" layoutY="295.0" mnemonicParsing="false" onAction="#update" prefHeight="26.0" prefWidth="77.0" text="update ">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="692.0" layoutY="163.0" mnemonicParsing="false" onAction="#deleteevent" prefHeight="26.0" prefWidth="78.0" text="delete" textFill="#3e80b9">
+      <Button layoutX="980.0" layoutY="329.0" mnemonicParsing="false" onAction="#deleteevent" prefHeight="26.0" prefWidth="78.0" text="delete" textFill="#3e80b9">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font></Button>
-      <Label layoutX="25.0" layoutY="14.0" text="EVENTS LIST" textFill="#712691">
+      <Label layoutX="256.0" layoutY="62.0" text="EVENTS LIST" textFill="#3d6656">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="595.0" layoutY="396.0" mnemonicParsing="false" onAction="#particip" text="view participations" />
+      <Button layoutX="884.0" layoutY="517.0" mnemonicParsing="false" onAction="#particip" text="view participations" />
    </children>
 </AnchorPane>
