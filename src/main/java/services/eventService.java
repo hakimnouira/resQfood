@@ -4,6 +4,7 @@ import models.event;
 import utils.MyDataBase;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,5 +96,41 @@ public  class eventService implements IService<event>{
         }
         return people;
     }
+    public List<event> getEventsByDate(Date date) throws SQLException {
+        List<event> events = new ArrayList<>();
+        String query = "SELECT * FROM events WHERE date = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setDate(1, date);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    int id = resultSet.getInt("id");
+                    int capacity = resultSet.getInt("capacity");
+                    String name = resultSet.getString("name");
+                    String location = resultSet.getString("location");
+                    String status = resultSet.getString("status");
+                    String description = resultSet.getString("description");
+                    String time = resultSet.getString("time");
+                    String image = resultSet.getString("image");
+                    int usersJoined = resultSet.getInt("users_joined");
+
+                    event e = new event(id, capacity, name, location, status, description, time, date, image, usersJoined);
+                    events.add(e);
+                }
+            }
+        }
+        return events;
+    }
+    public List<event> getEventsByMonth(int month, int year) {
+        List<event> eventsInMonth = new ArrayList<>();
+        List<event> events = new ArrayList<>();
+        for (event e : events) {
+            LocalDate eventDate = e.getDate().toLocalDate();
+            if (eventDate.getMonthValue() == month && eventDate.getYear() == year) {
+                eventsInMonth.add(e);
+            }
+        }
+        return eventsInMonth;
+    }
+
 
 }
