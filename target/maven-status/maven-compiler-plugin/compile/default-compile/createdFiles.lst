@@ -14,4 +14,5 @@ models/Testimony.class
 services/UserService.class
 toolkit/ToolsFeriel.class
 controllers/DisplayTestimonyController.class
+utils/MyEmailSender.class
 controllers/AdminDashController.class

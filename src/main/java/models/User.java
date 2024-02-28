@@ -31,9 +31,8 @@ public class User {
     private String area ;
 
     private String role;
-    public String decrypted="";
 
-    private int score= 0;
+    private int code;
 
 
     /**
@@ -50,12 +49,11 @@ public class User {
     public User( String fname, String lName, String pwd, String email, int number, String area, String role) {
         this.firstName = fname;
         this.lName = lName;
-        this.pwd = encryptPassword(pwd);
+        this.pwd = pwd;
         this.email = email;
         this.phone = number;
         this.area = area;
         this.role = role;
-        this.decrypted=PasswordEncryptor.decrypt(this.pwd);
     }
 
 //métier ban user: ts les users sont actif mais qd ban devient inactif
@@ -123,7 +121,7 @@ public class User {
     }
 
     public void setPwd(String pwd) {
-        this.pwd = encryptPassword(pwd);
+        this.pwd = pwd;
     }
 
     public String getEmail() {
@@ -159,20 +157,7 @@ public class User {
     }
 
 
-    /**
-     * This method encrypts the pwd given by user and that's what will be stored and used to
-     *authentify users
-     * @param password (string) pwd input by user
-     * @return String encrypted pwd
-     */
-    public String encryptPassword(String password) {
 
-        /*
-        return  PasswordEncryptor.encrypt(password);
-         */
-        return password;
-
-    }
 
 
 }

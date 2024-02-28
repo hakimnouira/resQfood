@@ -40,11 +40,15 @@
             <version>9.0.1</version> <!-- Replace VERSION with the latest version -->
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/jakarta.mail/jakarta.mail-api -->
         <dependency>
-            <groupId>jakarta.mail</groupId>
-            <artifactId>jakarta.mail-api</artifactId>
-            <version>2.1.2</version>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>javax.mail</artifactId>
+                <version>1.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>3.0.0</version>
         </dependency>
 
 
