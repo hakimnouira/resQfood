@@ -10,11 +10,11 @@ public class MainFX extends Application {
     @Override
     public void start(Stage stage) throws Exception {
        // load the fxml file
-       //FXMLLoader loader = new FXMLLoader(getClass().getResource("/LogIn.fxml"));
+       FXMLLoader loader = new FXMLLoader(getClass().getResource("/LogIn.fxml"));
       //  FXMLLoader loader = new FXMLLoader(getClass().getResource("/AdminDash.fxml"));
-      // FXMLLoader loader = new FXMLLoader(getClass().getResource("/ModifUser.fxml"));
+       //FXMLLoader loader = new FXMLLoader(getClass().getResource("/ModifUser.fxml"));
       //  FXMLLoader loader = new FXMLLoader(getClass().getResource("/DisplayUsers.fxml"));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/AddTestimony.fxml"));
+      //  FXMLLoader loader = new FXMLLoader(getClass().getResource("/AddTestimony.fxml"));
        // FXMLLoader loader = new FXMLLoader(getClass().getResource("/AddNewuser.fxml"));
         // FXMLLoader loader = new FXMLLoader(getClass().getResource("/ParticipViewTestim.fxml"));
 //         FXMLLoader loader = new FXMLLoader(getClass().getResource("/DisplayTestimonies.fxml"));
@@ -31,6 +31,7 @@ public class MainFX extends Application {
 
         stage.show();
     }
+
 
     public static void main(String[] args) {
         launch(args);

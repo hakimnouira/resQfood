@@ -88,32 +88,39 @@ public class AddTestimonyController {
 
     @FXML
     void cancelbt(ActionEvent event) {
-        //TODO: redirect to /ParticipViewTestim.fxml and give curr user
 
-        if (currUser.getRole().equals("Admin")|| currUser.getId()== 0 ){
+        //redirect admin or non user
+        //System.out.println("l 93"+currUser);
+        if (currUser.getId() == 0) {
+            currUser = new User();
+            currUser.setId(0);
+            currUser.setRole("Admin");
+            //  System.out.println("l 98"+currUser);
+        }
+
+        if ( currUser.getId() == 0 || currUser.getRole().equals("Admin")) {
+
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/DisplayTestimonies.fxml"));
-                Parent root= loader.load();
+                Parent root = loader.load();
                 titleFl.getScene().setRoot(root);
             } catch (IOException e) {
-                System.out.println("error"+e.getMessage());
+                System.out.println("error" + e.getMessage());
             }
 
-        }
-        else{
+        } else {
 
-            //TODO: test en premier
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ParticipViewTestim.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ParticipDash.fxml"));
                 Parent root = loader.load();
 
                 // Get the controller instance
-                ModifUserController controller = loader.getController();
+                ParticipDashController controller = loader.getController();
                 controller.initData(currUser);
 
                 titleFl.getScene().setRoot(root);
 
-        } catch (IOException e) {
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }

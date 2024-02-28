@@ -163,7 +163,7 @@ public class DisplayUsersController {
 
             // Get the controller instance
             ModifUserController controller = loader.getController();
-            controller.initData(selectedUser);
+            controller.initSelectedUser(selectedUser);
 
             userTable.getScene().setRoot(root);
 
@@ -177,6 +177,37 @@ public class DisplayUsersController {
 
     @FXML
     void searchFor(ActionEvent event) {
+        //TODO METIER COMPTER LE NBR DE PERS PAR ROLE ET LES REGIONS EN FONCTION DE LEUR ROLE AKA CHART
+
+        String criteria= filtrerSearchcombobox.getSelectionModel().getSelectedItem();
+
+        //   TODO FINIR ICI ET TESTER RECHERCHE 
+        //
+
+        switch (criteria){
+            case "By first or last name":
+                System.out.println("f name");
+                break;
+            case "By id":
+                System.out.println("l id");
+                break;
+            case "By email":
+                System.out.println("l email");
+                break;
+            case "By role":
+                System.out.println("l role");
+                break;
+            case "By area":
+                System.out.println("l area");
+                break;
+
+
+
+
+
+        }
+
+        searchTf.getText();
 
     }
 

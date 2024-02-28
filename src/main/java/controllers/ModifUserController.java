@@ -16,6 +16,7 @@ import java.sql.SQLException;
 
 public class ModifUserController {
     User user= new User();
+
     UserService us= new UserService();
 
     String[] roles={"Participant","Volunteer","Donor"};
@@ -65,6 +66,8 @@ public class ModifUserController {
     @FXML
     private ComboBox<String> rolecbox;
 
+    String caller= "";
+
 
 
 
@@ -90,6 +93,9 @@ public class ModifUserController {
 
     }
 
+    /**
+     * For normal usr only
+     */
     public void initData(User olduser){
         fnametf_modif.setText(olduser.getFirstName());
         lnametf_modif.setText(olduser.getLName());
@@ -98,14 +104,30 @@ public class ModifUserController {
         pwdtf_modif.setText(olduser.getPwd());
 
         areacombobox_modif.setValue(olduser.getArea());
-
          rolecbox.setValue(olduser.getRole());
+         user=olduser;// 10H15
+         caller="Other";
+
+
+    }
+
+    /**
+     * For admin only
+     */
+    public void initSelectedUser(User selectedUsr){
+        initData(selectedUsr);
+        caller="Admin";
+
     }
 
     @FXML
     void cancel(ActionEvent event) {
+        System.out.println("caller cancel"+caller);
+       // assert user!= null;
+        if (caller.equals("Admin")) {
+            System.out.println("user ds if ad"+caller);
 
-        try {
+            try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/DisplayUsers.fxml"));
             Parent root= loader.load();
 
@@ -117,13 +139,31 @@ public class ModifUserController {
             System.out.println("error"+e.getMessage());
         }
 
+        }else {
+            System.out.println("user ds if other"+caller);
+
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ParticipDash.fxml"));
+                Parent root = loader.load();
+
+                // Get the controller instance
+                ParticipDashController controller = loader.getController();
+                controller.initData(user);
+
+                phonetf_modif.getScene().setRoot(root);
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
     }
 
     @FXML
     void modifybt(ActionEvent event) {
 
-        if (fnametf_modif.getText().isEmpty() || !fnametf_modif.getText().matches("^[a-zA-Z]+$")) {
+        if (fnametf_modif.getText().isEmpty() || ! (fnametf_modif.getText().matches("^[a-zA-Z]+$"))) {
             fnametf_modif.requestFocus();
             MyAnimation.shake(fnametf_modif);
 

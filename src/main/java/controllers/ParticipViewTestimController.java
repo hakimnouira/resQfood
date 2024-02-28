@@ -21,6 +21,7 @@ import services.TestimonyService;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Specific for Participant
@@ -86,8 +87,8 @@ public class ParticipViewTestimController {
     @FXML
     private TableColumn<Testimony, String> statusv1;
 
-    ObservableList<Testimony> observableListGeneral ;
-    ObservableList<Testimony> observableListPersonal;
+    private ObservableList<Testimony> observableListGeneral ;
+    private ObservableList<Testimony> observableListPersonal;
 
 
     public void initData(User user) {
@@ -104,8 +105,8 @@ public class ParticipViewTestimController {
                         }
                         return false;
                     })
-                    .toList();
-            List<Testimony> personalT = testimonyList.stream().filter(t -> t.getUserId() == currUser.getId()).toList();
+                    .collect(Collectors.toList());
+            List<Testimony> personalT =  testimonyList.stream().filter(t -> t.getUserId() == currUser.getId()).collect(Collectors.toList());
 
 
             //set up personal table view
@@ -188,21 +189,23 @@ public class ParticipViewTestimController {
     void modifTestimbt(ActionEvent event) {
 
         Testimony selectedItem = UsrPersonalTestim.getSelectionModel().getSelectedItem();
+        if (selectedItem != null && selectedItem.getUserId()== currUser.getId() ) {
 
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ModifTestimony.fxml"));
-            Parent root = loader.load();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ModifTestimony.fxml"));
+                Parent root = loader.load();
 
-            // Get the controller instance
-            ModifTestimonyController controller = loader.getController();
-            //give data to modifying page
-            controller.initData(selectedItem);
+                // Get the controller instance
+                ModifTestimonyController controller = loader.getController();
+                //give data to modifying page
+                controller.initData(selectedItem,currUser);
 
-            addtestbt.getScene().setRoot(root);
+                addtestbt.getScene().setRoot(root);
 
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            throw new RuntimeException(e);
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+                throw new RuntimeException(e);
+            }
         }
 
     }

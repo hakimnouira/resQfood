@@ -14,11 +14,17 @@ import services.UserService;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 public class AddNewuserController {
 
     User user= new User();
     UserService us= new UserService();
+
+    List<User> allUsers;
+    //indicator whether this email is available
+    int emailAvailable= 0;
+
 
 
     @FXML
@@ -99,8 +105,10 @@ public class AddNewuserController {
      */
     @FXML
     public void canceladd(ActionEvent event) {
+
+        //TODO: fix it so that admin can go back to his dash and user who just created acc goes to login
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AddNewuser.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/LogIn.fxml"));
             Parent root= loader.load();
 
             // Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/LogIn.fxml")));
@@ -116,7 +124,7 @@ public class AddNewuserController {
 
     @FXML
     void signupBt(ActionEvent event) {
-
+        System.out.println("in start signupBt ");
 
         if (fnametf.getText().isEmpty() || !fnametf.getText().matches("^[a-zA-Z]+$")) {
             fnametf.requestFocus();
@@ -173,10 +181,9 @@ public class AddNewuserController {
             alert.setTitle("Success");
             alert.setContentText("User added successfully");
             alert.showAndWait();
-        } catch (SQLException e) {
+        }catch (SQLException e) {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
-
         }
 
 

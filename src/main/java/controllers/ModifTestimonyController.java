@@ -2,12 +2,16 @@ package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import models.Testimony;
+import models.User;
 import services.TestimonyService;
 import toolkit.MyAnimation;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class ModifTestimonyController {
@@ -19,25 +23,45 @@ public class ModifTestimonyController {
     private TextField txtFl;
 
     Testimony t= new Testimony();
+    User currUser=new User();
     TestimonyService ts = new TestimonyService();
 
-    void initData(Testimony t){
+    void initData(Testimony t,User user){
         System.out.println("not in if");
         if (t != null) {
             System.out.println(t);
             this.t = t;
             titleFl.setText(t.getTitle());
             txtFl.setText(t.getTxt());
+            currUser=user;
         }
 
     }
 
     @FXML
     void cancelbt(ActionEvent event) {
+        //TODO / MODIF INIT DATA PR QU4ELLE PRENNE CURR PR QUE CANCEL MARCHE
 
 
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ParticipDash.fxml"));
+                Parent root = loader.load();
+
+                // Get the controller instance
+                ParticipDashController controller = loader.getController();
+                controller.initData(currUser);
+
+                titleFl.getScene().setRoot(root);
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
     }
+
+
+
+
 
     @FXML
     void modifTestimonyBt(ActionEvent event) {

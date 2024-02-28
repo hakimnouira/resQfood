@@ -119,6 +119,7 @@ public class ParticipDashController {
             ModifUserController controller = loader.getController();
             controller.initData(currUser);
 
+
             userTable.getScene().setRoot(root);
 
         } catch (IOException e) {
@@ -131,6 +132,8 @@ public class ParticipDashController {
 
     @FXML
     void deleteUserD(ActionEvent event) {
+
+        //TODO TEST deleteUserD for partic
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("attention");
 
