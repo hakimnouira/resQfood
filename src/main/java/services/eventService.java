@@ -33,7 +33,7 @@ public  class eventService implements IService<event>{
 
     @Override
     public  void update(event events) throws SQLException {
-        String sql = "update events set name = ?,  date = ?,time = ?,location = ?,capacity = ?,status = ? where id = ?";
+        String sql = "update events set name = ?,  date = ?,time = ?,location = ?,capacity = ?,status = ? , users_joined = ? where id = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, events.getName());
         ps.setDate(2, events.getDate());
@@ -41,7 +41,8 @@ public  class eventService implements IService<event>{
         ps.setString(4,events.getLocation());
         ps.setInt(5,events.getCapacity());
         ps.setString(6,events.getStatus());
-        ps.setInt(7,events.getId());
+        ps.setInt(7,events.getUsers_joined());
+        ps.setInt(8,events.getId());
         ps.executeUpdate();
         System.out.println(" event updated");
     }
@@ -89,7 +90,7 @@ public  class eventService implements IService<event>{
             e.setStatus(rs.getString("status"));
             e.setDescription(rs.getString("description"));
             e.setImage(rs.getString("image"));
-
+            e.setUsers_joined(rs.getInt("users_joined"));
             people.add(e);
         }
         return people;

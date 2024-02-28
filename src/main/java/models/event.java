@@ -4,11 +4,23 @@ import java.time.LocalDate;
 import java.sql.Date;
 
 public class event {
-    private int id , capacity ;
+    private int id , capacity , users_joined ;
     private String name , location , status , description , time, image;
     private Date date ;
 
 
+    public event(int id, int capacity, String name, String location, String status, String description, String time, Date date,String image,int users_joined) {
+        this.id = id;
+        this.capacity = capacity;
+        this.name = name;
+        this.location = location;
+        this.status = status;
+        this.description = description;
+        this.time = time;
+        this.date = date;
+        this.image = image;
+        this.users_joined = users_joined ;
+    }
     public event(int id, int capacity, String name, String location, String status, String description, String time, Date date,String image) {
         this.id = id;
         this.capacity = capacity;
@@ -19,9 +31,10 @@ public class event {
         this.time = time;
         this.date = date;
         this.image = image;
+        this.users_joined = users_joined ;
     }
 
-    public event(int capacity, String name, String location, String status, String description, Date date, String time,String image) {
+    public event(int capacity, String name, String location, String status, String description, Date date, String time,String image , int users_joined) {
         this.capacity = capacity;
         this.name = name;
         this.location = location;
@@ -30,11 +43,24 @@ public class event {
         this.date = date;
         this.time = time;
         this.image = image;
+        this.users_joined = users_joined ;
+    }
+    public event(int capacity, String name, String location, String status, String description, Date date, String time,String image ) {
+        this.capacity = capacity;
+        this.name = name;
+        this.location = location;
+        this.status = status;
+        this.description = description;
+        this.date = date;
+        this.time = time;
+        this.image = image;
+
     }
 
     public event() {
 
     }
+
 
 
     public String getImage() {
@@ -51,6 +77,14 @@ public class event {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getUsers_joined() {
+        return users_joined;
+    }
+
+    public void setUsers_joined(int users_joined) {
+        this.users_joined = users_joined;
     }
 
     public int getCapacity() {
@@ -121,6 +155,7 @@ public class event {
                 ", date=" + date +
                 ", time=" + time +
                 ", image=" + image +
+                ", users_joined=" + users_joined +
                 '}';
     }
 }

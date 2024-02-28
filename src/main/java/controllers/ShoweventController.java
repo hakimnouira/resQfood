@@ -51,6 +51,8 @@ public class ShoweventController {
 
     @FXML
     private TableColumn<event, String> timecol;
+    @FXML
+    private TableColumn<?, ?> userjcol;
 
     private eventService Eventservice = new eventService();
 
@@ -71,6 +73,8 @@ public class ShoweventController {
             capacitycol.setCellValueFactory(new PropertyValueFactory<>("Capacity"));
             statuscol.setCellValueFactory(new PropertyValueFactory<>("Status"));
             desccol.setCellValueFactory(new PropertyValueFactory<>("Description"));
+            userjcol.setCellValueFactory(new PropertyValueFactory<>("users_joined"));
+
 
 
         } catch (SQLException e) {

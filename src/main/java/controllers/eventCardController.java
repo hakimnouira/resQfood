@@ -1,18 +1,20 @@
 package controllers;
-import models.event;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.image.Image;
+import models.event;
+import services.ParticipationService;
+import services.eventService;
+
+import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.sql.Date;
-import models.event;
-import javafx.event.ActionEvent;
-import services.ParticipationService;
-import java.sql.SQLException;
 
 public class eventCardController {
 
@@ -36,6 +38,12 @@ public class eventCardController {
 
     private Image image;
     private event currentevent;
+    private ShowUsersController showUsersController;
+
+    // Set method for ShowUsersController
+    public void setShowUsersController(ShowUsersController showUsersController) {
+        this.showUsersController = showUsersController;
+    }
 
     public void setEventData(event event) {
         this.currentevent = event;
@@ -88,11 +96,29 @@ public class eventCardController {
         if (this.currentevent != null) {
             int id_event = this.currentevent.getId();
             try {
+                if (this.currentevent.getUsers_joined() >= this.currentevent.getCapacity()) {
+                    // Show an alert indicating that the event is full
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Event Full");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Sorry, this event is already at full capacity.");
+                    alert.showAndWait();
+                    return; // Exit the method
+                }
+                this.currentevent.setUsers_joined(this.currentevent.getUsers_joined() + 1);
+                eventService EventService = new eventService();
+                EventService.update(this.currentevent);
                 ParticipationService participationService = new ParticipationService();
                 participationService.addParticipation(id_event);
                 System.out.println("Successfully joined event with ID: " + id_event);
                 // Optionally update UI to reflect user's participation
-            } catch (SQLException e) {
+                if (showUsersController != null) {
+                    showUsersController.generateQRCode(this.currentevent);
+                } else {
+                    System.err.println("ShowUsersController is not set.");
+                }
+
+        } catch (SQLException e) {
                 System.err.println("Error joining event: " + e.getMessage());
                 // Handle SQL exception appropriately
             }
