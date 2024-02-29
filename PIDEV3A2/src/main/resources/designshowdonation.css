@@ -23,13 +23,13 @@
 }
 
 .button:hover {
-    -fx-background-color: #555555; /* Change background color on hover to dark gray */
+    -fx-background-color: #f0f0f0; /* Change background color on hover to dark gray */
 }
 
 #updateDonation:hover,
 #removeDonation:hover,
 #BackButton:hover {
-    -fx-background-color: #555555; /* Change background color of specific buttons on hover */
+    -fx-background-color: #f0f0f0; /* Change background color of specific buttons on hover */
 }
 .combo-box {
     -fx-background-color: transparent;

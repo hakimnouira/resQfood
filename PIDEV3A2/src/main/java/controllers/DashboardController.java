@@ -1,4 +1,6 @@
 package controllers;
+import javafx.geometry.Side;
+import javafx.scene.Node;
 import javafx.scene.chart.PieChart;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -7,6 +9,21 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Popup;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
+import utils.SiwarDatabase; // Import the SiwarDatabase class
+import java.sql.Connection;
+import javafx.event.ActionEvent;
+import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
+
+//import services.NotificationService;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,8 +36,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.Category;
 import models.Donation;
+import models.Notification;
 import services.DonationService;
 import services.CategoryService;
+
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -143,7 +162,6 @@ public class DashboardController {
                 }
             }
         });
-
 
 
         // Update the pie chart with donation category distribution
@@ -462,7 +480,6 @@ public class DashboardController {
     }
 
 
-
     public void updatePieChart() {
         updateCategoryPieChart();
     }
@@ -505,4 +522,79 @@ public class DashboardController {
     public void updateChartWithSelectedCategory(String donationCategory) {
         updateChartWithCategory(donationCategory);
     }
+
+    public void homebtn(ActionEvent actionEvent) {
+    }
+
+    public void EventBtn(ActionEvent actionEvent) {
+    }
+
+    public void ForumBtn(ActionEvent actionEvent) {
+    }
+
+    /*@FXML
+    void NotifBtn(ActionEvent event) {
+        try {
+            // Assuming you have a Connection object named 'connection' available
+            Connection connection = SiwarDatabase.getInstance().getConnection();
+
+            // Pass the connection to the NotificationService constructor
+            NotificationService notificationService = new NotificationService(connection);
+
+            // Retrieve notifications
+            List<Notification> notifications = notificationService.getNotifications();
+
+            // Create a ContextMenu to hold notification items
+            ContextMenu contextMenu = new ContextMenu();
+
+            // Add menu items for each notification
+            for (Notification notification : notifications) {
+                MenuItem menuItem = new MenuItem(notification.getMessage());
+
+                // Add event handler to mark notification as read or dismiss it
+                menuItem.setOnAction(e -> {
+                    // You can implement functionality here to mark notification as read or dismiss it
+                    // For example:
+                    try {
+                        List<Integer> notificationIds = new ArrayList<>();
+                        notificationIds.add(notification.getId());
+                        notificationService.markNotificationsAsRead(notificationIds);
+                        // Update UI to reflect the change
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                });
+
+                // Add menu item to the context menu
+                contextMenu.getItems().add(menuItem);
+            }
+
+            // Add "Mark as Unread" menu item
+            MenuItem markUnreadItem = new MenuItem("Mark as Unread");
+            markUnreadItem.getStyleClass().add("mark-unread"); // Apply custom style to "Mark as Unread" item
+            markUnreadItem.setOnAction(e -> {
+                // Implement marking notification as unread
+            });
+            contextMenu.getItems().add(markUnreadItem);
+
+            // Get the source node from the event
+            Node source = (Node) event.getSource();
+
+
+
+            // Show the context menu relative to the button
+            contextMenu.show(source, Side.BOTTOM, 0, 0);
+
+            // Close the connection when done
+            connection.close();
+
+        } catch (SQLException e) {
+            // Handle SQLException appropriately
+            e.printStackTrace();
+        }
+    }
+*/
+
+
+
 }

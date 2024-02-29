@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import models.Donation;
 import services.DonationService;
+//import services.NotificationService;
 
 import java.sql.SQLException;
 
@@ -134,6 +135,12 @@ public class UpdateDonationController {
             DonationService donationService = new DonationService();
             donationService.update(updatedDonation);
             System.out.println("Donation updated successfully in the database.");
+
+            // Insert a notification for updating a donation
+            //String message = "A donation was updated";
+           // NotificationService notificationService = new NotificationService();
+            //notificationService.insertNotification(message);
+
         } catch (NumberFormatException e) {
             // Handle invalid input (e.g., non-numeric values in quantity or amount fields)
             Alert alert = new Alert(Alert.AlertType.ERROR);

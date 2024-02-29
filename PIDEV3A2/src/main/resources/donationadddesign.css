@@ -18,5 +18,5 @@
 
 /* Hover effect for buttons */
 #AddB:hover, #Backb:hover {
-    -fx-background-color: #444; /* Darker color on hover */
+    -fx-background-color: #f0f0f0; /* Darker color on hover */
 }

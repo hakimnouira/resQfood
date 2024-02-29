@@ -6,7 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
-import services.UserService;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
+import services.*;
+
 import java.io.IOException;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -25,10 +28,7 @@ import javafx.scene.control.Alert;
 import models.Category;
 import models.Donation;
 import models.User;
-import services.CategoryService;
-import services.DonationService;
 import javafx.scene.image.ImageView;
-import services.EmailService;
 import services.UserService;
 
 import java.io.*;
@@ -199,6 +199,10 @@ void AddDonationButton(ActionEvent event) {
         // Show a success message
         showAlert("Success", "Donation added successfully and email sent to donors.");
 
+        // Insert a notification for adding a donation
+       // String message = "A donation was added";
+        //NotificationService notificationService = new NotificationService();
+        //notificationService.insertNotification(message);
 
         // Load ShowDonation.fxml
         FXMLLoader showDonationLoader = new FXMLLoader(getClass().getResource("/ShowDonation.fxml"));

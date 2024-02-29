@@ -50,7 +50,7 @@
                <left>
                   <AnchorPane prefHeight="354.0" prefWidth="214.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="7.0" layoutY="62.0" prefHeight="550.0" prefWidth="258.0" styleClass="nav-form" stylesheets="@dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane layoutX="7.0" layoutY="62.0" prefHeight="550.0" prefWidth="258.0" styleClass="side_ankerpane" stylesheets="@styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Label layoutX="68.0" layoutY="118.0" text="Welcome" textFill="WHITE">
                                  <font>
@@ -63,29 +63,67 @@
                                  </font>
                               </Label>
                               <Line endX="100.0" layoutX="128.0" layoutY="177.0" startX="-100.0" stroke="WHITE" />
-                              <Button fx:id="homeBtn" layoutX="25.0" layoutY="214.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="Home" textFill="WHITE" />
-                              <Button layoutX="25.0" layoutY="265.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="Event" textFill="WHITE" />
-                              <Label fx:id="logout" layoutX="63.0" layoutY="657.0" text="Sign Out" textFill="WHITE">
+                              <Button fx:id="homeBtn" layoutX="27.0" layoutY="198.0" mnemonicParsing="false" onAction="#homebtn" prefHeight="48.0" prefWidth="178.0" styleClass="btn_users" stylesheets="@styles.css" text="Home" textFill="WHITE">
                                  <font>
-                                    <Font name="Tahoma" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Button layoutX="25.0" layoutY="326.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="Forum" textFill="WHITE" />
-                              <Button layoutX="25.0" layoutY="393.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="Stock" textFill="WHITE" />
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font></Button>
+                              <Button layoutX="25.0" layoutY="271.0" mnemonicParsing="false" onAction="#EventBtn" prefHeight="49.0" prefWidth="180.0" styleClass="btn_users" stylesheets="@styles.css" text="Event" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font></Button>
+                              <Button layoutX="25.0" layoutY="356.0" mnemonicParsing="false" onAction="#ForumBtn" prefHeight="50.0" prefWidth="180.0" styleClass="btn_users" stylesheets="@styles.css" text="Forum" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font></Button>
+                              <Button layoutX="25.0" layoutY="434.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="181.0" styleClass="btn_users" stylesheets="@styles.css" text="Stock" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font></Button>
                               <ImageView fitHeight="73.0" fitWidth="90.0" layoutX="66.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Imagesdesignf/Admin.png" />
                                  </image>
                               </ImageView>
-                              <Button layoutX="25.0" layoutY="450.0" mnemonicParsing="false" onAction="#donbck" prefHeight="46.0" prefWidth="118.0" text="Donations">
-                                 <graphic>
-                                    <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Imagesdesignf/Donation.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
+                              <Button layoutX="25.0" layoutY="520.0" mnemonicParsing="false" onAction="#donbck" prefHeight="50.0" prefWidth="181.0" styleClass="btn_users" stylesheets="@styles.css" text="Donations" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
                               </Button>
+                              <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="45.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/dash.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="30.0" fitWidth="28.0" layoutX="47.0" layoutY="529.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/data.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="45.0" layoutY="282.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/add.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="43.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/menu.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="44.0" layoutY="445.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/report.png" />
+                                 </image>
+                              </ImageView>
+                              <Button layoutX="50.0" layoutY="650.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="133.0" styleClass="btn_users" stylesheets="@styles.css" text="Log Out" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Button>
+                              <ImageView fitHeight="22.0" fitWidth="23.0" layoutX="57.0" layoutY="659.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Imagesdesignf/logout.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -183,7 +221,7 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="board" layoutX="40.0" layoutY="74.0" prefHeight="704.0" prefWidth="932.8" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="board" layoutX="40.0" layoutY="74.0" prefHeight="704.0" prefWidth="932.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="7.0" layoutY="13.0" prefHeight="684.0" prefWidth="919.0" stylesheets="@dashboardDesign.css">
                                  <styleClass>

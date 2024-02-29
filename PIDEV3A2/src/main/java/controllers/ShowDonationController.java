@@ -9,9 +9,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import models.Donation;
+import org.controlsfx.control.Notifications;
 import services.DonationService;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -90,6 +94,7 @@ public class ShowDonationController{
                     break;
             }
         });
+        showNotification();
     }
     @FXML
     void SearchBtn(ActionEvent event) {
@@ -259,5 +264,33 @@ public class ShowDonationController{
             // Handle the exception if unable to load AddDonation.fxml
         }
     }
+    @FXML
+    public void NotifBtn(ActionEvent actionEvent) {
+        try {
+            Image image = new Image("/Imagesdesignf/notiif.png");
 
+            Notifications notifications = Notifications.create();
+            notifications.graphic(new ImageView(image));
+            notifications.text("Donation added successfully");
+            notifications.title("Success Message");
+            notifications.hideAfter(Duration.seconds(4));
+            notifications.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void showNotification() {
+        try {
+            Image image = new Image("/Imagesdesignf/notiif.png");
+
+            Notifications notifications = Notifications.create();
+            notifications.graphic(new ImageView(image));
+            notifications.text("Donation added successfully");
+            notifications.title("Success Message");
+            notifications.hideAfter(Duration.seconds(4));
+            notifications.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

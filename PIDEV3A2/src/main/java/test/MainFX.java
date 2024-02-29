@@ -43,6 +43,7 @@ public class MainFX extends Application {
 
           FXMLLoader loader = new FXMLLoader(getClass().getResource("/designation.fxml"));
           //FXMLLoader loader = new FXMLLoader(getClass().getResource("/dashboard.fxml"));
+           //FXMLLoader loader = new FXMLLoader(getClass().getResource("/ShowDonation.fxml"));
            Parent root = loader.load();
            Scene scene = new Scene(root);
            primaryStage.setScene(scene);
