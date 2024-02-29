@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
-<?import javafx.scene.chart.AreaChart?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -153,59 +152,38 @@
                                           </AnchorPane>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="14.0" layoutY="165.0" prefHeight="418.0" prefWidth="390.0" stylesheets="@dashboardDesign.css">
+                                    <AnchorPane layoutX="14.0" layoutY="165.0" prefHeight="306.0" prefWidth="392.0" stylesheets="@dashboardDesign.css">
                                        <styleClass>
                                           <String fx:value="white-bg" />
                                           <String fx:value="shadow" />
                                        </styleClass>
                                        <children>
-                                          <BarChart layoutX="-30.0" layoutY="-41.0" prefHeight="359.2" prefWidth="470.4" title="Total Donations Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <xAxis>
-                                              <CategoryAxis prefHeight="13.0" prefWidth="333.0" side="BOTTOM" />
-                                            </xAxis>
-                                            <yAxis>
-                                              <NumberAxis side="LEFT" />
-                                            </yAxis>
+                                          <PieChart fx:id="categoryPieChart" layoutX="14.0" layoutY="20.0" prefHeight="271.0" prefWidth="378.0" title="Donations Frequency Distribution" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="421.0" layoutY="165.0" prefHeight="306.0" prefWidth="478.0" stylesheets="@dashboardDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <BarChart fx:id="categoryChart" layoutX="11.0" layoutY="4.0" prefHeight="298.0" prefWidth="466.0" title="Category Frequency Distribution">
+                                             <xAxis>
+                                                <CategoryAxis side="BOTTOM" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis side="LEFT" />
+                                             </yAxis>
                                           </BarChart>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane layoutX="418.0" layoutY="159.0" prefHeight="200.0" prefWidth="464.0" stylesheets="@dashboardDesign.css">
-                                       <styleClass>
-                                          <String fx:value="white-bg" />
-                                          <String fx:value="shadow" />
-                                       </styleClass>
-                                       <children>
-                                          <AreaChart layoutY="-50.0" prefHeight="350.4" prefWidth="500.0" title="Total food in the stock" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <xAxis>
-                                              <CategoryAxis side="BOTTOM" />
-                                            </xAxis>
-                                            <yAxis>
-                                              <NumberAxis side="LEFT" />
-                                            </yAxis>
-                                          </AreaChart>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane layoutX="418.0" layoutY="383.0" prefHeight="200.0" prefWidth="464.0" stylesheets="@dashboardDesign.css">
-                                       <styleClass>
-                                          <String fx:value="white-bg" />
-                                          <String fx:value="shadow" />
-                                       </styleClass>
-                                       <children>
-                                          <LineChart layoutX="-50.0" layoutY="-154.0" prefHeight="246.4" prefWidth="464.0" title="Total event participants" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <xAxis>
-                                              <CategoryAxis side="BOTTOM" />
-                                            </xAxis>
-                                            <yAxis>
-                                              <NumberAxis side="LEFT" />
-                                            </yAxis>
-                                          </LineChart>
+
+
                                        </children>
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="board" layoutX="40.0" layoutY="74.0" prefHeight="704.0" prefWidth="932.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="board" layoutX="40.0" layoutY="74.0" prefHeight="704.0" prefWidth="932.8" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="7.0" layoutY="13.0" prefHeight="684.0" prefWidth="919.0" stylesheets="@dashboardDesign.css">
                                  <styleClass>
@@ -241,7 +219,7 @@
                                                 <Image url="@Imagesdesignf/search2.png" />
                                              </image>
                                           </ImageView>
-                                          <ComboBox fx:id="sortcategoriesbckComboBox" styleClass="sortcategoriesbckComboBox" layoutX="423.0" layoutY="22.0" prefHeight="26.0" prefWidth="230.0" promptText="Sort By" />
+                                          <ComboBox fx:id="sortcategoriesbckComboBox" layoutX="423.0" layoutY="22.0" prefHeight="26.0" prefWidth="230.0" promptText="Sort By" styleClass="sortcategoriesbckComboBox" />
                                        </children>
                                     </AnchorPane>
                                     <Label layoutX="48.0" layoutY="400.0" text="Category_name:" />

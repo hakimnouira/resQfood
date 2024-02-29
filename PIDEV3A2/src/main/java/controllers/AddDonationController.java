@@ -1,9 +1,16 @@
 package controllers;
+import com.mysql.cj.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
+import services.UserService;
+import java.io.IOException;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -17,17 +24,31 @@ import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import models.Category;
 import models.Donation;
+import models.User;
 import services.CategoryService;
 import services.DonationService;
 import javafx.scene.image.ImageView;
-import java.io.IOException;
+import services.EmailService;
+import services.UserService;
+
+import java.io.*;
+import java.net.PasswordAuthentication;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.swing.text.Document;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Properties;
 
-public class AddDonationController implements Initializable {
+
+public class AddDonationController implements Initializable  {
 
     @FXML
     private Button AddB;
@@ -64,6 +85,7 @@ public class AddDonationController implements Initializable {
     private ImageView fnameimageid;
 
      private CategoryService categoryservice = new CategoryService();
+    private final UserService userService = new UserService();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         /*ObservableList<String> list;
@@ -73,7 +95,7 @@ public class AddDonationController implements Initializable {
         try {
             List<Category> liste = categoryservice.readAll();
 
-            // Créer une liste de noms d'équipes
+            // Créer une liste de noms categories
             List<String> categories = new ArrayList<>();
             for (Category category : liste) {
                 categories.add(category.getDcategory_name());
@@ -137,39 +159,90 @@ void AddDonationButton(ActionEvent event) {
             foodQuantity = Double.parseDouble(quantityfoodid.getText());
         }
 
+        // Get the donor's ID
+        int donorId = 1; // Assuming donor_id is 1
         // Get the category ID
         int categoryId = categoryservice.getIdByName(donationCategory);
 
         // Create a new Donation object
-        Donation donation = new Donation(donationCategory, donationAmount, foodName, foodQuantity, categoryId, 1); // Assuming 2 is the ID for the "Food" category
+        Donation donation = new Donation(donationCategory, donationAmount, foodName, foodQuantity, categoryId, donorId); // Assuming donor_id is 1
 
         // Save the donation to the database
         DonationService donationService = new DonationService();
         donationService.create(donation);
 
-        // Show success message
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setContentText("Thank you for your donation!");
-        alert.showAndWait();
+        // Generate PDF containing the list of donations
+        //String pdfFilePath = generateDonationListPDF(donorId);
+
+        // Get the user service
+        UserService userService = new UserService();
+
+// Retrieve all users with the role "Donor"
+        List<User> donorUsers = userService.getUsersByRole("Donor");
+
+
+        // Send emails to each donor
+        for (User donor : donorUsers) {
+            String donorEmail = donor.getEmail();
+            String subject = "Thank you for your donation!";
+            String message = "Dear Donor,\n\nThank you for your generous donation.\n\nSincerely,\nResQFood Team";
+            // Assuming the attachment file path is the same for all donors
+            String pdfFilePath ="C:/Users/MSI/Desktop/3eme année ESPRIT/Semestre 2/Pidev/Donations List.pdf";
+            try {
+                EmailService.sendEmailWithAttachment(donorEmail, subject, message, pdfFilePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+                showAlert("Error", "Failed to send email: " + e.getMessage());
+            }
+        }
+
+        // Show a success message
+        showAlert("Success", "Donation added successfully and email sent to donors.");
+
 
         // Load ShowDonation.fxml
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ShowDonation.fxml"));
-        Parent root = loader.load();
-        ShowDonationController controller = loader.getController();
-        controller.initialize(1); // Assuming udonor_id is 1
-        Scene scene = new Scene(root);
+        FXMLLoader showDonationLoader = new FXMLLoader(getClass().getResource("/ShowDonation.fxml"));
+        Parent showDonationRoot = showDonationLoader.load();
+        ShowDonationController showDonationController = showDonationLoader.getController();
+        showDonationController.initialize(1); // Assuming udonor_id is 1
+        Scene scene = new Scene(showDonationRoot);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
-    } catch (IOException | NumberFormatException | SQLException e) {
-        // Show error message for invalid input or database error
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setContentText("Invalid input or error adding donation to the database: " + e.getMessage());
-        alert.showAndWait();
+    } catch (NumberFormatException e) {
+        showAlert("Error", "Please enter valid numeric values for amount and quantity.");
+    } catch (SQLException e) {
+        showAlert("Error", "Database error: " + e.getMessage());
+    } catch (MessagingException | UnsupportedEncodingException e) {
+        showAlert("Error", "Failed to send email: " + e.getMessage());
+    } catch (IOException e) {
+        throw new RuntimeException(e);
     }
 }
+
+
+    private String generateDonationListPDF(int donorId) {
+        // Create an instance of DonationService
+        DonationService donationService = new DonationService();
+
+        try {
+            // Call the non-static method to retrieve donations by donorId
+            List<Donation> donations = donationService.getDonationsByDonorId(donorId);
+
+            // Now you have the list of donations, generate the PDF
+            String pdfFilePath = "donation_list.pdf";
+            // Use a PDF library (e.g., iText) to create a PDF document and populate it with donation information
+            // Example:
+            // PDFGenerator.generateDonationListPDF(donations, pdfFilePath);
+
+            // For demonstration purposes, let's assume the PDF file is created successfully
+            return pdfFilePath;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle SQL exception
+        }
+        return null;
+    }
 
 
 
@@ -230,4 +303,6 @@ void AddDonationButton(ActionEvent event) {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+
 }

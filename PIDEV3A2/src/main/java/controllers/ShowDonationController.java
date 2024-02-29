@@ -26,7 +26,7 @@ import javafx.scene.control.TableView;
 
 import java.util.Comparator;
 
-public class ShowDonationController {
+public class ShowDonationController{
 
     @FXML
     private TableView<Donation> donationsTableView;
@@ -135,6 +135,7 @@ public class ShowDonationController {
         if (selectedDonation != null) {
             try {
                 donationService.delete(selectedDonation.getDonation_id());
+                // Remove the selected donation from the observable list
                 donationsTableView.getItems().remove(selectedDonation);
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -150,6 +151,7 @@ public class ShowDonationController {
             alert.showAndWait();
         }
     }
+
 
     @FXML
     void updateDonation(ActionEvent event) {

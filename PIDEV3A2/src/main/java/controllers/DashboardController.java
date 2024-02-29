@@ -1,5 +1,5 @@
 package controllers;
-
+import javafx.scene.chart.PieChart;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -23,8 +24,7 @@ import services.CategoryService;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class DashboardController {
 
@@ -82,6 +82,10 @@ public class DashboardController {
     private Button addCategory_updateBtn;
     @FXML
     private AnchorPane board;
+    @FXML
+    private PieChart categoryPieChart;
+    @FXML
+    private BarChart<String, Number> categoryChart;
     private ObservableList<Donation> originalDonations;
     private CategoryService categoryService;
     private DonationService donationService;
@@ -90,8 +94,6 @@ public class DashboardController {
         this.categoryService = new CategoryService();
         this.donationService = new DonationService();
     }
-
-
 
 
     @FXML
@@ -110,20 +112,20 @@ public class DashboardController {
 
         // Load categories into TableView
         loadCategories();
+
         // Populate the bdonationsTableView with data
         loadDonations();
+
+        // Hide the board AnchorPane
         board.setVisible(false);
+
         // Add a listener to the search TextField
-        addCategory_search.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                search();
-            }
+        addCategory_search.textProperty().addListener((observable, oldValue, newValue) -> {
+            search();
         });
 
         // Populate the sort categories combo box
         sortcategoriesbckComboBox.getItems().addAll("Category Name", "Category Description Length");
-
 
         // Add a listener to the combo box selection
         sortcategoriesbckComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
@@ -135,13 +137,51 @@ public class DashboardController {
                         break;
                     case "Category Description Length":
                         sortCategoriesByDescriptionLength(addCategory_tableView.getItems());
-
                         break;
                     default:
                         break;
                 }
             }
         });
+
+
+
+        // Update the pie chart with donation category distribution
+        updateCategoryPieChart();
+        initializeCategoryChart();
+    }
+
+    private void initializeCategoryChart() {
+        try {
+            // Get all donations from the database
+            ObservableList<Donation> donations = FXCollections.observableArrayList(donationService.getAllDonations());
+
+            // Calculate the frequency of each category (case-insensitive)
+            Map<String, Integer> categoryFrequency = new HashMap<>();
+            for (Donation donation : donations) {
+                String category = donation.getDonation_category().toLowerCase();
+                categoryFrequency.put(category, categoryFrequency.getOrDefault(category, 0) + 1);
+            }
+
+            // Sort categories by frequency (most chosen to least chosen)
+            List<Map.Entry<String, Integer>> sortedCategories = new ArrayList<>(categoryFrequency.entrySet());
+            sortedCategories.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+
+            // Clear existing data from the chart
+            categoryChart.getData().clear();
+
+            // Create a new series for the categories
+            XYChart.Series<String, Number> series = new XYChart.Series<>();
+            for (Map.Entry<String, Integer> entry : sortedCategories) {
+                series.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue()));
+            }
+
+            // Add the series to the chart
+            categoryChart.getData().add(series);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
     }
 
     private void sortCategoriesByName() {
@@ -162,7 +202,6 @@ public class DashboardController {
             return description != null ? description.length() : 0;
         }));
     }
-
 
 
     @FXML
@@ -240,8 +279,6 @@ public class DashboardController {
     }
 
 
-
-
     @FXML
     void deleteCategory(ActionEvent event) {
         // Get the selected category from the TableView
@@ -284,11 +321,13 @@ public class DashboardController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
     @FXML
     void donbck(ActionEvent event) {
         // Toggle the visibility of the board AnchorPane
         board.setVisible(!board.isVisible());
     }
+
     @FXML
     void searchbck(ActionEvent event) {
         search();
@@ -342,7 +381,6 @@ public class DashboardController {
     }
 
 
-
     private void loadDonations() {
         try {
             // Retrieve donations data from the database
@@ -355,6 +393,116 @@ public class DashboardController {
     }
 
 
+    private void displayMostChosenCategory() {
+        try {
+            // Create an instance of DonationService
+            DonationService donationService = new DonationService();
+
+            // Get donations data from the service
+            ObservableList<Donation> donations = FXCollections.observableArrayList(donationService.getAllDonations());
+
+            // Calculate the frequency of each category
+            Map<String, Integer> categoryFrequency = new HashMap<>();
+            for (Donation donation : donations) {
+                String category = donation.getDonation_category();
+                categoryFrequency.put(category, categoryFrequency.getOrDefault(category, 0) + 1);
+            }
+
+            // Determine the most chosen category
+            String mostChosenCategory = null;
+            int maxFrequency = 0;
+            for (Map.Entry<String, Integer> entry : categoryFrequency.entrySet()) {
+                if (entry.getValue() > maxFrequency) {
+                    mostChosenCategory = entry.getKey();
+                    maxFrequency = entry.getValue();
+                }
+            }
+
+            // Update the AreaChart to display data of the most chosen category
+            updateChartWithCategory(mostChosenCategory);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
+    }
 
 
+    // Method to update the chart with the selected category
+    public void updateChartWithCategory(String selectedCategory) {
+        try {
+            // Get all donations from the database
+            ObservableList<Donation> donations = FXCollections.observableArrayList(donationService.getAllDonations());
+
+            // Calculate the frequency of each category (case-insensitive)
+            Map<String, Integer> categoryFrequency = new HashMap<>();
+            for (Donation donation : donations) {
+                String category = donation.getDonation_category().toLowerCase();
+                categoryFrequency.put(category, categoryFrequency.getOrDefault(category, 0) + 1);
+            }
+
+            // Sort categories by frequency (most chosen to least chosen)
+            List<Map.Entry<String, Integer>> sortedCategories = new ArrayList<>(categoryFrequency.entrySet());
+            sortedCategories.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+
+            // Clear existing data from the chart
+            categoryChart.getData().clear();
+
+            // Create a new series for the categories
+            XYChart.Series<String, Number> series = new XYChart.Series<>();
+            for (Map.Entry<String, Integer> entry : sortedCategories) {
+                series.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue()));
+            }
+
+            // Add the series to the chart
+            categoryChart.getData().add(series);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
+    }
+
+
+
+    public void updatePieChart() {
+        updateCategoryPieChart();
+    }
+
+    // Method to update the pie chart with donation category distribution
+    private void updateCategoryPieChart() {
+        try {
+            // Get donations data from the service
+            ObservableList<Donation> donations = FXCollections.observableArrayList(donationService.getAllDonations());
+
+            // Calculate the frequency of each category
+            Map<String, Integer> categoryFrequency = new HashMap<>();
+            for (Donation donation : donations) {
+                // Convert category to lowercase for case-insensitive comparison
+                String category = donation.getDonation_category().toLowerCase();
+                categoryFrequency.put(category, categoryFrequency.getOrDefault(category, 0) + 1);
+            }
+
+            // Calculate the total number of donations
+            int totalDonations = donations.size();
+
+            // Create data for the pie chart
+            ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+            for (Map.Entry<String, Integer> entry : categoryFrequency.entrySet()) {
+                // Calculate percentage for each category
+                double percentage = (double) entry.getValue() / totalDonations * 100;
+                // Create data object for the pie chart with percentage label
+                PieChart.Data data = new PieChart.Data(entry.getKey() + " " + String.format("%.2f%%", percentage), entry.getValue());
+                pieChartData.add(data);
+            }
+
+            // Set data to the pie chart
+            categoryPieChart.setData(pieChartData);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
+    }
+
+    public void updateChartWithSelectedCategory(String donationCategory) {
+        updateChartWithCategory(donationCategory);
+    }
 }

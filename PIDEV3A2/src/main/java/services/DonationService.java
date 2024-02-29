@@ -4,8 +4,7 @@ import models.Donation;
 import utils.SiwarDatabase;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -191,6 +190,48 @@ public class DonationService implements IService<Donation> {
         return donations;
     }*/
 
+    public Map<Integer, Integer> getDonationCountByCategory(String category) throws SQLException {
+        Map<Integer, Integer> data = new HashMap<>();
+        String sql = "SELECT MONTH(donation_date), COUNT(*) FROM donation WHERE donation_category = ? GROUP BY MONTH(donation_date)";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, category);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    int month = rs.getInt(1);
+                    int count = rs.getInt(2);
+                    data.put(month, count);
+                }
+            }
+        }
+        return data;
+    }
 
+    public List<String> getAllCategories() throws SQLException {
+        List<String> categories = new ArrayList<>();
+        String sql = "SELECT DISTINCT donation_category FROM donation";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    String category = rs.getString("donation_category");
+                    categories.add(category);
+                }
+            }
+        }
+        return categories;
+    }
 
+//email thing:
+public String getDonorEmailById(int donorId) throws SQLException {
+    String email = null;
+    String sql = "SELECT email FROM user WHERE id = ?";
+    try (PreparedStatement ps = connection.prepareStatement(sql)) {
+        ps.setInt(1, donorId);
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                email = rs.getString("email");
+            }
+        }
+    }
+    return email;
+}
 }
