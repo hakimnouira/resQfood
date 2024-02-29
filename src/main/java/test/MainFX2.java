@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class MainFX2 extends Application {
 
     public void start(Stage stage) throws Exception {
-       // load the fxml file
+       //load the fxml file
 /*FXMLLoader loader = new FXMLLoader(getClass().getResource("/ShowUser.fxml"));
         // load fxml code in a sceen
         Parent root= loader.load();

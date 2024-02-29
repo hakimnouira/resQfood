@@ -21,14 +21,13 @@ import objects.Post;
 import objects.PostAudience;
 import objects.Reactions;
 import services.CommentService;
+import services.LikesService;
 import services.PostService;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class PostController implements Initializable {
     @FXML
@@ -130,7 +129,7 @@ public class PostController implements Initializable {
 
 
 
-    public models.Post update_button_pressed() {
+    public models.Post update_button_pressed() throws SQLException {
         System.out.println(cat1.getId());
 int A;
 
@@ -146,8 +145,17 @@ int A;
             // Return null or handle the error as needed in your application
             return null;
         }
+PostService p5 = new PostService();
+if (p5.TITLETEST(title.getText() ) > 0) {
+    Alert alert = new Alert(Alert.AlertType.WARNING);
+    alert.setTitle("Input Error");
+    alert.setHeaderText(null);
+    alert.setContentText("the  title excite .");
+    alert.showAndWait();
 
-
+    // Return null or handle the error as needed in your application
+    return null;
+}
 
 
         if (caption1.getText() == null || caption1.getText().trim().isEmpty()) {
@@ -221,7 +229,7 @@ public void img_change( ){
     imgPost.setImage(imga);
 }
     @FXML
-    public void onLikeContainerMouseReleased(MouseEvent me){
+    public void onLikeContainerMouseReleased(MouseEvent me) throws SQLException {
         if(System.currentTimeMillis() - startTime > 500){
             reactionsContainer.setVisible(true);
         }else {
@@ -230,69 +238,199 @@ public void img_change( ){
             }
             if(currentReaction == Reactions.NON){
                 setReaction(Reactions.LIKE);
+         if (user_liked==0) {
+                    LS.addLike(data.getPostId(), data.getUserId(), "LIKE");}//kifkif
+
+
             }else{
                 setReaction(Reactions.NON);
+               LS.deleteLike(data.getPostId(),data.getUserId() ) ;// badlha
+
+                user_liked=0;
+
             }
+            post.setTotalReactions(LS.getTotalLikesForPost(data.getPostId()));
+            nbReactions.setText(String.valueOf(post.getTotalReactions()));
+            setmost_rection(data.getPostId());
+
+
         }
     }
 
     @FXML
     Label titre;
     @FXML
-    public void onReactionImgPressed(MouseEvent me){
-        switch (((ImageView) me.getSource()).getId()){
+    public void onReactionImgPressed(MouseEvent me) throws SQLException {
+        switch (((ImageView) me.getSource()).getId()) {
             case "imgLove":
                 setReaction(Reactions.LOVE);
+                if (user_liked == 0) {
+                    LS.addLike(data.getPostId(), data.getUserId(), "LOVE");
+                } else {
+                    LS.updateLike(data.getPostId(), data.getUserId(), "LOVE");
+                }
+
                 break;
             case "imgCare":
                 setReaction(Reactions.CARE);
+                if (user_liked == 0) {
+                    LS.addLike(data.getPostId(), data.getUserId(), "CARE");
+                } else {
+                    LS.updateLike(data.getPostId(), data.getUserId(), "CARE");
+                }
                 break;
             case "imgHaha":
                 setReaction(Reactions.HAHA);
+                if (user_liked == 0) {
+                    LS.addLike(data.getPostId(), data.getUserId(), "HAHA");
+                } else {
+                    LS.updateLike(data.getPostId(), data.getUserId(), "HAHA");
+                }
                 break;
             case "imgWow":
                 setReaction(Reactions.WOW);
+                if (user_liked == 0) {
+                    LS.addLike(data.getPostId(), data.getUserId(), "WOW");
+                } else {
+                    LS.updateLike(data.getPostId(), data.getUserId(), "WOW");
+                }
                 break;
             case "imgSad":
                 setReaction(Reactions.SAD);
+                if (user_liked == 0) {
+                    LS.addLike(data.getPostId(), data.getUserId(), "SAD");
+                } else {
+                    LS.updateLike(data.getPostId(), data.getUserId(), "SAD");
+                }
                 break;
             case "imgAngry":
                 setReaction(Reactions.ANGRY);
+                if (user_liked == 0) {
+                    LS.addLike(data.getPostId(), data.getUserId(), "ANGRY");
+                } else {
+                    LS.updateLike(data.getPostId(), data.getUserId(), "ANGRY");
+                }
                 break;
             default:
-                setReaction(Reactions.LIKE);
+                setReaction(Reactions.LIKE); if (user_liked==0) {
+                LS.addLike(data.getPostId(), data.getUserId(), "LIKE");
+            } else {
+                LS.updateLike(data.getPostId(), data.getUserId(), "LOVE");
+            }
                 break;
         }
         reactionsContainer.setVisible(false);
-    }
-
-    public void setReaction(Reactions reaction){
-        Image image = new Image("file:src/main/java/"+reaction.getImgSrc());
-        System.out.println(reaction.getImgSrc());
-        System.out.println("wiowwwwiwoiwoiwoiwowi");
-        imgReaction.setImage(image);
-        reactionName.setText(reaction.getName());
-        reactionName.setTextFill(Color.web(reaction.getColor()));
-
-        if(currentReaction == Reactions.NON){
-            post.setTotalReactions(post.getTotalReactions() + 1);
-        }
-
-        currentReaction = reaction;
-
-        if(currentReaction == Reactions.NON){
-            post.setTotalReactions(post.getTotalReactions() - 1);
-        }
-
+        user_liked=1;
+        setmost_rection(data.getPostId());
+        post.setTotalReactions(LS.getTotalLikesForPost(data.getPostId()));
         nbReactions.setText(String.valueOf(post.getTotalReactions()));
     }
 
-    public void setData(Post post) throws MalformedURLException {
+    public void setReaction(Reactions reaction) throws SQLException {
+        Image image = new Image("file:src/main/java/"+reaction.getImgSrc());
+        System.out.println(reaction.getImgSrc());
+
+        imgReaction.setImage(image);
+        reactionName.setText(reaction.getName());
+        reactionName.setTextFill(Color.web(reaction.getColor()));
+// code hatha ma3jbnich akel 7aja ow arj3
+
+        if(currentReaction == Reactions.NON){
+          //  post.setTotalReactions(post.getTotalReactions() + 1);
+        }
+// as i said
+        currentReaction = reaction;
+
+        if(currentReaction == Reactions.NON){
+           // post.setTotalReactions(post.getTotalReactions() - 1);
+        }
+
+        post.setTotalReactions(LS.getTotalLikesForPost(data.getPostId()));
+        nbReactions.setText(String.valueOf(post.getTotalReactions()));
+        setmost_rection(data.getPostId());
+    }
+
+
+@FXML
+    public ImageView mostliked1 ;
+
+    @FXML
+    public ImageView mostliked2 ;
+
+    @FXML
+    public ImageView mostliked3 ;
+
+    LikesService LS = new LikesService();
+
+public void setmost_rection(int id) throws SQLException {
+
+
+    Map<String, Integer> sortedMap = new TreeMap<> (LS.readLikesForPost(id ));
+    TreeMap<Integer, String> sortedByValueMap = new TreeMap<>();
+    sortedMap.forEach((key, value) -> sortedByValueMap.put(value, key));
+    System.out.println( sortedByValueMap.toString() );
+    NavigableMap<String, Integer> reverseByKeyMap = ((TreeMap<String, Integer>) sortedMap).descendingMap();
+    NavigableMap<Integer, String> reverseByValueMap = sortedByValueMap.descendingMap();
+   // System.out.println(sortedMap.toString());
+
+    int count = 0;
+    for (Map.Entry<Integer, String> entry : reverseByValueMap.entrySet()) {
+        if (count >= 3) {
+            break;
+        }
+        Image image ;
+
+
+        String imgSrc = "file:src/main/java/" + Reactions.valueOf(entry.getValue()).getImgSrc();
+
+        switch (count+1 ) {
+            case 1: mostliked1.setImage(new Image(imgSrc)); break;
+            case 2 :mostliked2.setImage(new Image(imgSrc));break;
+            case 3 :mostliked3.setImage(new Image(imgSrc)); break;
+
+
+        }
+
+        count++;
+    }
+    String imgSrc = "file:src/main/java/abyeth_mini.jpg";
+
+    for (int i = count; i < 3 ; i++) {
+        switch (count+1 ) {
+            case 1: mostliked1.setImage(new Image(imgSrc)); break;
+            case 2 :mostliked2.setImage(new Image(imgSrc));break;
+            case 3 :mostliked3.setImage(new Image(imgSrc)); break;
+
+
+        }
+    }
+
+
+
+}
+
+
+
+    private int user_liked=0;
+public void setData(Post post) throws MalformedURLException, SQLException {
         this.post = post;
         Image img;
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        setmost_rection(data.getPostId());
+
         System.out.println(post.getAccount().getProfileImg());
         // img = new Image("file:src\\main\\java\\img\\user.png");
+
+
+
+        if ( LS.hasUserLikedPost(data.getPostId(), data.getUserId())) {
+            Image image = new Image("file:src/main/java/"+Reactions.valueOf(     LS.currentRection(data.getPostId(), data.getUserId())).getImgSrc());
+            System.out.println("wiow");
+
+            imgReaction.setImage(image);
+            user_liked=1;
+
+
+        }
 
         img = new Image("file:src/main/java/" + post.getAccount().getProfileImg());
         System.out.println(img.getUrl());
@@ -341,6 +479,8 @@ public void img_change( ){
             imgPost.setManaged(false);*/
         }
 
+
+    post.setTotalReactions(LS.getTotalLikesForPost(data.getPostId()));
         nbReactions.setText(String.valueOf(post.getTotalReactions()));
         nbComments.setText(post.getNbComments() + " comments");
         nbShares.setText(post.getNbShares()+" shares");
@@ -378,12 +518,15 @@ public void img_change( ){
         post.setAudience(PostAudience.PUBLIC);
         //post.setCaption(data.getContent());
         post.setImage("/img/img2.jpg");
-        post.setTotalReactions(10);
+
+        post.setTotalReactions(LS.getTotalLikesForPost(data.getPostId()));
+        nbReactions.setText(String.valueOf(post.getTotalReactions()));
         post.setNbComments(CS.count_comment(data.getPostId()));
         post.setNbShares(3);
 
         return post;
     }
+
 CommentService CS=new CommentService();
 
     @Override

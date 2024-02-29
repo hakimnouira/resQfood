@@ -54,7 +54,7 @@
                   </HBox>
                </children>
             </VBox>
-            <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+            <Pane prefHeight="50.0" prefWidth="331.0" HBox.hgrow="ALWAYS">
                <children>
                   <VBox fx:id="delete1" cacheShape="false" layoutX="265.0" layoutY="5.0" prefHeight="50.0" prefWidth="76.0" />
                </children></Pane>
@@ -98,22 +98,9 @@
                      <children>
                         <HBox alignment="CENTER">
                            <children>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../src/main/java/img/ic_like.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../src/main/java/img/ic_love_.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-
-                                    <Image url="@../../../src/main/java/img/ic_care.png" />
-                                 </image>
-                              </ImageView>
+                              <ImageView fx:id="mostliked1" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="mostliked2" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="mostliked3" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </HBox>
                         <Label fx:id="nbReactions" maxWidth="1.7976931348623157E308" textFill="#606266">

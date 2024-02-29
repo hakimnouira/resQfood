@@ -110,6 +110,37 @@ public class PostService implements IService<Post> {
 
 
 
+
+
+
+    public int  TITLETEST(String id) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement( "SELECT COUNT(*) AS post_count FROM posts WHERE title =  ?" );
+        statement.setString(1, id);
+        statement.toString();
+        ResultSet resultSet = statement.executeQuery();
+
+
+        int commentCount = 0;
+        // Retrieve the result
+        if (resultSet.next()) {
+            commentCount = resultSet.getInt("post_count");
+        }
+
+        // Close resources
+        resultSet.close();
+        statement.close();
+
+        return commentCount;
+
+
+
+    }
+
+
+
+
+
+
 }
 
 

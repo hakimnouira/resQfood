@@ -1,5 +1,6 @@
 package test;
 
+import controllers.SearchController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,6 +16,9 @@ public class MainFX extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/addUser.fxml"));
         // load fxml code in a sceen
         Parent root= loader.load();
+        SearchController s;
+       /* s=loader.getController();
+        s.waaaa();*/
         // put the fxml file in a sceene
         Scene scene = new Scene(root);
 

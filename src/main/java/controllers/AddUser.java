@@ -39,7 +39,16 @@ public class AddUser  {
 
     public   List<Parent> comment_section= new ArrayList<>();
 
-    public void initialize(){
+    public void initialize() throws IOException {
+       /* FXMLLoader rechcerche = new FXMLLoader(new URL("file:src\\main\\resources\\search.fxml"));
+
+        SearchController s;
+
+
+        Parent root77 = rechcerche.load();
+        s=rechcerche.getController();
+        s.waaaa();
+        vbox_con_recherche.getChildren().add(root77 );*/
 try {
 
         Button button6 = new Button("create");
@@ -133,13 +142,8 @@ loadFXML("file:src\\main\\resources\\post1.fxml", (o.get(o.size()-1)));
 
 
             List<Post> usersList = ps.read();
-            System.out.println(usersList);
-            for (int i = 0; i < usersList.size(); i++) {
+    load_post1( usersList          ) ;
 
-
-
-                loadFXML("file:src\\main\\resources\\post1.fxml", usersList.get(i));
-            }
         }  catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -149,6 +153,19 @@ loadFXML("file:src\\main\\resources\\post1.fxml", (o.get(o.size()-1)));
 
 
     }
+    @FXML
+    VBox vbox_con_recherche;
+
+    public void   load_post1 ( List<Post>    usersList          ) {
+
+        for (int i = 0; i < usersList.size(); i++) {
+
+
+            loadFXML("file:src\\main\\resources\\post1.fxml", usersList.get(i));
+        }
+    }
+
+
     public void   comment_read_delete (Label comment ,Post id,Parent root, Button b ,VBox vbox) {
         System.out.println("comment pressed!");
 
@@ -159,9 +176,9 @@ vbox.getChildren().remove(b);
         for (int i = 0; i < comment_section.size(); i++) {
 
             vbox.getChildren().remove(comment_section.get(i));
-            //wiow.getChildren().remove(spacer.get(i));
+            wiow.getChildren().remove(spacer.get(i));
         }
-      //  spacer.clear();
+        spacer.clear();
       //  wiow.getChildren().add(root);
 
 
@@ -229,7 +246,7 @@ Button create_comment_button =new Button("Create comment");
                         return; // Exit the event handler if the message is empty
                     }
                     cc.setContent(message);
-                    cc.setUserId(id.getUserId());
+                    cc.setUserId(id.getUserId()); // hathi badlha ba3ed
                     cc.setPostId(id.getPostId());
 
                     try {
@@ -307,7 +324,7 @@ Button create_comment_button =new Button("Create comment");
            Region spacer = new Region();
             spacer.setMinHeight(root1.getScaleY()+200);
  spacer.setDisable(true);
-
+this. spacer.add(spacer);
 
            wiow.getChildren().add(    wiow.getChildren().indexOf(root) +1,  spacer        );
             vbox.getChildren().add(root1);
