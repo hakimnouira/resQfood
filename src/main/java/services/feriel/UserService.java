@@ -1,7 +1,7 @@
 package services.feriel;
 
 import models.feriel.User;
-import utils.MyDatabase;
+import utils.MyDataBase;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ public class UserService implements IService<User>{
     private final Connection connection;
     public static User loggedIn ;
     List<User> people = new ArrayList<>();
-    public UserService(){connection = MyDatabase.getInstance().getConnection();}
+    public UserService(){connection = MyDataBase.getInstance().getConnection();}
     @Override
     public void create(User user) throws SQLException {
 

@@ -1,19 +1,20 @@
+/*
 package utils;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class MyDatabase {
-
-    private final String URL="jdbc:mysql://localhost:3306/3A2";
-    private final String USER="root";
-   // private final String PASS="";
-   private final String PASS="0000";
+public class MyDataBaseFatma {
+    private final String URL = "jdbc:mysql://localhost:3306/AIntegration";
+    private final String USER = "root";
+    private final String PASS = "0000";
     private Connection connection;
-    private static MyDatabase instance;
 
-    public MyDatabase(){
+    private static MyDataBaseFatma instance;
+
+    private MyDataBaseFatma(){
         try {
             connection = DriverManager.getConnection(URL,USER,PASS);
             System.out.println("Connection established");
@@ -21,15 +22,15 @@ public class MyDatabase {
             System.err.println(e.getMessage());
         }
     }
-    public static MyDatabase getInstance() {
+
+    public static MyDataBaseFatma getInstance() {
         if(instance == null)
-            instance = new MyDatabase();
+            instance = new MyDataBaseFatma();
         return instance;
     }
 
     public Connection getConnection() {
         return connection;
     }
-
-
 }
+ */

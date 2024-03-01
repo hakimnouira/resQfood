@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 import models.feriel.User;
 import services.feriel.UserService;
 import toolkit.MyTools;
-import utils.MyEmailSender;
+import toolkit.MyEmailSender;
 
 import java.io.BufferedReader;
 import java.io.IOException;

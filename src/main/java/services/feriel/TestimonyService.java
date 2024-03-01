@@ -1,7 +1,7 @@
 package services.feriel;
 
 import models.feriel.Testimony;
-import utils.MyDatabase;
+import utils.MyDataBase;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 public class TestimonyService implements IService<Testimony>{
     private final Connection connection;
 
-    public TestimonyService() {connection= MyDatabase.getInstance().getConnection();}
+    public TestimonyService() {connection= MyDataBase.getInstance().getConnection();}
 
     @Override
     public void create(Testimony tt) throws SQLException {

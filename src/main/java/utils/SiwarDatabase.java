@@ -1,4 +1,6 @@
+/*
 package utils;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -31,3 +33,4 @@ public class SiwarDatabase {
         return connection;
     }
 }
+*/

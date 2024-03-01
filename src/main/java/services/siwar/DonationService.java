@@ -1,7 +1,7 @@
 package services.siwar;
 
 import models.siwar.Donation;
-import utils.SiwarDatabase;
+import utils.MyDataBase;
 
 import java.util.*;
 import java.sql.Connection;
@@ -15,7 +15,7 @@ public class DonationService implements IService<Donation> {
     private Connection connection;
 
     public DonationService() {
-        connection = SiwarDatabase.getInstance().getConnection();
+        connection = MyDataBase.getInstance().getConnection();
     }
 
     public Connection getConnection() {

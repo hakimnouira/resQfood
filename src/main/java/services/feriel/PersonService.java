@@ -1,7 +1,7 @@
 package services.feriel;
 
 import models.feriel.Person;
-import utils.MyDatabase;
+import utils.MyDataBase;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ public class PersonService implements IService<Person>{
     private Connection connection;
 
     public PersonService(){
-        connection = MyDatabase.getInstance().getConnection();
+        connection = MyDataBase.getInstance().getConnection();
     }
 
     @Override

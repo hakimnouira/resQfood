@@ -240,7 +240,7 @@ void AddDonationButton(ActionEvent event) {
     void BackButton(ActionEvent event) {
         try {
             // Load designation.fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/designation.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fatma/designation.fxml"));
             Parent root = loader.load();
 
             // Get the current stage

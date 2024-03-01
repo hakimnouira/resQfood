@@ -192,7 +192,7 @@ public class ShowDonationController{
     @FXML
     void BackButton(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/designation.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fatma/designation.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);

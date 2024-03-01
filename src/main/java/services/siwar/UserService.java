@@ -1,7 +1,7 @@
 package services.siwar;
 
 import models.siwar.User;
-import utils.SiwarDatabase;
+import utils.MyDataBase;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ public class UserService implements UService<User> {
     private final Connection connection;
 
     public UserService() {
-        connection = SiwarDatabase.getInstance().getConnection();
+        connection = MyDataBase.getInstance().getConnection();
     }
 
     @Override

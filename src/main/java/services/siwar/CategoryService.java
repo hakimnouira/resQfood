@@ -1,7 +1,7 @@
 package services.siwar;
 
 import models.Category;
-import utils.SiwarDatabase;
+import utils.MyDataBase;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ public class CategoryService implements PService<Category> {
     private Connection connection;
 
     public CategoryService() {
-        connection = SiwarDatabase.getInstance().getConnection();
+        connection = MyDataBase.getInstance().getConnection();
     }
 
     public Connection getConnection() {
