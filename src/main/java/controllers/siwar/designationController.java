@@ -14,7 +14,7 @@ public class designationController {
     void DonationBtnClick(ActionEvent event) {
         try {
             // Load the AddDonation.fxml file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AddDonation.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/siwar/AddDonation.fxml"));
             Parent root = loader.load();
 
             // Get the stage from the action event

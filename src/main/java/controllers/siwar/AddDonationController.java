@@ -173,7 +173,7 @@ void AddDonationButton(ActionEvent event) {
             String subject = "Thank you for your donation!";
             String message = "Dear Donor,\n\nThank you for your generous donation.\n\nSincerely,\nResQFood Team";
             // Assuming the attachment file path is the same for all donors
-            String pdfFilePath ="C:/Users/MSI/Desktop/3eme année ESPRIT/Semestre 2/Pidev/Donations List.pdf";
+            String pdfFilePath ="/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/resources/siwar/DonationsList.pdf";
             try {
                 EmailService.sendEmailWithAttachment(donorEmail, subject, message, pdfFilePath);
             } catch (IOException e) {

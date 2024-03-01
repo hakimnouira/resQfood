@@ -75,13 +75,15 @@ public class LogInController {
                 alert.showAndWait();
                 //find role to redirect to appropriate interface
 
-                           if (!user.getRole().equals("Admin")){
+                           if (user.getId()==0||!user.getRole().equals("Admin")){
                             try {
-                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/ParticipDash.fxml"));
+                              //  FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/ParticipDash.fxml"));
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/siwar/designation.fxml"));
+
                                 Parent root= loader.load();
                                 createAcc.getScene().setRoot(root);
-                                ParticipDashController controller = loader.getController();
-                                controller.initData(user);
+                               // ParticipDashController controller = loader.getController();
+                              //  controller.initData(user);
                             } catch (IOException e) {
                                 System.out.println("pb is here");
                                 System.out.println("error"+e.getMessage());

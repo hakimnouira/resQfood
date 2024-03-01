@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class SiwarDatabase {
     private final String URL = "jdbc:mysql://localhost:3306/donationmanagement";
     private final String USER = "root";
-    private final String PASS = "";
+    private final String PASS = "0000";
     private Connection connection;
 
     private static SiwarDatabase instance;

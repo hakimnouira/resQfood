@@ -5,83 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ca77840-0faa-409c-8c20-6f70faecd38c" name="Changes" comment="-add all files">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/siwar/AddDonationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/siwar/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/siwar/DashboardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/siwar/PDFGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/siwar/ShowDonationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/siwar/UpdateCategoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/siwar/UpdateDonationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/siwar/designationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/siwar/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/siwar/Donation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/siwar/Notification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/siwar/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/siwar/CategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/siwar/DonationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/siwar/EmailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/siwar/IService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/siwar/NotificationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/siwar/PService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/siwar/UService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/siwar/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/SiwarDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/AddDonation.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Images/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Images/add1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Images/dash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Images/dash1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Images/data.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Images/data1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Images/exit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Images/menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Images/menu1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Images/report.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Images/report1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/Add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/AddDonation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/Admin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/Adminpng.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/Donation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/Event.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/Forum.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/Money.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/Quantity.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/Stock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/Thankyou.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/addd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/don.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/exit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/food.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/food2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/logo-removebg-preview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/message.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/search2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/test.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Imagesdesignf/update.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/ShowDonation.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/ShowUser.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/Style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/UpdateCategory.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/UpdateDonation.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/dashboard.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/dashboardDesign.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/desginfront.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/designation.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/designationstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/designshowdonation.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/donationadddesign.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/notif.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/sample.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/siwar/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/LogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/siwar/AddDonationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/siwar/AddDonationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/siwar/designationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/siwar/designationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/SiwarDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/SiwarDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/LogInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/siwar/AddDonationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/siwar/AddDonationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/siwar/designationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/siwar/designationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/SiwarDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/SiwarDatabase.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/projresqfood-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/projresqfood-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,6 +44,7 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.MainFX.executor": "Run",
     "Maven.projresqfood [install].executor": "Run",
+    "Maven.projresqfood [javafx:run].executor": "Run",
     "Maven.projresqfood [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
     "Maven.projresqfood [verify].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -126,6 +59,11 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -153,6 +91,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="projresqfood [javafx:run]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="javafx:run" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Maven.projresqfood [javafx:run]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -170,7 +143,7 @@
       <option name="presentableId" value="Default" />
       <updated>1708897618260</updated>
       <workItem from="1708897619533" duration="730000" />
-      <workItem from="1709285300810" duration="3577000" />
+      <workItem from="1709285300810" duration="6256000" />
     </task>
     <task id="LOCAL-00001" summary="-add all files">
       <option name="closed" value="true" />
