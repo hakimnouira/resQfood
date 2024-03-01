@@ -94,10 +94,10 @@ public class AddNewuserController {
     @FXML
     public void canceladd(ActionEvent event) {
         if (UserService.loggedIn== null){
-            MyTools.goTo("/fereil/LogIn.fxml",fnametf);
+            MyTools.goTo("/feriel/LogIn.fxml",fnametf);
         }
 
-        MyTools.goTo("/fereil/DisplayUsers.fxml",fnametf);
+        MyTools.goTo("/feriel/DisplayUsers.fxml",fnametf);
 
         //TODO: fix it so that admin can go back to his dash and user who just created acc goes to login
 

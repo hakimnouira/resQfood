@@ -101,7 +101,7 @@ public class AddTestimonyController {
         if ( currUser.getId() == 0 || currUser.getRole().equals("Admin")) {
 
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/DisplayTestimonies.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/DisplayTestimonies.fxml"));
                 Parent root = loader.load();
                 titleFl.getScene().setRoot(root);
             } catch (IOException e) {
@@ -111,7 +111,7 @@ public class AddTestimonyController {
         } else {
 
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/ParticipDash.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/ParticipDash.fxml"));
                 Parent root = loader.load();
 
                 // Get the controller instance

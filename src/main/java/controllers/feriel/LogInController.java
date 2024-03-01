@@ -90,7 +90,7 @@ public class LogInController {
                             }
 
                         }else {
-                            goTo("/fereil/DisplayUsers.fxml",createAcc);
+                            goTo("/feriel/DisplayUsers.fxml",createAcc);
 
                         }
 
@@ -111,13 +111,13 @@ public class LogInController {
 
     @FXML
     void createUserfromlogin(MouseEvent event) {
-        goTo("/fereil/AddNewuser.fxml",createAcc);
+        goTo("/feriel/AddNewuser.fxml",createAcc);
 
     }
 
     @FXML
     void pwdForgotten(MouseEvent event) {
-        goTo("/fereil/ForgottenPwd.fxml",createAcc);
+        goTo("/feriel/ForgottenPwd.fxml",createAcc);
     }
 
     void goTo(String file, Node node){

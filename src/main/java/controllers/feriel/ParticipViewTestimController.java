@@ -142,7 +142,7 @@ public class ParticipViewTestimController {
     void addTestbt(ActionEvent event) {
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/AddTestimony.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/AddTestimony.fxml"));
             Parent root = loader.load();
 
             // Get the controller instance
@@ -187,7 +187,7 @@ public class ParticipViewTestimController {
         if (selectedItem != null && selectedItem.getUserId()== currUser.getId() ) {
 
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/ModifTestimony.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/ModifTestimony.fxml"));
                 Parent root = loader.load();
 
                 // Get the controller instance
@@ -217,7 +217,7 @@ public class ParticipViewTestimController {
 
     @FXML
     void logoutDash(ActionEvent event) {
-        goTo("/fereil/LogIn.fxml",btn_users);
+        goTo("/feriel/LogIn.fxml",btn_users);
     }
 
 
@@ -236,7 +236,7 @@ public class ParticipViewTestimController {
     void testimBt(ActionEvent event) {
 
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/ParticipDash.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/ParticipDash.fxml"));
             Parent root = loader.load();
 
             // Get the controller instance

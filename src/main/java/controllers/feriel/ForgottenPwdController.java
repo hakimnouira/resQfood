@@ -35,7 +35,7 @@ public class ForgottenPwdController {
     void resetPassword(ActionEvent event) {
 
         if (codeTf.getText().equals(String.valueOf(OTP))){
-            MyTools.goTo("/fereil/ResetPwd.fxml",mailTf);
+            MyTools.goTo("/feriel/ResetPwd.fxml",mailTf);
 
         }
     }
@@ -67,7 +67,7 @@ public class ForgottenPwdController {
      */
     private String getHtmlContent(String otp) {
         try {
-            InputStream inputStream = getClass().getResourceAsStream("/fereil/ForgottenPwdmail.html");
+            InputStream inputStream = getClass().getResourceAsStream("/feriel/ForgottenPwdmail.html");
             if (inputStream == null) {
                 throw new IOException("Failed to load email template. File not found.");
             }

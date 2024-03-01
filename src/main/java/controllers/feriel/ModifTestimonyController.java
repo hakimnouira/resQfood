@@ -44,7 +44,7 @@ public class ModifTestimonyController {
 
 
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/ParticipDash.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/ParticipDash.fxml"));
                 Parent root = loader.load();
 
                 // Get the controller instance

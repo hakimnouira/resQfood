@@ -115,7 +115,7 @@ public class ParticipDashController {
     void modifUserD(ActionEvent event) {
 
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/ModifUser.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/ModifUser.fxml"));
             Parent root = loader.load();
 
             // Get the controller instance
@@ -155,7 +155,7 @@ public class ParticipDashController {
     void toTestimDash(ActionEvent event) {
 
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/ParticipViewTestim.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/ParticipViewTestim.fxml"));
             Parent root = loader.load();
 
             // Get the controller instance
@@ -194,7 +194,7 @@ public class ParticipDashController {
 
     @FXML
     void logoutDash(ActionEvent event) {
-        goTo("/fereil/LogIn.fxml",deluserbt);
+        goTo("/feriel/LogIn.fxml",deluserbt);
     }
 
 

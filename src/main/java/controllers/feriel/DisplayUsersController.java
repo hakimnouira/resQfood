@@ -170,11 +170,11 @@ public class DisplayUsersController {
     @FXML
     void addUserD(ActionEvent event) {
 
-        MyTools.goTo("/fereil/AddNewuser.fxml",btn_users);
+        MyTools.goTo("/feriel/AddNewuser.fxml",btn_users);
         try {
 
             //TODO mettre init data pr accepter un user et coder le cancel
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/AddNewuser.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/AddNewuser.fxml"));
             Parent root= loader.load();
 
             // Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/LogIn.fxml")));
@@ -212,7 +212,7 @@ public class DisplayUsersController {
 
     @FXML
     void logoutDash(ActionEvent event) {
-       MyTools.goTo("/fereil/LogIn.fxml",btn_users);
+       MyTools.goTo("/feriel/LogIn.fxml",btn_users);
 
     }
 
@@ -223,7 +223,7 @@ public class DisplayUsersController {
 
         // Load the FXML file for the modify user window
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/ModifUser.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/ModifUser.fxml"));
             Parent root = loader.load();
 
             // Get the controller instance
@@ -250,7 +250,7 @@ public class DisplayUsersController {
 
     @FXML
     void testimBtn(ActionEvent event) {
-        MyTools.goTo("/fereil/DisplayTestimonies.fxml",btn_users);
+        MyTools.goTo("/feriel/DisplayTestimonies.fxml",btn_users);
 
 
     }

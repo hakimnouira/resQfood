@@ -33,7 +33,7 @@ public class MyTools {
     public static void goTop(String file, Node node, User user){
 
         try {
-        FXMLLoader loader = new FXMLLoader(MyTools.class.getResource("/fereil/ModifUser.fxml"));
+        FXMLLoader loader = new FXMLLoader(MyTools.class.getResource("/feriel/ModifUser.fxml"));
         Parent root = loader.load();
 
         // Get the controller instance

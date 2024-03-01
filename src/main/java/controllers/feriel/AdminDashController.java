@@ -14,7 +14,7 @@ public class AdminDashController {
     @FXML
     void navigate(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/AdminDash.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/AdminDash.fxml"));
             Parent root= loader.load();
 
             // Parent root = FXMLLoader.load(getClass().getResource("/ShowUser.fxml"));

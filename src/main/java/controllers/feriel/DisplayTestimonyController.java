@@ -104,7 +104,7 @@ public class DisplayTestimonyController {
     @FXML
     void addTestimonyBt(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/AddTestimony.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/AddTestimony.fxml"));
             Parent root = loader.load();
             addtestbt.getScene().setRoot(root);
 
@@ -166,14 +166,14 @@ public class DisplayTestimonyController {
      */
     @FXML
     void reloadTestimony(ActionEvent event) {
-        goTo("/fereil/DisplayTestimonies.fxml");
+        goTo("/feriel/DisplayTestimonies.fxml");
 
     }
 
 
     @FXML
     void logoutDash(ActionEvent event) {
-        goTo("/fereil/LogIn.fxml");
+        goTo("/feriel/LogIn.fxml");
 
     }
 
@@ -182,7 +182,7 @@ public class DisplayTestimonyController {
      */
     @FXML
     void usersBt(ActionEvent event) {
-        goTo("/fereil/DisplayUsers.fxml");
+        goTo("/feriel/DisplayUsers.fxml");
 
     }
 

@@ -74,7 +74,7 @@ public class ModifUserController {
     @FXML
     void navigate(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/ModifUser.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/ModifUser.fxml"));
             Parent root= loader.load();
 
             // Parent root = FXMLLoader.load(getClass().getResource("/ShowUser.fxml"));
@@ -128,7 +128,7 @@ public class ModifUserController {
             System.out.println("user ds if ad"+caller);
 
             try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/DisplayUsers.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/DisplayUsers.fxml"));
             Parent root= loader.load();
 
             // Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/LogIn.fxml")));
@@ -144,7 +144,7 @@ public class ModifUserController {
 
 
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/ParticipDash.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/ParticipDash.fxml"));
                 Parent root = loader.load();
 
                 // Get the controller instance
