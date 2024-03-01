@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="main" prefHeight="402.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.fatma.addeventController">
+   <children>
+      <fx:include source="Dashboard.fxml" />
+      <Label layoutX="391.0" layoutY="134.0" text="name">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="394.0" layoutY="177.0" text="Date">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="394.0" layoutY="218.0" text="Time">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="379.0" layoutY="266.0" text="Location">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="380.0" layoutY="323.0" text="capacity">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="394.0" layoutY="373.0" text="Status">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="370.0" layoutY="433.0" text="Deescription">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nametf" layoutX="472.0" layoutY="132.0" prefHeight="26.0" prefWidth="175.0" />
+      <DatePicker fx:id="datetf" layoutX="472.0" layoutY="174.0" />
+      <TextField fx:id="timetf" layoutX="472.0" layoutY="215.0" prefHeight="26.0" prefWidth="175.0" />
+      <TextField fx:id="locationtf" layoutX="472.0" layoutY="264.0" prefHeight="26.0" prefWidth="175.0" />
+      <TextField fx:id="descriptiontf" layoutX="480.0" layoutY="431.0" prefHeight="26.0" prefWidth="175.0" />
+      <Button layoutX="784.0" layoutY="333.0" mnemonicParsing="false" onAction="#addevent" text="Add" textFill="#ac3232">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="769.0" layoutY="373.0" mnemonicParsing="false" onAction="#showevent" text="show events" textFill="#2a54ae">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Button>
+      <TextField fx:id="capacitytf" layoutX="472.0" layoutY="320.0" prefHeight="26.0" prefWidth="175.0" />
+      <ComboBox fx:id="combo" layoutX="472.0" layoutY="371.0" prefHeight="26.0" prefWidth="175.0" />
+      <Button layoutX="755.0" layoutY="405.0" mnemonicParsing="false" onAction="#submitupdate" prefHeight="26.0" prefWidth="115.0" text="submit update" textFill="#4e7e6d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <AnchorPane layoutX="714.0" layoutY="77.0" prefHeight="134.0" prefWidth="127.0" style="-fx-background-color: white;" styleClass="white-bg">
+         <children>
+            <ImageView fx:id="event_imageview" fitHeight="128.0" fitWidth="127.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="import_btn" layoutX="750.0" layoutY="227.0" mnemonicParsing="false" onAction="#Importbtn" text="import" textFill="#634949">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+   </children>
+</AnchorPane>
