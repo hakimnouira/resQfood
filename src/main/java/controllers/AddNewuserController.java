@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 
 import models.User;
 import services.UserService;
+import toolkit.MyTools;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -22,6 +23,7 @@ public class AddNewuserController {
     UserService us= new UserService();
 
     List<User> allUsers;
+    //TODO/ indicator whether this email is available
     //indicator whether this email is available
     int emailAvailable= 0;
 
@@ -36,7 +38,7 @@ public class AddNewuserController {
 
     String[] areas={"Ariana",
             "Béja",
-            "Ben Arous",
+            "BenArous",
             "Bizerte",
             "Gabès",
             "Gafsa",
@@ -44,14 +46,14 @@ public class AddNewuserController {
             "Kairouan",
             "Kasserine",
            " Kébili",
-           " Le Kef",
+           " LeKef",
            " Mahdia",
            "La Manouba",
             "Médenine",
             "Monastir",
            " Nabeul",
             "Sfax",
-            "Sidi Bouzid",
+            "SidiBouzid",
             "Siliana",
             "Sousse",
           "Tataouine",
@@ -79,22 +81,11 @@ public class AddNewuserController {
     public void initialize(){
         areacombobox.getItems().addAll(areas);
         roleCombo.getItems().addAll(roles);
-    }
 
-    @FXML
-    void navigate(ActionEvent event) {
-        try {
-             FXMLLoader loader = new FXMLLoader(getClass().getResource("/AddNewuser.fxml"));
-             Parent root= loader.load();
-
-           // Parent root = FXMLLoader.load(getClass().getResource("/ShowUser.fxml"));
-           // ageTf.getScene().setRoot(root);
-
-        } catch (IOException e) {
-            System.out.println("error"+e.getMessage());
-        }
 
     }
+
+
 
 
 
@@ -105,19 +96,13 @@ public class AddNewuserController {
      */
     @FXML
     public void canceladd(ActionEvent event) {
+        if (UserService.loggedIn== null){
+            MyTools.goTo("/LogIn.fxml",fnametf);
+        }
+
+        MyTools.goTo("/DisplayUsers.fxml",fnametf);
 
         //TODO: fix it so that admin can go back to his dash and user who just created acc goes to login
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/LogIn.fxml"));
-            Parent root= loader.load();
-
-            // Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/LogIn.fxml")));
-
-            fnametf.getScene().setRoot(root);
-
-        } catch (IOException e) {
-            System.out.println("error"+e.getMessage());
-        }
 
 
     }
@@ -140,7 +125,7 @@ public class AddNewuserController {
             return;
         }
         //"^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"
-        if (mailtf.getText().isEmpty() || !mailtf.getText().matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$") ) {
+        if (mailtf.getText().isEmpty() || mailIsUnique(mailtf.getText())== 1 || !mailtf.getText().matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$") ) {
             mailtf.requestFocus();
             MyAnimation.shake(mailtf);
             return;
@@ -196,5 +181,28 @@ public class AddNewuserController {
     @FXML
     public String getRolecb(ActionEvent event) {
         return roleCombo.getSelectionModel().getSelectedItem();
+    }
+
+    /**
+     *
+     * @param mail : (String) mail
+     * @return : (int) 0 if its available or one if its not
+     */
+    public int mailIsUnique(String mail){
+        try {
+            allUsers=us.read();
+            for (int i = 0; i < allUsers.size(); i++) {
+                if (allUsers.get(i).getEmail().equals(mail)){
+                    emailAvailable= 1;
+                }
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+
+        }
+        System.out.println("this is emailAvailable :"+emailAvailable);
+        return emailAvailable;
     }
 }

@@ -10,22 +10,12 @@ import java.util.List;
 public class UserService implements IService<User>{
 
     private final Connection connection;
-public UserService(){connection = MyDatabase.getInstance().getConnection();}
+    public static User loggedIn ;
+    List<User> people = new ArrayList<>();
+    public UserService(){connection = MyDatabase.getInstance().getConnection();}
     @Override
     public void create(User user) throws SQLException {
-    /*
-        String sql = "insert into user (fName,lName,pwd,email,phone,area,role)"+
-                "values('"+user.getFirstName()+"','"+user.getlName()+"'" +
-                ","+user.getPwd()+ "'" +
-                ",'" + user.getEmail() +
-                 "'" + ",'" + user.getPhone() +
-                "'" + ",'" + user.getArea() +
-                "'" + ",'" + user.getRole() +
-                ")";
 
-        Statement statement = connection.createStatement();
-        statement.executeUpdate(sql);
-*/
 
 
         String sql = "INSERT INTO user (fName, lName, pwd, email, phone, area, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -77,10 +67,12 @@ public UserService(){connection = MyDatabase.getInstance().getConnection();}
      */
     @Override
     public List<User> read() throws SQLException {
+
+
         String sql = "select * from user";
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery(sql);
-        List<User> people = new ArrayList<>();
+
         while (rs.next()){
             User p = new User();
             p.setId(rs.getInt("id"));
@@ -99,6 +91,39 @@ public UserService(){connection = MyDatabase.getInstance().getConnection();}
         }
         return people;
     }
+
+    public void setLoggedInUser(User user){
+        loggedIn= user;
+    }
+
+    public User userByMail(String mail){
+       // User user= new User();
+        if (people.isEmpty()){
+            try {
+                read();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        for (User user: people) {
+            if (user.getEmail().equals(mail)) {
+                return user; // Found the user, return immediately
+            }
+        }
+
+        // User with the given email not found
+        return null;
+
+        //TODO FAUT QUE MAIL SOIT UNIQ
+    }
+
+
+
+
+
+
+
 
 
 

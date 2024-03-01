@@ -1,5 +1,7 @@
+/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/toolkit/ArrayListToPDF.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/toolkit/PasswordEncryptor.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/services/TestimonyService.java
+/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/toolkit/MyTools.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/controllers/DisplayUsersController.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/utils/MyDatabase.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/controllers/ModifTestimonyController.java
@@ -12,9 +14,8 @@
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/controllers/AddNewuserController.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/controllers/AddTestimonyController.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/models/Testimony.java
+/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/controllers/ForgottenPwdController.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/controllers/ModifUserController.java
-/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/toolkit/ToolsFeriel.java
-/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/controllers/Controller.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/services/IService.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/controllers/ParticipDashController.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/models/User.java
@@ -22,4 +23,5 @@
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/controllers/ParticipViewTestimController.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/controllers/AdminDashController.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/services/UserService.java
+/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/controllers/ResetPwd.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/projresqfood/src/main/java/test/MainFX.java

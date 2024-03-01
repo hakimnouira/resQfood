@@ -99,12 +99,7 @@ public class ParticipViewTestimController {
         try {
 
             List<Testimony> testimonyList = ts.read();
-            List<Testimony> acceptedGen = testimonyList.stream().filter(t -> {
-                        if (t.getStatus() != null) {
-                            return t.getStatus().equals("accepted");
-                        }
-                        return false;
-                    })
+            List<Testimony> acceptedGen = testimonyList.stream().filter(t -> t.getStatus().equals("Accepted"))
                     .collect(Collectors.toList());
             List<Testimony> personalT =  testimonyList.stream().filter(t -> t.getUserId() == currUser.getId()).collect(Collectors.toList());
 

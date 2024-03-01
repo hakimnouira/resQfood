@@ -17,7 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import models.User;
 import services.UserService;
-import toolkit.ToolsFeriel;
+import toolkit.PDFGenerator;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -87,7 +87,10 @@ public class ParticipDashController {
 
 
     public void initData(User user){
-       assert user !=null;
+
+        if (user == null) {
+            throw new AssertionError();
+        }
             fnametxt.setText(user.getFirstName());
             currUser=user;
             usersList.add(currUser);
@@ -172,6 +175,8 @@ public class ParticipDashController {
     @FXML
     void dowloadInfo(ActionEvent event) {
 
+//TODO dowloadInfo
+        PDFGenerator.createPdf(usersList, currUser.getLName() + "  " + currUser.getFirstName());
     }
 
     //TODO AJOUTER UN GOTO USERS URGG

@@ -2,15 +2,20 @@ package utils;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 public class MyEmailSender {
 
-    final String FROM = "feriel.bouguecha@gmail.com";
-    final String PWD = "pfin bnnc rxxb kkij ";
 
 
-    public static void send(String to,String sub,String msg){
+// send(String to,String sub,String msg, html, code)
+    public static void send(String to,String sub, String content){
     //Get properties object
     Properties props = new Properties();
     props.put("mail.smtp.host", "smtp.gmail.com");
@@ -31,19 +36,32 @@ public class MyEmailSender {
         MimeMessage message = new MimeMessage(session);
         message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
         message.setSubject(sub);
-        message.setText(msg);
+       // message.setText(msg);
+        message.setContent(content,"text/html; charset=utf-8");  //mettre html file
         //send message
         Transport.send(message);
         System.out.println("message sent successfully");
     } catch (MessagingException e) {throw new RuntimeException(e);}
     }
 
+
 }
+
+
+
+
+
+
+
 class SendMailSSL{
     public static void main(String[] args) {
         int code= 12344;
         //from,password,to,subject,message
-        MyEmailSender.send("feriel.bouguecha@gmail.com","hello rayen bouguecha","How r u? \n Sent by Intellij.\nThis is your code"+code);
+
+
+     //   MyEmailSender.send("feriel.bouguecha@gmail.com","hello ","How r u? \n Sent by Intellij.\nThis is your code"+code,"test");
+
+
         //change from, password and to
     }
 }

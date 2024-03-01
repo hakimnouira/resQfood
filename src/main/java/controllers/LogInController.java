@@ -19,7 +19,7 @@ import java.util.List;
 
 public class LogInController {
 
-    User user= null;
+    User user= new User();
     UserService us= new UserService();
 
     @FXML
@@ -46,29 +46,11 @@ public class LogInController {
     private ImageView um_logoviewLogin;
 
 
-    @FXML
-    void navigate(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/logIn.fxml"));
-            Parent root= loader.load();
-
-            // Parent root = FXMLLoader.load(getClass().getResource("/ShowUser.fxml"));
-            // ageTf.getScene().setRoot(root);
-
-        } catch (IOException e) {
-            System.out.println("error"+e.getMessage());
-        }
-
-    }
-
-
 
     @FXML
     void logInbt(ActionEvent event) {
         System.out.println("loginbtn");
         try {
-           // String decrpyted="";
-
             //get all users
             List<User> usersL= us.read();
             //loop through all users
@@ -78,12 +60,12 @@ public class LogInController {
 
             // find user with matching email and pswd
                 if (value.getEmail().equals(loginMail_input.getText())) {
-                   // assert decrpyted != null;
-                    if (value.getPwd().equals(pwdInput.getText())) {
-                        System.out.println("in if");
+                    us.setLoggedInUser(value);//TODO/ essayer meth de hamza ici pr pwd retriev
 
+                    if (value.getPwd().equals(pwdInput.getText())) {
                         user = value;
                         System.out.println("user" + user);
+                        System.out.println("logedin"+UserService.loggedIn);
                     }
                 }
             }
@@ -94,11 +76,9 @@ public class LogInController {
                 alert.showAndWait();
                 //find role to redirect to appropriate interface
 
-                  //      if(user.getRole().equals("Participant")|| user.getRole().equals("Donor")||user.getRole().equals("Volunteer")){
                            if (!user.getRole().equals("Admin")){
                             try {
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/ParticipDash.fxml"));
-                               // System.out.println("loader= "+loader);
                                 Parent root= loader.load();
                                 createAcc.getScene().setRoot(root);
                                 ParticipDashController controller = loader.getController();
@@ -107,10 +87,7 @@ public class LogInController {
                                 System.out.println("pb is here");
                                 System.out.println("error"+e.getMessage());
                             }
-/*
-                        } else if (user.getRole().equals("Donor")||user.getRole().equals("Volunteer")) {
-                           // goTo("/AddTestimony.fxml",createAcc);
-*/
+
                         }else {
                             goTo("/DisplayUsers.fxml",createAcc);
 
@@ -131,6 +108,16 @@ public class LogInController {
 
     }
 
+    @FXML
+    void createUserfromlogin(MouseEvent event) {
+        goTo("/AddNewuser.fxml",createAcc);
+
+    }
+
+    @FXML
+    void pwdForgotten(MouseEvent event) {
+        goTo("/ForgottenPwd.fxml",createAcc);
+    }
 
     void goTo(String file, Node node){
 
@@ -140,6 +127,7 @@ public class LogInController {
             node.getScene().setRoot(root);
         } catch (IOException e) {
             System.out.println("error"+e.getMessage());
+            throw new RuntimeException(e);
         }
 
     }
@@ -147,24 +135,7 @@ public class LogInController {
 
 
 
-    @FXML
-    void createUserfromlogin(MouseEvent event) {
 
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AddNewuser.fxml"));
-            Parent root= loader.load();
-
-            // Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/LogIn.fxml")));
-
-
-            createAcc.getScene().setRoot(root);
-
-
-        } catch (IOException e) {
-            System.out.println("error"+e.getMessage());
-        }
-
-    }
 
 
 

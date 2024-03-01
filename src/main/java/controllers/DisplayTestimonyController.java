@@ -69,8 +69,8 @@ public class DisplayTestimonyController {
     private final String[] filter= {"By first or last name","By id","By email","By role", "By area"};
 
     private ObservableList<Testimony> observableList;
+    private List<Testimony> testimonyList;
 
-    //TODO: add column status in fxml+controller: nrmlmt cv a recheck
 
 
 
@@ -82,7 +82,7 @@ public class DisplayTestimonyController {
         filtrerSearchcombobox.getItems().addAll(filter);
 
         try {
-            List<Testimony> testimonyList = ts.read();
+            testimonyList = ts.read();
             observableList = FXCollections.observableList(testimonyList);
             userTable.setItems(observableList);
             idtestv.setCellValueFactory(new PropertyValueFactory<>("t_id"));
@@ -105,7 +105,6 @@ public class DisplayTestimonyController {
      */
     @FXML
     void addTestimonyBt(ActionEvent event) {
-        //TODO: addTestbt
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/AddTestimony.fxml"));
             Parent root = loader.load();
@@ -149,15 +148,18 @@ public class DisplayTestimonyController {
             // Accept the selected user
                 selectedItem.setStatus("Accepted");
             try {
-                //TODO : test that status is modified on displayTestimonyController edit : nrmlmt cv
+                //TODO : l'afficher
 
                 // Update the user from the database
                 ts.update(selectedItem);
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
+                throw new RuntimeException(e);
             }
 
         }
+        observableList = FXCollections.observableList(testimonyList);
+
     }
 
 

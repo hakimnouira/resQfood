@@ -8,22 +8,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import models.Person;
 import models.User;
 import services.UserService;
+import toolkit.MyTools;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class DisplayUsersController {
    private final UserService us=new UserService();
     private ObservableList<User> observableList;
-    private final String[] filter= {"By first or last name","By id","By email","By role", "By area"};
+    private final String[] filter= {"By first or last name","By id","By email","By role", "By area","None"};
+    private List<User> usersList;
+    List<User> filtered;
+
 
     @FXML
     private Button adduserbt;
@@ -76,12 +80,15 @@ public class DisplayUsersController {
     private TableColumn<User, Integer> phonev;
 
 
+
+
+
     @FXML
     void initialize() {
         filtrerSearchcombobox.getItems().addAll(filter);
 
         try {
-            List<User> usersList = us.read();
+            usersList = us.read();
             observableList = FXCollections.observableList(usersList);
             userTable.setItems(observableList);
             idv.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -93,6 +100,64 @@ public class DisplayUsersController {
             rolev.setCellValueFactory(new PropertyValueFactory<>("role"));
             phonev.setCellValueFactory(new PropertyValueFactory<>("phone"));
 
+            //Search
+
+            searchTf.textProperty().addListener((observable, oldValue, newValue) -> {
+                String criteria = filtrerSearchcombobox.getSelectionModel().getSelectedItem();
+
+                if (newValue != null && criteria != null) {
+                System.out.println(criteria);
+
+                String req = newValue.trim().toLowerCase();
+                filtered= new ArrayList<>(usersList);
+
+
+                //List<User> filtered;
+                switch (criteria) {
+                    case "Search by":
+                        break;
+                    case "By first or last name":
+                        filtered = usersList.stream()
+                                .filter(u -> u.getFirstName().toLowerCase().startsWith(req) || u.getLName().toLowerCase().startsWith(req))
+                                .collect(Collectors.toList());
+                        break;
+                    case "By id":
+                        filtered = usersList.stream()
+                                .filter(u -> String.valueOf(u.getId()).startsWith(req))
+                                .collect(Collectors.toList());
+                        break;
+                    case "By email":
+                        filtered = usersList.stream()
+                                .filter(u -> u.getEmail().toLowerCase().startsWith(req))
+                                .collect(Collectors.toList());
+                        break;
+                    case "By role":
+                        filtered = usersList.stream()
+                                .filter(u -> u.getRole().toLowerCase().startsWith(req))
+                                .collect(Collectors.toList());
+                        break;
+                    case "By area":
+                        filtered = usersList.stream()
+                                .filter(u -> u.getArea().toLowerCase().startsWith(req))
+                                .collect(Collectors.toList());
+                        break;
+                    default:
+                        System.out.println("Invalid criteria: " + criteria);
+                        // Handle or display error message for unknown criteria
+                        filtered = Collections.emptyList();
+                        break;
+                }
+
+                // Update the table with the filtered data
+                observableList = FXCollections.observableList(filtered);
+                userTable.setItems(observableList);
+            }
+          }
+        );
+
+
+
+
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -102,10 +167,10 @@ public class DisplayUsersController {
     }
 
 
-
-
     @FXML
     void addUserD(ActionEvent event) {
+
+        MyTools.goTo("/AddNewuser.fxml",btn_users);
         try {
 
             //TODO mettre init data pr accepter un user et coder le cancel
@@ -147,7 +212,7 @@ public class DisplayUsersController {
 
     @FXML
     void logoutDash(ActionEvent event) {
-        goTo("/LogIn.fxml");
+       MyTools.goTo("/LogIn.fxml",btn_users);
 
     }
 
@@ -177,43 +242,16 @@ public class DisplayUsersController {
 
     @FXML
     void searchFor(ActionEvent event) {
+
         //TODO METIER COMPTER LE NBR DE PERS PAR ROLE ET LES REGIONS EN FONCTION DE LEUR ROLE AKA CHART
-
-        String criteria= filtrerSearchcombobox.getSelectionModel().getSelectedItem();
-
-        //   TODO FINIR ICI ET TESTER RECHERCHE 
-        //
-
-        switch (criteria){
-            case "By first or last name":
-                System.out.println("f name");
-                break;
-            case "By id":
-                System.out.println("l id");
-                break;
-            case "By email":
-                System.out.println("l email");
-                break;
-            case "By role":
-                System.out.println("l role");
-                break;
-            case "By area":
-                System.out.println("l area");
-                break;
-
-
-
-
-
-        }
-
-        searchTf.getText();
+        
 
     }
 
     @FXML
     void testimBtn(ActionEvent event) {
-        goTo("/DisplayTestimonies.fxml");
+        MyTools.goTo("/DisplayTestimonies.fxml",btn_users);
+
 
     }
 
@@ -242,17 +280,17 @@ public class DisplayUsersController {
 
     }
 
-    void goTo(String file){
-
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
-            Parent root= loader.load();
-            btn_users.getScene().setRoot(root);
-        } catch (IOException e) {
-            System.out.println("error"+e.getMessage());
-        }
-
-    }
+//    void goTo(String file){
+//
+//        try {
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
+//            Parent root= loader.load();
+//            btn_users.getScene().setRoot(root);
+//        } catch (IOException e) {
+//            System.out.println("error"+e.getMessage());
+//        }
+//
+//    }
 
 
 
