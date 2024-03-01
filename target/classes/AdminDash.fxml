@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 <HBox xmlns="http://javafx.com/javafx"  xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controllers.DisplayUsersController"
+      fx:controller="controllers.feriel.DisplayUsersController"
       maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="767.0" stylesheets="@style/styles.css" >
    <children>
       <VBox prefHeight="451.0" prefWidth="209.0">

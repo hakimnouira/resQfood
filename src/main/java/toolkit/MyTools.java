@@ -1,10 +1,10 @@
 package toolkit;
 
-import controllers.ModifUserController;
+import controllers.feriel.ModifUserController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import models.User;
+import models.feriel.User;
 
 import java.io.IOException;
 
@@ -33,7 +33,7 @@ public class MyTools {
     public static void goTop(String file, Node node, User user){
 
         try {
-        FXMLLoader loader = new FXMLLoader(MyTools.class.getResource("/ModifUser.fxml"));
+        FXMLLoader loader = new FXMLLoader(MyTools.class.getResource("/fereil/ModifUser.fxml"));
         Parent root = loader.load();
 
         // Get the controller instance

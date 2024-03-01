@@ -64,7 +64,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>test.MainFX</mainClass>
+                    <mainClass>test.feriel.MainFX</mainClass>
                 </configuration>
             </plugin>
         </plugins>
