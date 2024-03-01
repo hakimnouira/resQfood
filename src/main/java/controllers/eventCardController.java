@@ -94,6 +94,7 @@ public class eventCardController {
     @FXML
     void joinevent(ActionEvent event) {
         if (this.currentevent != null) {
+
             int id_event = this.currentevent.getId();
             try {
                 if (this.currentevent.getUsers_joined() >= this.currentevent.getCapacity()) {
@@ -105,7 +106,10 @@ public class eventCardController {
                     alert.showAndWait();
                     return; // Exit the method
                 }
-                this.currentevent.setUsers_joined(this.currentevent.getUsers_joined() + 1);
+                int currentUsersJoined = this.currentevent.getUsers_joined();
+                this.currentevent.setUsers_joined(currentUsersJoined + 1);
+
+                // Update the event in the database with the incremented users_joined count
                 eventService EventService = new eventService();
                 EventService.update(this.currentevent);
                 ParticipationService participationService = new ParticipationService();

@@ -1,6 +1,5 @@
 package models;
 
-import java.time.LocalDate;
 import java.sql.Date;
 
 public class event {
@@ -61,7 +60,17 @@ public class event {
 
     }
 
-
+    public event(int id, int capacity, int users_joined, String name, String location, String status, String description, String time, Date date) {
+        this.id = id;
+        this.capacity = capacity;
+        this.users_joined = users_joined;
+        this.name = name;
+        this.location = location;
+        this.status = status;
+        this.description = description;
+        this.time = time;
+        this.date = date;
+    }
 
     public String getImage() {
         return image;

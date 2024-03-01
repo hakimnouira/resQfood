@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="674.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MostAttendedController">
+   <children>
+       <fx:include source="Dashboard.fxml" />
+      <BarChart fx:id="barChart" layoutX="476.0" layoutY="67.0" prefHeight="359.0" prefWidth="392.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <PieChart fx:id="pieChart" layoutX="468.0" layoutY="417.0" prefHeight="305.0" prefWidth="369.0" />
+      <Label layoutX="271.0" layoutY="67.0" style="-fx-background-color: light grey; -fx-border-color: black;" text="Most Attended Events">
+         <font>
+            <Font name="Arial Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="278.0" layoutY="392.0" style="-fx-border-color: black;" text="Event's Locations">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

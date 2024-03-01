@@ -42,7 +42,7 @@ public  class eventService implements IService<event>{
         ps.setString(4,events.getLocation());
         ps.setInt(5,events.getCapacity());
         ps.setString(6,events.getStatus());
-        ps.setInt(7,events.getUsers_joined());
+        ps.setInt(7, events.getUsers_joined() + 1);
         ps.setInt(8,events.getId());
         ps.executeUpdate();
         System.out.println(" event updated");
@@ -131,6 +131,41 @@ public  class eventService implements IService<event>{
         }
         return eventsInMonth;
     }
+/*
+    public String getEventNameById(int eventId) throws SQLException {
+        String eventName = null;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = MyDataBase.getInstance().getConnection();
+            String sql = "SELECT name FROM events WHERE id = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, eventId);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                eventName = resultSet.getString("name");
+            }
+        } finally {
+            // Close resources in finally block to ensure they're always closed
+            if (resultSet != null) {
+                resultSet.close();
+            }
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        }
+
+        return eventName;
+    }*/
+
+
+
+
 
 
 }

@@ -19,7 +19,8 @@ public  class ParticipationService implements IServiceP{
         @Override
         public void addParticipation(int id_event) throws SQLException {
             // Assuming you have a Connection object named connection' initialized somewhere
-            String sql = "INSERT INTO participations ( id_event) VALUES (?)";
+            String sql = "INSERT INTO participations ( id" +
+                    "_event) VALUES (?)";
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
 
                 ps.setInt(1, id_event);

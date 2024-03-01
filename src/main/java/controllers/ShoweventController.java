@@ -1,30 +1,24 @@
 package controllers;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import models.event;
-import javafx.fxml.FXML;
 import services.eventService;
-import javafx.event.ActionEvent;
-import javafx.scene.layout.GridPane;
+
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
-import javafx.scene.control.Alert;
-import utils.MyDataBase;
-import javafx.scene.layout.AnchorPane;
 import java.util.Optional;
-import java.util.ResourceBundle;
-import java.net.URL;
 
 public class ShoweventController {
+
     private final eventService es = new eventService();
     private ObservableList<event> observableList;
 
@@ -53,6 +47,11 @@ public class ShoweventController {
     private TableColumn<event, String> timecol;
     @FXML
     private TableColumn<?, ?> userjcol;
+    @FXML
+    private DatePicker datePicker;
+    @FXML
+    private TextField nameField;
+
 
     private eventService Eventservice = new eventService();
 
@@ -77,12 +76,15 @@ public class ShoweventController {
 
 
 
+
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setContentText(e.getMessage());
             alert.showAndWait();
         }
+
+
 
 
     }
@@ -181,6 +183,26 @@ public class ShoweventController {
             System.out.println("error" + e.getMessage());
         }
 
+    }
+    @FXML
+    void searchByDate(ActionEvent event) {
+
+    }
+
+    @FXML
+    void searchByName(ActionEvent event) {
+
+    }
+    private void showEventsInTable(List<event> events) {
+        ObservableList<event> observableEvents = FXCollections.observableArrayList(events);
+        eventtable.setItems(observableEvents);
+    }
+    private void showAlert(Alert.AlertType type, String title, String header, String content) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 
 
