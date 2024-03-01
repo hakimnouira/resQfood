@@ -2,6 +2,7 @@ package controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,12 +13,15 @@ import models.event;
 import services.eventService;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 public class ShoweventController {
+    private Connection connection;
 
     private final eventService es = new eventService();
     private ObservableList<event> observableList;
@@ -54,6 +58,8 @@ public class ShoweventController {
 
 
     private eventService Eventservice = new eventService();
+    private FilteredList<event> filteredlist;
+    private List<event> eventsList;
 
 
 
@@ -62,6 +68,16 @@ public class ShoweventController {
 
 
         try {
+            eventsList = es.read();
+            observableList = FXCollections.observableList(eventsList);
+
+            // Initialize filteredlist
+            filteredlist = new FilteredList<>(observableList, p -> true);
+
+            // Bind the TableView to the filteredlist
+            eventtable.setItems(filteredlist);
+
+
             List<event> eventsList = es.read();
             observableList = FXCollections.observableList(eventsList);
             eventtable.setItems(observableList);
@@ -186,11 +202,30 @@ public class ShoweventController {
     }
     @FXML
     void searchByDate(ActionEvent event) {
+        System.out.println("Search by date button clicked");
+        LocalDate searchDate = datePicker.getValue(); // Get search date from datePicker
+
+        // Filter the observableList based on the search date
+        ObservableList<event> filteredEvents = observableList.filtered(Event -> {
+            LocalDate eventDate = Event.getDate().toLocalDate(); // Assuming getDate() returns a java.sql.Date
+            return eventDate.equals(searchDate);
+        });
+
+        // Update the eventtable with the filtered list
+        eventtable.setItems(filteredEvents);
 
     }
 
     @FXML
     void searchByName(ActionEvent event) {
+        System.out.println("Search by name button clicked");
+        String searchQuery = nameField.getText().trim().toLowerCase(); // Get search query from nameField
+
+        // Filter the observableList based on the search query
+        ObservableList<event> filteredEvents = observableList.filtered(Event -> Event.getName().toLowerCase().contains(searchQuery));
+
+        // Update the eventtable with the filtered list
+        eventtable.setItems(filteredEvents);
 
     }
     private void showEventsInTable(List<event> events) {
