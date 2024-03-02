@@ -97,9 +97,10 @@ public class UserService implements IService<User>{
     }
 
     public User userByMail(String mail){
-       // User user= new User();
+        User user1;
         if (people.isEmpty()){
             try {
+                System.out.println("people.isEmpty()");
                 read();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
@@ -108,11 +109,15 @@ public class UserService implements IService<User>{
 
         for (User user: people) {
             if (user.getEmail().equals(mail)) {
-                return user; // Found the user, return immediately
+                System.out.println("found user by mail");
+                user1=user;
+                return user1; // Found the user, return immediately
             }
         }
 
         // User with the given email not found
+        System.out.println("no found user by mail");
+
         return null;
 
         //TODO FAUT QUE MAIL SOIT UNIQ

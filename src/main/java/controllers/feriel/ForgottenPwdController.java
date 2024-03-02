@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import models.feriel.User;
 import services.feriel.UserService;
+import toolkit.MyAnimation;
 import toolkit.MyTools;
 import toolkit.MyEmailSender;
 
@@ -28,7 +29,7 @@ public class ForgottenPwdController {
     private TextField mailTf;
     String mail;
     UserService us= new UserService();
-    User user;
+    public static User userToResetPwd= new User();
     int OTP ;
 
     @FXML
@@ -37,18 +38,27 @@ public class ForgottenPwdController {
         if (codeTf.getText().equals(String.valueOf(OTP))){
             MyTools.goTo("/feriel/ResetPwd.fxml",mailTf);
 
+        }else {
+            MyAnimation.shake(codeTf);
         }
     }
 
     @FXML
     void sendCode(ActionEvent event) {
-        mail=mailTf.getText();
+        mail=mailTf.getText().trim();
+        System.out.println("mail=mailTf.getText().trim();\n");
+       // userToResetPwd = us.userByMail(mail);
+        User user = us.userByMail(mail);
 
-        user = us.userByMail(mail);
-        if (user!= null) {
+        System.out.println(user+"userToResetPwd");
+        if (user != null) {
+            System.out.println("sd if");
             user.setCode(OTP);
+            System.out.println("userToResetPwd: "+user);
+
             MyEmailSender.send(mail, "hii", getHtmlContent(generateOTP()));
         }
+        System.out.println("out if");
 
     }
 
@@ -65,16 +75,21 @@ public class ForgottenPwdController {
      * @param otp (String): one time pass
      * @return (String): Html mail
      */
-    private String getHtmlContent(String otp) {
+    public String getHtmlContent(String otp) {
         try {
+
             InputStream inputStream = getClass().getResourceAsStream("/feriel/ForgottenPwdmail.html");
+            System.out.println("l77 fpwdc");
             if (inputStream == null) {
                 throw new IOException("Failed to load email template. File not found.");
             }
 
             String htmlContent;
+            System.out.println("l83 fpwdc");
+
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
                 htmlContent = reader.lines().collect(Collectors.joining("\n"));
+                System.out.println("l87");
             }
 
             htmlContent = htmlContent.replace("{otp}", otp);

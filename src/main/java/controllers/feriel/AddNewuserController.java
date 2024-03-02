@@ -1,5 +1,7 @@
 package controllers.feriel;
 
+import javafx.scene.Node;
+import org.jetbrains.annotations.NotNull;
 import toolkit.MyAnimation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -107,44 +109,44 @@ public class AddNewuserController {
     @FXML
     void signupBt(ActionEvent event) {
         System.out.println("in start signupBt ");
+        resetMailIndicator();
 
         if (fnametf.getText().isEmpty() || !fnametf.getText().matches("^[a-zA-Z]+$")) {
-            fnametf.requestFocus();
-            MyAnimation.shake(fnametf);
+            showInputIncorect(fnametf);
 
             return;
         }
 
         if (lnametf.getText().isEmpty()|| ! lnametf.getText().matches("^[a-zA-Z]+$")) {
-            lnametf.requestFocus();
-            MyAnimation.shake(lnametf);
+            showInputIncorect(lnametf);
 
             return;
         }
-        //"^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"
-        if (mailtf.getText().isEmpty() || mailIsUnique(mailtf.getText())== 1 || !mailtf.getText().matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$") ) {
-            mailtf.requestFocus();
-            MyAnimation.shake(mailtf);
+        if (mailtf.getText().isEmpty()  || !mailtf.getText().matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$") ) {
+            showInputIncorect(mailtf);
             return;
         }
-        if (pwdtf.getText().isEmpty()  ) {
-            pwdtf.requestFocus();
-            MyAnimation.shake(pwdtf);
+        if (mailIsUnique(mailtf.getText()) == 1) {
+            //TODO/ PUT LEABEL TO SET TO EMAIL ALREADY USED
+            showInputIncorect(mailtf);
+            return;
+        }
+        if (pwdtf.getText().isEmpty()){
+            showInputIncorect(pwdtf);
             return;
 
         }if (phonetf.getText().isEmpty() || phonetf.getText().length() > 9 || !phonetf.getText().matches("[0-9]+")){
-            phonetf.requestFocus();
-            MyAnimation.shake(phonetf);
+            showInputIncorect(phonetf);
             return;
         }
         if (areacombobox.getSelectionModel().getSelectedItem() == null || areacombobox.getSelectionModel().getSelectedItem().equals("Area")) {
-            areacombobox.requestFocus();
-            MyAnimation.shake(areacombobox);
+//            areacombobox.requestFocus();
+//            MyAnimation.shake(areacombobox);
+            showInputIncorect(areacombobox);
             return;
         }
         if (roleCombo.getSelectionModel().getSelectedItem() == null || roleCombo.getSelectionModel().getSelectedItem().equals("Role")) {
-            roleCombo.requestFocus();
-            MyAnimation.shake(roleCombo);
+            showInputIncorect(areacombobox);
             return;
         }
 
@@ -155,6 +157,7 @@ public class AddNewuserController {
         user.setPhone(Integer.parseInt(phonetf.getText()));
         user.setArea(areacombobox.getSelectionModel().getSelectedItem());
         user.setRole(roleCombo.getSelectionModel().getSelectedItem());
+        resetMailIndicator();
 
 
         try {
@@ -170,6 +173,12 @@ public class AddNewuserController {
 
 
     }
+
+    private void showInputIncorect(Node n) {
+        n.requestFocus();
+        MyAnimation.shake(n);
+    }
+
     @FXML
     public String getAreac(ActionEvent actionEvent) {
        return areacombobox.getSelectionModel().getSelectedItem();
@@ -186,11 +195,17 @@ public class AddNewuserController {
      * @return : (int) 0 if its available or one if its not
      */
     public int mailIsUnique(String mail){
+
         try {
+
             allUsers=us.read();
+            System.out.println("called mailIsUnique after read");
             for (int i = 0; i < allUsers.size(); i++) {
                 if (allUsers.get(i).getEmail().equals(mail)){
+                    System.out.println("mailIsUnique in if");
                     emailAvailable= 1;
+                    return 1;
+
                 }
             }
 
@@ -200,6 +215,10 @@ public class AddNewuserController {
 
         }
         System.out.println("this is emailAvailable :"+emailAvailable);
-        return emailAvailable;
+        return 0;
+    }
+
+    void resetMailIndicator(){
+        emailAvailable=0;
     }
 }

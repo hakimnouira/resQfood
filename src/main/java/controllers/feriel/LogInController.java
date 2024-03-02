@@ -69,6 +69,7 @@ public class LogInController {
 
     public void initialize() {
         generateCaptcha();
+        //TODO/ 
     }
 
     @FXML
@@ -120,14 +121,19 @@ public class LogInController {
 
                         }
 
-            }
+                }
+                else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setContentText("User credentials incorrect. Please try again");
+                    alert.showAndWait();
+                }
             }else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
-                alert.setContentText("User credentials incorrect. Please try again");
+                alert.setContentText("Captcha is incorrect. Please try again");
                 alert.showAndWait();
             }
-
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -163,26 +169,7 @@ public class LogInController {
         captchaInput.clear();
         return captcha;
 
-        /*
-        Captcha.Builder builder = new Captcha.Builder(250, 150);
-        builder.addText();
-        builder.addBackground(new FlatColorBackgroundProducer(Color.YELLOW));
-        builder.addNoise();
-        builder.gimp(new FishEyeGimpyRenderer());
-        builder.addBorder();
 
-        Captcha captchaV = builder.build();
-
-        System.out.println(captchaV.getImage());
-        Image image = SwingFXUtils.toFXImage(captchaV.getImage(), null);
-
-        captchImg.setImage(image);
-        captchaInput.setText("");
-
-
-
-        return captchaV;
-        */
 
     }
 
@@ -221,6 +208,7 @@ public class LogInController {
         }
 
     }
+
 
 
 

@@ -5,11 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ca77840-0faa-409c-8c20-6f70faecd38c" name="Changes" comment="-add all files">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/abondantCourses.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/groceries-5216715_640.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/AddNewuserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/AddNewuserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/DisplayUsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/DisplayUsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ForgottenPwdController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ForgottenPwdController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/LogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/feriel/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/feriel/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/toolkit/MyEmailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/toolkit/MyEmailSender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/LogIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/projresqfood-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/projresqfood-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/dose-juice-sTPy-oeA3h0-unsplash(1).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AddNewuser.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AddTestimony.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AdminDash.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DisplayTestimonies.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DisplayUsers.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ForgottenPwd.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LogIn.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModifTestimony.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModifUser.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ParticipDash.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ParticipViewTestim.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ResetPwd.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/LogInController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +50,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -40,34 +64,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Application.MainFX.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.projresqfood [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.projresqfood [javafx:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.projresqfood [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.projresqfood [verify].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;user__management&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/resources/style&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.MainFX.executor": "Run",
+    "Application.SendMailSSL.executor": "Run",
+    "Maven.projresqfood [compile].executor": "Run",
+    "Maven.projresqfood [install].executor": "Run",
+    "Maven.projresqfood [javafx:run].executor": "Run",
+    "Maven.projresqfood [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
+    "Maven.projresqfood [test].executor": "Run",
+    "Maven.projresqfood [verify].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "user__management",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/resources/style",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/style" />
@@ -81,7 +108,20 @@
       <recent name="$PROJECT_DIR$/src/main/resources/fereil/style" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Maven.projresqfood [javafx:run]">
+    <configuration name="SendMailSSL" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="toolkit.SendMailSSL" />
+      <module name="projresqfood" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="toolkit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -126,6 +166,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Maven.projresqfood [javafx:run]" />
+        <item itemvalue="Application.SendMailSSL" />
       </list>
     </recent_temporary>
   </component>
@@ -147,7 +188,7 @@
       <workItem from="1708897619533" duration="730000" />
       <workItem from="1709285300810" duration="11971000" />
       <workItem from="1709317935328" duration="1220000" />
-      <workItem from="1709353845196" duration="8980000" />
+      <workItem from="1709353845196" duration="17189000" />
     </task>
     <task id="LOCAL-00001" summary="-add all files">
       <option name="closed" value="true" />

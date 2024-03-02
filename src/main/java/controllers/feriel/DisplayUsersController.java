@@ -169,21 +169,7 @@ public class DisplayUsersController {
 
     @FXML
     void addUserD(ActionEvent event) {
-
         MyTools.goTo("/feriel/AddNewuser.fxml",btn_users);
-        try {
-
-            //TODO mettre init data pr accepter un user et coder le cancel
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/AddNewuser.fxml"));
-            Parent root= loader.load();
-
-            // Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/LogIn.fxml")));
-
-            btn_users.getScene().setRoot(root);
-
-        } catch (IOException e) {
-            System.out.println("error"+e.getMessage());
-        }
 
     }
 

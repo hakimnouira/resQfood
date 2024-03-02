@@ -1,4 +1,6 @@
 package toolkit;
+import controllers.feriel.ForgottenPwdController;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -57,9 +59,11 @@ class SendMailSSL{
     public static void main(String[] args) {
         int code= 12344;
         //from,password,to,subject,message
+        ForgottenPwdController fpdc= new ForgottenPwdController();
+        String mail= fpdc.getHtmlContent(String.valueOf(code));
 
 
-     //   MyEmailSender.send("feriel.bouguecha@gmail.com","hello ","How r u? \n Sent by Intellij.\nThis is your code"+code,"test");
+        MyEmailSender.send("feriel.bouguecha@gmail.com","hello ",mail);
 
 
         //change from, password and to
