@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ca77840-0faa-409c-8c20-6f70faecd38c" name="Changes" comment="-add all files">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2e2a9fa1-fc60-42d2-83dc-23a962881143.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2e2a9fa1-fc60-42d2-83dc-23a962881143.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ForgottenPwdController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ForgottenPwdController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/LogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/LogIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/projresqfood-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/projresqfood-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,34 +40,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.MainFX.executor": "Run",
-    "Maven.projresqfood [install].executor": "Run",
-    "Maven.projresqfood [javafx:run].executor": "Run",
-    "Maven.projresqfood [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
-    "Maven.projresqfood [verify].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "user__management",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/resources/style",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.MainFX.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.projresqfood [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.projresqfood [javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.projresqfood [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.projresqfood [verify].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;user__management&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/resources/style&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/style" />
@@ -144,6 +146,8 @@
       <updated>1708897618260</updated>
       <workItem from="1708897619533" duration="730000" />
       <workItem from="1709285300810" duration="11971000" />
+      <workItem from="1709317935328" duration="1220000" />
+      <workItem from="1709353845196" duration="8980000" />
     </task>
     <task id="LOCAL-00001" summary="-add all files">
       <option name="closed" value="true" />

@@ -35,6 +35,22 @@
         </dependency>
 
 
+    <dependency>
+        <groupId>com.liferay</groupId>
+        <artifactId>nl.captcha.simplecaptcha</artifactId>
+        <version>1.1.1</version>
+    </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.jhlabs/filters -->
+        <dependency>
+            <groupId>com.jhlabs</groupId>
+            <artifactId>filters</artifactId>
+            <version>2.0.235</version>
+        </dependency>
+
+
+
+
 
         <dependency>
                 <groupId>com.sun.mail</groupId>
@@ -61,12 +77,6 @@
             <version>4.7.0-9.1.2</version> <!-- Update version if necessary -->
         </dependency>
 
-
-        <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>javax.mail</artifactId>
-            <version>1.6.2</version>
-        </dependency>
         <dependency>
             <groupId>org.controlsfx</groupId>
             <artifactId>controlsfx</artifactId>
@@ -77,9 +87,11 @@
             <artifactId>core</artifactId>
             <version>3.4.1</version>
         </dependency>
-
-
-
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>17.0.2</version>
+        </dependency>
 
 
     </dependencies>
