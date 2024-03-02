@@ -1,4 +1,5 @@
 package services;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
@@ -6,12 +7,11 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
 public class EmailService {
 
-    public static void sendEmailWithAttachment(String recipientEmail, String subject, String messageBody, String attachmentFilePath) throws MessagingException, IOException {
+    public static void sendEmailWithAttachmentAndHTML(String recipientEmail, String subject, String htmlContent, String attachmentFilePath) throws MessagingException, IOException {
         // Set up mail server properties
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
@@ -33,17 +33,17 @@ public class EmailService {
 
         // Create email message
         MimeMessage message = new MimeMessage(session);
-        message.setFrom(new InternetAddress(senderEmail,"MAIL"));
+        message.setFrom(new InternetAddress(senderEmail));
         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
         message.setSubject(subject);
 
         // Create multipart content
         Multipart multipart = new MimeMultipart();
 
-        // Add message body
-        MimeBodyPart messageBodyPart = new MimeBodyPart();
-        messageBodyPart.setText(messageBody);
-        multipart.addBodyPart(messageBodyPart);
+        // Create HTML body part
+        MimeBodyPart htmlBodyPart = new MimeBodyPart();
+        htmlBodyPart.setContent(htmlContent, "text/html; charset=utf-8");
+        multipart.addBodyPart(htmlBodyPart);
 
         // Add attachment
         MimeBodyPart attachmentBodyPart = new MimeBodyPart();

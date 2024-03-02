@@ -220,8 +220,6 @@ public class DashboardController {
             return description != null ? description.length() : 0;
         }));
     }
-
-
     @FXML
     void addCategory(ActionEvent event) {
         String categoryName = addCategory_category_name.getText();
@@ -249,6 +247,27 @@ public class DashboardController {
             loadCategories();
         } catch (SQLException e) {
             showAlert("Error", "Failed to add category: " + e.getMessage());
+        }
+        // Trigger SMS notification
+        String toPhoneNumber = "+21652273233";
+        String smsMessage = "Admin: A new category, " + categoryName + ", " + categoryDescription + ", has been added to the donation options. Donors can now select it when making donations.";
+        sendSMS(smsMessage);
+    }
+    // Method to send SMS notification
+    private void sendSMS(String message) {
+        try {
+            // Create an instance of SMSService
+            services.siwar.SMSService smsService = new services.siwar.SMSService("ACc207e59b220efa71db01db8b4e6a7ac0", "cdf14e1f760fcd9077abd8ee74a0ef6d", "+15186013093");
+
+            // Initialize Twilio client
+            smsService.initializeTwilio();
+
+            // Send SMS using the SMS service client
+            smsService.sendSMS("+21652273233", message);
+            System.out.println("SMS notification sent successfully");
+        } catch (Exception e) {
+            e.printStackTrace();  // Print the stack trace for debugging
+            System.err.println("Failed to send SMS: " + e.getMessage());
         }
     }
 

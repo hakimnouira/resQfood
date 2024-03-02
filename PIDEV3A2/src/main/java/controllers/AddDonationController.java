@@ -127,7 +127,7 @@ void AddDonationButton(ActionEvent event) {
         // Validate input
         String donationCategory = comb.getSelectionModel().getSelectedItem(); // Get selected category
         if (donationCategory == null) {
-            showAlert("Error", "Please select a category first.");
+            showAlert("Error", "Please select a category first.", AlertType.ERROR);
             return; // Exit the method if no category is selected
         }
 
@@ -136,7 +136,7 @@ void AddDonationButton(ActionEvent event) {
         // Check if the category is Money and validate the amount field
         if (donationCategory.equals("Money")) {
             if (moneyamountid.getText().isEmpty()) {
-                showAlert("Error", "Please enter the donation amount.");
+                showAlert("Error", "Please enter the donation amount.", AlertType.ERROR);
                 return; // Exit the method if the amount field is empty
             }
             donationAmount = Double.parseDouble(moneyamountid.getText());
@@ -149,11 +149,11 @@ void AddDonationButton(ActionEvent event) {
         // Validate the name and quantity fields for Food and Raw Materials categories
         if (!donationCategory.equals("Money")) {
             if (foodName.isEmpty()) {
-                showAlert("Error", "Please enter the food name.");
+                showAlert("Error", "Please enter the food name.", AlertType.ERROR);
                 return; // Exit the method if the food name field is empty
             }
             if (quantityfoodid.getText().isEmpty()) {
-                showAlert("Error", "Please enter the food quantity.");
+                showAlert("Error", "Please enter the food quantity.", AlertType.ERROR);
                 return; // Exit the method if the quantity field is empty
             }
             foodQuantity = Double.parseDouble(quantityfoodid.getText());
@@ -171,15 +171,110 @@ void AddDonationButton(ActionEvent event) {
         DonationService donationService = new DonationService();
         donationService.create(donation);
 
+
+        // Generate HTML content for the email body
+        // Generate HTML content for the email body
+        String htmlContent = "<!DOCTYPE html>\n" +
+                "<html lang=\"en\">\n" +
+                "<head>\n" +
+                "    <meta charset=\"UTF-8\">\n" +
+                "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+                "    <title>Email Confirmation</title>\n" +
+                "    <style>\n" +
+                "        body {\n" +
+                "            font-family: Arial, sans-serif;\n" +
+                "            margin: 0;\n" +
+                "            padding: 0;\n" +
+                "        }\n" +
+                "\n" +
+                "        h1 {\n" +
+                "            color: #083A39;\n" +
+                "            font-size: 24px;\n" +
+                "            text-align: center;\n" +
+                "        }\n" +
+                "\n" +
+                "        p {\n" +
+                "            font-size: 16px;\n" +
+                "            line-height: 1.5;\n" +
+                "            text-align: center;\n" +
+                "        }\n" +
+                "\n" +
+                "        .button {\n" +
+                "            background-color: #F9EFF0;\n" +
+                "            color: #fff;\n" +
+                "            padding: 10px 20px;\n" +
+                "            border: none;\n" +
+                "            border-radius: 5px;\n" +
+                "            cursor: pointer;\n" +
+                "            display: block;\n" +
+                "            margin: 20px auto;\n" +
+                "            text-decoration: none; /* Remove default underline */\n" +
+                "            text-align: center; /* Center the text */\n" +
+                "        }\n" +
+                "\n" +
+                "        .container {\n" +
+                "            background-color: #fff;\n" +
+                "            padding: 20px;\n" +
+                "            border-radius: 5px;\n" +
+                "            max-width: 600px;\n" +
+                "            margin: 20px auto;\n" +
+                "            position: relative; /* Add relative positioning to the container */\n" +
+                "        }\n" +
+                "\n" +
+                "        .image-container {\n" +
+                "            position: absolute; /* Set image container to absolute position */\n" +
+                "            top: 0; /* Align to the top of the container */\n" +
+                "            left: 0; /* Align to the left of the container */\n" +
+                "            width: 100%; /* Occupy the full width of the container */\n" +
+                "            text-align: center; /* Center the content horizontally */\n" +
+                "        }\n" +
+                "\n" +
+                "        img {\n" +
+                "            width: 100%; /* Set to whatever percentage you want */\n" +
+                "            max-width: 300px; /* Set the maximum width */\n" +
+                "            height: auto; /* Maintain aspect ratio */\n" +
+                "            display: block;\n" +
+                "            margin: auto;\n" +
+                "        }\n" +
+                "    </style>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "    <div class=\"container\">\n" +
+                "        <div class=\"image-container\">\n" +
+                "            <img src=\"https://cdn.dribbble.com/users/1551941/screenshots/6346538/thankyoudribble.gif\" alt=\"Your Image\">\n" +
+                "        </div>\n" +
+                "        <h1>Email Confirmation</h1>\n" +
+                "        <p>Dear Donor,</p>\n" +
+                "        <p>We extend our heartfelt gratitude for your remarkable generosity, which has brought light and hope to those in need.\n" +
+                "\n" +
+                "Your thoughtful donation not only sustains our mission but also inspires our team to continue striving for a brighter, more equitable future for all.</p>\n" +
+                "        <p><a href=\"#\" class=\"button\" >You can find below a file containing the list of donations</a> <a href=\"file:///C:/Users/MSI/Desktop/3eme année ESPRIT/Semestre 2/Pidev/resQfood-user_management/resQfood-user_management/Donations List.pdf\"\"></a></p>\n" +
+
+
+
+                "        <p>With profound appreciation,</p>\n" +
+                "        <p>The ResQFood Team</p>\n" +
+                "    </div>\n" +
+                "</body>\n" +
+                "</html>";
+
+
+
+
+
+
+
+
+
+
         // Generate PDF containing the list of donations
         //String pdfFilePath = generateDonationListPDF(donorId);
 
         // Get the user service
         UserService userService = new UserService();
 
-// Retrieve all users with the role "Donor"
+        // Retrieve all users with the role "Donor"
         List<User> donorUsers = userService.getUsersByRole("Donor");
-
 
         // Send emails to each donor
         for (User donor : donorUsers) {
@@ -187,22 +282,23 @@ void AddDonationButton(ActionEvent event) {
             String subject = "Thank you for your donation!";
             String message = "Dear Donor,\n\nThank you for your generous donation.\n\nSincerely,\nResQFood Team";
             // Assuming the attachment file path is the same for all donors
-            String pdfFilePath ="C:/Users/MSI/Desktop/3eme année ESPRIT/Semestre 2/Pidev/Donations List.pdf";
+            String pdfFilePath = "C:/Users/MSI/Desktop/3eme année ESPRIT/Semestre 2/Pidev/Donations List.pdf";
             try {
-                EmailService.sendEmailWithAttachment(donorEmail, subject, message, pdfFilePath);
+                EmailService.sendEmailWithAttachmentAndHTML(donorEmail, subject, htmlContent, pdfFilePath);
+
             } catch (IOException e) {
                 e.printStackTrace();
-                showAlert("Error", "Failed to send email: " + e.getMessage());
+                showAlert("Error", "Failed to send email: " + e.getMessage(), AlertType.ERROR);
             }
         }
 
-        // Show a success message
-        showAlert("Success", "Donation added successfully and email sent to donors.");
+        // Show a success message with an information icon
+        showAlert("Success", "Donation added successfully,check your email.", AlertType.INFORMATION);
 
         // Insert a notification for adding a donation
-       // String message = "A donation was added";
-        //NotificationService notificationService = new NotificationService();
-        //notificationService.insertNotification(message);
+        //String message = "A donation was added";
+        // NotificationService notificationService = new NotificationService();
+        // notificationService.insertNotification(message);
 
         // Load ShowDonation.fxml
         FXMLLoader showDonationLoader = new FXMLLoader(getClass().getResource("/ShowDonation.fxml"));
@@ -214,11 +310,11 @@ void AddDonationButton(ActionEvent event) {
         stage.setScene(scene);
         stage.show();
     } catch (NumberFormatException e) {
-        showAlert("Error", "Please enter valid numeric values for amount and quantity.");
+        showAlert("Error", "Please enter valid numeric values for amount and quantity.", AlertType.ERROR);
     } catch (SQLException e) {
-        showAlert("Error", "Database error: " + e.getMessage());
+        showAlert("Error", "Database error: " + e.getMessage(), AlertType.ERROR);
     } catch (MessagingException | UnsupportedEncodingException e) {
-        showAlert("Error", "Failed to send email: " + e.getMessage());
+        showAlert("Error", "Failed to send email: " + e.getMessage(), AlertType.ERROR);
     } catch (IOException e) {
         throw new RuntimeException(e);
     }
@@ -300,13 +396,34 @@ void AddDonationButton(ActionEvent event) {
             fnameimageid.setVisible(true);
         }
     }
-    private void showAlert(String title, String message) {
+
+
+    private void showAlert(String title, String message, AlertType alertType) {
+        Alert.AlertType javafxAlertType;
+        switch (alertType) {
+            case ERROR:
+                javafxAlertType = Alert.AlertType.ERROR;
+                break;
+            case INFORMATION:
+                javafxAlertType = Alert.AlertType.INFORMATION;
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported alert type: " + alertType);
+        }
+
+        Alert alert = new Alert(javafxAlertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+   /* private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
     }
-
+*/
 
 }
