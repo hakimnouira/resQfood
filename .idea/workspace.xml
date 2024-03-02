@@ -5,33 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ca77840-0faa-409c-8c20-6f70faecd38c" name="Changes" comment="-add all files">
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/AddNewuserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/AddNewuserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/AddTestimonyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/AddTestimonyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/AdminDashController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/AdminDashController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/DisplayTestimonyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/DisplayTestimonyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/DisplayUsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/DisplayUsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2e2a9fa1-fc60-42d2-83dc-23a962881143.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2e2a9fa1-fc60-42d2-83dc-23a962881143.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ForgottenPwdController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ForgottenPwdController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/LogInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ModifTestimonyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ModifTestimonyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ModifUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ModifUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ParticipDashController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ParticipDashController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ParticipViewTestimController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ParticipViewTestimController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/feriel/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/feriel/MainFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/toolkit/MyTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/toolkit/MyTools.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fereil/AddNewuser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/AddNewuser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fereil/AddTestimony.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/AddTestimony.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fereil/AdminDash.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/AdminDash.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fereil/DisplayTestimonies.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/DisplayTestimonies.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fereil/DisplayUsers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/DisplayUsers.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fereil/ForgottenPwd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ForgottenPwd.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fereil/ForgottenPwdmail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ForgottenPwdmail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fereil/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/LogIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fereil/ModifTestimony.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ModifTestimony.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fereil/ModifUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ModifUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fereil/ParticipDash.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ParticipDash.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fereil/ParticipViewTestim.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ParticipViewTestim.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fereil/ResetPwd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ResetPwd.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fereil/style/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/style/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +143,7 @@
       <option name="presentableId" value="Default" />
       <updated>1708897618260</updated>
       <workItem from="1708897619533" duration="730000" />
-      <workItem from="1709285300810" duration="10845000" />
+      <workItem from="1709285300810" duration="11971000" />
     </task>
     <task id="LOCAL-00001" summary="-add all files">
       <option name="closed" value="true" />

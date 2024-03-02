@@ -45,10 +45,10 @@ public class ForgottenPwdController {
         mail=mailTf.getText();
 
         user = us.userByMail(mail);
-        user.setCode(OTP);
-
-
-        MyEmailSender.send(mail,"hii",getHtmlContent(generateOTP()));
+        if (user!= null) {
+            user.setCode(OTP);
+            MyEmailSender.send(mail, "hii", getHtmlContent(generateOTP()));
+        }
 
     }
 

@@ -59,23 +59,23 @@ public class LogInController {
 
             // find user with matching email and pswd
                 if (value.getEmail().equals(loginMail_input.getText())) {
-                    us.setLoggedInUser(value);//TODO/ essayer meth de hamza ici pr pwd retriev
 
                     if (value.getPwd().equals(pwdInput.getText())) {
                         user = value;
+                        UserService.loggedIn=user;
                         System.out.println("user" + user);
                         System.out.println("logedin"+UserService.loggedIn);
                     }
                 }
             }
 
-            if (user != null){
+            if (user != null && user.getRole() != null){
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("exists");
                 alert.showAndWait();
                 //find role to redirect to appropriate interface
 
-                           if (user.getId()==0||!user.getRole().equals("Admin")){
+                           if (!user.getRole().equals("Admin")){
                             try {
                               //  FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/ParticipDash.fxml"));
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/siwar/designation.fxml"));
