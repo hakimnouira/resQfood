@@ -1,0 +1,52 @@
+.side_ankerpane {
+    -fx-background-color: #083A39; /* Change the background color to the specified green */
+    -fx-border-width: 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #353A56; /* Border color remains the same */
+}
+
+
+.inner_panel {
+    -fx-background-color:#748CF1;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-style: solid;
+    -fx-border-color: #748CF1;
+
+}
+.most_inner_pane {
+    -fx-background-color: #1E615F; /* Lighter shade of green */
+    -fx-border-width: 2px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-style: solid;
+    -fx-border-color: #748CF1;
+}
+
+
+
+.btn_users{
+    -fx-background-color: #000000;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color:  #000000 ;
+}
+
+.btn_users:hover {
+    -fx-background-color: #333333; /* Lighter background color on hover */
+}
+
+.btn_testim{
+    -fx-background-color:#141313;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #141313;
+
+}

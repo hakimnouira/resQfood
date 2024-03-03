@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox xmlns="http://javafx.com/javafx"  xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.feriel.DisplayUsersController"
+      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="767.0" stylesheets="@style/styles.css" >
+   <children>
+      <VBox prefHeight="451.0" prefWidth="209.0">
+         <children>
+            <AnchorPane fx:id="side_ankerpane" prefHeight="519.0" prefWidth="209.0" style="-fx-background-color: #353A56; -fx-border-color: #56a2e3; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 50px; -fx-background-radius: 50px; -fx-border-style: solid;" stylesheets="style/styles.css">
+               <children>
+                  <Pane fx:id="inner_panel" layoutX="20.0" layoutY="35.0" prefHeight="71.0" prefWidth="169.0" styleClass="inner_panel" stylesheets="@style/styles.css">
+                     <children>
+                        <ImageView fitHeight="48.0" fitWidth="54.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/logoRSF.png" />
+                           </image>
+                        </ImageView>
+                        <Pane id="most_inner_pane" fx:id="most_inner_pane" layoutX="107.0" layoutY="5.0" prefHeight="61.0" prefWidth="48.0" styleClass="most_inner_pane" stylesheets="@style/styles.css" />
+                     </children></Pane>
+                  <Button fx:id="btn_users" layoutX="3.0" layoutY="157.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="202.0" styleClass="btn_users" stylesheets="@style/styles.css" text="   Users" textAlignment="CENTER" textFill="#f8f7f7">
+                     <font>
+                        <Font name="Avenir Heavy" size="17.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="27.0" fitWidth="21.0" layoutX="31.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-users-50.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btn_testim" alignment="CENTER" contentDisplay="RIGHT" layoutX="4.0" layoutY="215.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="202.0" styleClass="btn_testim" stylesheets="@style/styles.css" text="    Testimonies" textAlignment="CENTER" textFill="#f8f7f7">
+                     <font>
+                        <Font name="Avenir Heavy" size="15.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="32.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8testimony.png" />
+                     </image>
+                  </ImageView>
+                  <Button alignment="CENTER" contentDisplay="RIGHT" layoutX="54.0" layoutY="464.0" mnemonicParsing="false" onAction="#logoutDash" prefHeight="15.0" prefWidth="101.0" styleClass="btn_testim" stylesheets="@style/styles.css" text="Log out" textAlignment="CENTER" textFill="#f8f7f7">
+                     <font>
+                        <Font name="Avenir Heavy" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</HBox>

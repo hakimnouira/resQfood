@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="473.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.fatma.ShoweventController">
+    <children>
+
+        <fx:include source="Dashboard.fxml" />
+
+        <TableView fx:id="eventtable" layoutX="270.0" layoutY="181.0" prefHeight="390.0" prefWidth="718.0">
+            <columns>
+                <TableColumn fx:id="namecol" prefWidth="75.0" text="Name" />
+                <TableColumn fx:id="datecol" prefWidth="75.0" text="Date" />
+                <TableColumn fx:id="timecol" prefWidth="75.0" text="Time" />
+                <TableColumn fx:id="locatcol" prefWidth="75.0" text="Location" />
+                <TableColumn fx:id="capacitycol" prefWidth="75.0" text="Capacity" />
+                <TableColumn fx:id="statuscol" prefWidth="75.0" text="Status" />
+                <TableColumn fx:id="desccol" prefWidth="169.60003662109375" text="Description" />
+                <TableColumn fx:id="userjcol" prefWidth="96.7999267578125" text="users_joined" />
+            </columns>
+        </TableView>
+        <Button layoutX="1025.0" layoutY="277.0" mnemonicParsing="false" onAction="#navigate" style="-fx-background-color: b44747;" text="add an event" textFill="#262020">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Button>
+        <Button layoutX="1031.0" layoutY="320.0" mnemonicParsing="false" onAction="#update" prefHeight="26.0" prefWidth="77.0" style="-fx-background-color: b78b70;" text="update " textFill="#201f1f">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Button>
+        <Button layoutX="1030.0" layoutY="361.0" mnemonicParsing="false" onAction="#deleteevent" prefHeight="26.0" prefWidth="78.0" style="-fx-background-color: #3e80b9;" text="delete" textFill="#1e1f20">
+            <font>
+                <Font name="System Bold Italic" size="12.0" />
+            </font></Button>
+        <Button layoutX="879.0" layoutY="578.0" mnemonicParsing="false" onAction="#particip" style="-fx-background-color: #846494;" text="view participations" textFill="#0d0d0d">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Button>
+        <AnchorPane layoutX="244.0" layoutY="60.0" prefHeight="90.0" prefWidth="919.0" style="-fx-background-color: #083A39;">
+            <children>
+                <Label layoutX="38.0" layoutY="17.0" text="EVENTS LIST" textFill="#e3f2ec">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <!-- Date Picker for selecting date -->
+        <DatePicker fx:id="datePicker" layoutX="616.0" layoutY="80.0" promptText="Select Date" />
+
+        <!-- Text Field for entering name -->
+        <TextField fx:id="nameField" layoutX="845.0" layoutY="80.0" promptText="Enter Name" />
+
+        <!-- Button for searching by date -->
+        <Button layoutX="499.0" layoutY="80.0" mnemonicParsing="false" onAction="#searchByDate" text="Search by Date" />
+
+        <!-- Button for searching by name -->
+        <Button layoutX="1005.0" layoutY="80.0" mnemonicParsing="false" onAction="#searchByName" text="Search by Name" />
+        <Button layoutX="893.0" layoutY="610.0" mnemonicParsing="false" onAction="#statsbtn" style="-fx-background-color: #499986;" text="view statistics" textFill="#121313">
+            <font>
+                <Font name="System Bold Italic" size="12.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

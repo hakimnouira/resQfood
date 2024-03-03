@@ -1,0 +1,31 @@
+/* comment.css */
+
+.comment-box {
+    -fx-padding: 10px;
+    -fx-background-color: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #DDDDDD;
+}
+
+.comment-box .commenter-info {
+    -fx-spacing: 10px;
+}
+
+.comment-box .comment-content {
+    -fx-padding: 5px 0;
+}
+
+.comment-box .comment-date {
+    -fx-color: #aaaaaa;
+    -fx-font-size: 12px;
+}
+
+.comment-box .comment-likes {
+    -fx-color: #aaaaaa;
+    -fx-font-size: 12px;
+}
+.post-background{
+    -fx-background-color: #580f0f;
+    -fx-background-radius: 15;
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1) , 5.0, 0.0, 0.0, 5.0);
+}

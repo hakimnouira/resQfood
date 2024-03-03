@@ -1,0 +1,22 @@
+/* donationadddesign.css */
+
+/* Style for the "Add" button */
+#AddB {
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px; /* Font size */
+    -fx-background-radius: 0; /* Remove border radius */
+}
+
+/* Style for the "Back" button */
+#Backb {
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px; /* Font size */
+    -fx-background-radius: 0; /* Remove border radius */
+}
+
+/* Hover effect for buttons */
+#AddB:hover, #Backb:hover {
+    -fx-background-color: #f0f0f0; /* Darker color on hover */
+}

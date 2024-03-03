@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.feriel.StatsFerielController">
+    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@style/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+        <children>
+            <VBox prefHeight="451.0" prefWidth="200.0">
+                <children>
+                    <AnchorPane fx:id="side_ankerpane" prefHeight="599.0" prefWidth="206.0" styleClass="side_ankerpane" stylesheets="style/styles.css">
+                        <children>
+                            <Pane fx:id="inner_panel" layoutX="8.0" layoutY="23.0" prefHeight="91.0" prefWidth="187.0" styleClass="inner_panel" stylesheets="@style/styles.css">
+                                <children>
+                                    <ImageView fitHeight="43.0" fitWidth="42.0" layoutX="8.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../img/logoRSF.png" />
+                                        </image>
+                                    </ImageView>
+                                    <Pane id="most_inner_pane" fx:id="most_inner_pane" layoutX="135.0" layoutY="14.0" prefHeight="61.0" prefWidth="48.0" styleClass="most_inner_pane" stylesheets="@style/styles.css" />
+                                    <Text fx:id="fnametxt" layoutX="29.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="first name disp " wrappingWidth="83.4052734375" />
+                                </children></Pane>
+                            <Button fx:id="btn_users" layoutX="7.0" layoutY="136.0" maxHeight="50.0" maxWidth="195.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="195.0" styleClass="btn_users" stylesheets="@style/styles.css" text="   Users" textAlignment="CENTER" textFill="#f8f7f7">
+                                <font>
+                                    <Font name="Avenir Heavy" size="17.0" />
+                                </font>
+                            </Button>
+                            <ImageView fitHeight="27.0" fitWidth="21.0" layoutX="31.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../img/icons8-users-50.png" />
+                                </image>
+                            </ImageView>
+                            <Button fx:id="btn_testim" alignment="CENTER" contentDisplay="RIGHT" layoutX="7.0" layoutY="202.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="195.0" styleClass="btn_testim" stylesheets="@style/styles.css" text="    Testimonies" textAlignment="CENTER" textFill="#f8f7f7">
+                                <font>
+                                    <Font name="Avenir Heavy" size="15.0" />
+                                </font>
+                            </Button>
+                            <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="32.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../img/icons8testimony.png" />
+                                </image>
+                            </ImageView>
+                            <Button alignment="CENTER" contentDisplay="RIGHT" layoutX="51.0" layoutY="541.0" mnemonicParsing="false" onAction="#logoutDash" prefHeight="15.0" prefWidth="101.0" styleClass="btn_testim" stylesheets="@style/styles.css" text="Log out" textAlignment="CENTER" textFill="#f8f7f7">
+                                <font>
+                                    <Font name="Avenir Heavy" size="15.0" />
+                                </font>
+                            </Button>
+                            <Button alignment="CENTER" contentDisplay="RIGHT" layoutX="7.0" layoutY="272.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#eventsBt" prefHeight="50.0" prefWidth="195.0" styleClass="btn_testim" stylesheets="@style/styles.css" text="Events" textAlignment="CENTER" textFill="#f8f7f7">
+                                <font>
+                                    <Font name="Avenir Heavy" size="15.0" />
+                                </font>
+                            </Button>
+                            <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="32.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../img/icons8-event-30.png" />
+                                </image>
+                            </ImageView>
+                            <Button alignment="CENTER" contentDisplay="RIGHT" layoutX="7.0" layoutY="343.0" mnemonicParsing="false" onAction="#stockBt" prefHeight="50.0" prefWidth="195.0" styleClass="btn_testim" stylesheets="@style/styles.css" text="Stock" textAlignment="CENTER" textFill="#f8f7f7">
+                                <font>
+                                    <Font name="Avenir Heavy" size="15.0" />
+                                </font>
+                            </Button>
+                            <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="37.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../img/icons8testimony.png" />
+                                </image>
+                            </ImageView>
+                            <Button alignment="CENTER" contentDisplay="RIGHT" layoutX="7.0" layoutY="474.0" mnemonicParsing="false" onAction="#forumBt" prefHeight="50.0" prefWidth="195.0" styleClass="btn_testim" stylesheets="@style/styles.css" text="Forum" textAlignment="CENTER" textFill="#f8f7f7">
+                                <font>
+                                    <Font name="Avenir Heavy" size="15.0" />
+                                </font>
+                            </Button>
+                            <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="37.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../img/icons8-forum-50.png" />
+                                </image>
+                            </ImageView>
+                            <Button alignment="CENTER" contentDisplay="RIGHT" layoutX="5.0" layoutY="408.0" mnemonicParsing="false" onAction="#donationBt" prefHeight="50.0" prefWidth="195.0" styleClass="btn_testim" stylesheets="@style/styles.css" text="Donations" textAlignment="CENTER" textFill="#f8f7f7">
+                                <font>
+                                    <Font name="Avenir Heavy" size="15.0" />
+                                </font>
+                            </Button>
+                            <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="31.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../img/icons8-repository-30.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </AnchorPane>
+                </children>
+            </VBox>
+            <AnchorPane maxWidth="-Infinity" prefHeight="515.0" prefWidth="700.0">
+            <children>
+               <TabPane prefHeight="599.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE">
+                 <tabs>
+                   <Tab text="Untitled Tab 1">
+                     <content>
+                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                 <PieChart fx:id="PieChart" layoutX="63.0" layoutY="47.0" title="Users per Role" />
+                              </children></AnchorPane>
+                     </content>
+                   </Tab>
+                   <Tab text="Untitled Tab 2">
+                     <content>
+                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                 <BarChart layoutX="73.0" layoutY="70.0" title="Participants per Area">
+                                   <xAxis>
+                                     <CategoryAxis side="BOTTOM" />
+                                   </xAxis>
+                                   <yAxis>
+                                     <NumberAxis side="LEFT" />
+                                   </yAxis>
+                                 </BarChart>
+                              </children></AnchorPane>
+                     </content>
+                   </Tab>
+                 </tabs>
+               </TabPane>
+            </children>
+            </AnchorPane>
+        </children>
+    </HBox>
+
+
+</AnchorPane>

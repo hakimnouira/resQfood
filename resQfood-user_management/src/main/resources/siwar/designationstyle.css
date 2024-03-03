@@ -1,0 +1,25 @@
+/* designationstyle.css */
+
+/* Apply hover effect to ImageView inside Button */
+Button ImageView:hover {
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.8), 10, 0.5, 0, 0);
+}
+
+/* Make background of Button transparent */
+Button {
+    -fx-background-color: transparent;
+    -fx-padding: 5px; /* Add padding to avoid images sticking together */
+}
+
+/* Remove default button styling */
+Button:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0, 0, 1, 2;
+    -fx-background-radius: 3, 2, 1, 0;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+}
+
+/* Apply hover effect to Button */
+Button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.1); /* Change background color when hovered over */
+}
