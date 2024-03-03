@@ -1,8 +1,11 @@
 package controllers.feriel;
 
 
+import controllers.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import models.feriel.User;
 import services.feriel.UserService;
@@ -18,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-public class ForgottenPwdController {
+public class ForgottenPwdController extends Controller {
 
     //TODO : complete class !!
 
@@ -29,14 +32,28 @@ public class ForgottenPwdController {
     private TextField mailTf;
     String mail;
     UserService us= new UserService();
-    public static User userToResetPwd= new User();
+    User currUser;
     int OTP ;
 
     @FXML
     void resetPassword(ActionEvent event) {
 
         if (codeTf.getText().equals(String.valueOf(OTP))){
-            MyTools.goTo("/feriel/ResetPwd.fxml",mailTf);
+
+            try{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/ResetPwd.fxml"));
+                Parent root = loader.load();
+
+                // Get the controller instance
+               ResetPwdController controller = loader.getController();
+
+                controller.initData(currUser);
+                mailTf.getScene().setRoot(root);
+
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+                throw new RuntimeException(e);
+            }
 
         }else {
             MyAnimation.shake(codeTf);
@@ -47,18 +64,16 @@ public class ForgottenPwdController {
     void sendCode(ActionEvent event) {
         mail=mailTf.getText().trim();
         System.out.println("mail=mailTf.getText().trim();\n");
-       // userToResetPwd = us.userByMail(mail);
-        User user = us.userByMail(mail);
+        currUser = us.userByMail(mail);
 
-        System.out.println(user+"userToResetPwd");
-        if (user != null) {
-            System.out.println("sd if");
-            user.setCode(OTP);
-            System.out.println("userToResetPwd: "+user);
+        System.out.println(currUser+"userToResetPwd");
+        if (currUser != null) {
+            currUser.setCode(OTP);
+            System.out.println("userToResetPwd: "+currUser);
 
             MyEmailSender.send(mail, "hii", getHtmlContent(generateOTP()));
+            MyTools.showAlertInfo("Message sent","Your code was sent by email successfully");
         }
-        System.out.println("out if");
 
     }
 

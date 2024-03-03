@@ -1,5 +1,6 @@
 package controllers.feriel;
 
+import controllers.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-public class LogInController {
+public class LogInController extends Controller {
 
     User user= new User();
     UserService us= new UserService();
@@ -69,7 +69,7 @@ public class LogInController {
 
     public void initialize() {
         generateCaptcha();
-        //TODO/ 
+        //TODO/
     }
 
     @FXML
@@ -97,20 +97,19 @@ public class LogInController {
             if (isValidCaptcha()){
 
                 if (user != null && user.getRole() != null && isValidCaptcha()){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("exists");
-                alert.showAndWait();
+                    MyTools.showAlertInfo("exists","exists");
+
                 //find role to redirect to appropriate interface
 
                            if (!user.getRole().equals("Admin")){
                             try {
-                              //  FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/ParticipDash.fxml"));
-                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/siwar/designation.fxml"));
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/ParticipDash.fxml"));
+                               // FXMLLoader loader = new FXMLLoader(getClass().getResource("/siwar/designation.fxml"));
 
                                 Parent root= loader.load();
                                 createAcc.getScene().setRoot(root);
-                               // ParticipDashController controller = loader.getController();
-                              //  controller.initData(user);
+                                ParticipDashController controller = loader.getController();
+                              controller.initData(user);
                             } catch (IOException e) {
                                 System.out.println("pb is here");
                                 System.out.println("error"+e.getMessage());
@@ -123,16 +122,10 @@ public class LogInController {
 
                 }
                 else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setContentText("User credentials incorrect. Please try again");
-                    alert.showAndWait();
+                   MyTools.showAlertError("User credentials incorrect. Please try again");
                 }
             }else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setContentText("Captcha is incorrect. Please try again");
-                alert.showAndWait();
+                MyTools.showAlertError("Captcha is incorrect. Please try again");
             }
 
         } catch (SQLException e) {
@@ -142,15 +135,17 @@ public class LogInController {
 
     }
 
+
+
     @FXML
     void createUserfromlogin(MouseEvent event) {
-        goTo("/feriel/AddNewuser.fxml",createAcc);
+        MyTools.goTo("/feriel/AddNewuser.fxml",createAcc);
 
     }
 
     @FXML
     void pwdForgotten(MouseEvent event) {
-        goTo("/feriel/ForgottenPwd.fxml",createAcc);
+        MyTools.goTo("/feriel/ForgottenPwd.fxml",createAcc);
 
     }
 
@@ -179,7 +174,7 @@ public class LogInController {
             System.out.println(captcha.getAnswer());
 
             if (captcha.isCorrect(captchaInput.getText())) {
-                captchaIsCorrect = true;
+                //captchaIsCorrect = true;
                 return true;
             } else {
                 MyAnimation.shake(captchaInput);

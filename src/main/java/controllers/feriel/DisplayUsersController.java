@@ -1,5 +1,6 @@
 package controllers.feriel;
 
+import controllers.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,7 +22,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DisplayUsersController {
+public class DisplayUsersController extends Controller {
    private final UserService us=new UserService();
     private ObservableList<User> observableList;
     private final String[] filter= {"By first or last name","By id","By email","By role", "By area","None"};
@@ -35,6 +36,9 @@ public class DisplayUsersController {
     private Button deluserbt;
     @FXML
     private Button modifuserbt;
+    @FXML
+    private Button stats;
+
     @FXML
     private TextField searchTf;
 
@@ -156,8 +160,6 @@ public class DisplayUsersController {
         );
 
 
-
-
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -233,6 +235,11 @@ public class DisplayUsersController {
         
 
     }
+    @FXML
+    void goUsers(ActionEvent event) {
+        MyTools.goTo("/feriel/DisplayUsers.fxml",btn_users);
+
+    }
 
     @FXML
     void testimBtn(ActionEvent event) {
@@ -240,6 +247,11 @@ public class DisplayUsersController {
 
 
     }
+    @FXML
+    void goStats(ActionEvent event) {
+
+    }
+
 
 
 
@@ -266,17 +278,6 @@ public class DisplayUsersController {
 
     }
 
-//    void goTo(String file){
-//
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
-//            Parent root= loader.load();
-//            btn_users.getScene().setRoot(root);
-//        } catch (IOException e) {
-//            System.out.println("error"+e.getMessage());
-//        }
-//
-//    }
 
 
 

@@ -5,32 +5,66 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ca77840-0faa-409c-8c20-6f70faecd38c" name="Changes" comment="-add all files">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/abondantCourses.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/groceries-5216715_640.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ResetPwdController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/Vegetables Terry Wild Stock.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/bingGen1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/thumbnail_image(1).png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/fatma/addeventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/fatma/addeventController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/AddNewuserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/AddNewuserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/AddTestimonyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/AddTestimonyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/DisplayTestimonyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/DisplayTestimonyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/DisplayUsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/DisplayUsersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ForgottenPwdController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ForgottenPwdController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/LogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ModifTestimonyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ModifTestimonyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ModifUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ModifUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ParticipDashController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ParticipDashController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ParticipViewTestimController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ParticipViewTestimController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ResetPwd.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/feriel/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/feriel/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/toolkit/MyEmailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/toolkit/MyEmailSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/feriel/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/feriel/MainFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/toolkit/MyTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/toolkit/MyTools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/AddNewuser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/AddNewuser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/AddTestimony.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/AddTestimony.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/DisplayTestimonies.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/DisplayTestimonies.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/DisplayUsers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/DisplayUsers.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/ForgottenPwd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ForgottenPwd.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/LogIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/dose-juice-sTPy-oeA3h0-unsplash(1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AddNewuser.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AddTestimony.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AdminDash.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DisplayTestimonies.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DisplayUsers.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ForgottenPwd.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/LogIn.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ModifTestimony.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ModifUser.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ParticipDash.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ParticipViewTestim.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ResetPwd.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/ParticipDash.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ParticipDash.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/ParticipViewTestim.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ParticipViewTestim.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/ResetPwd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ResetPwd.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/style/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/style/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/abondantCourses.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/style/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/fatma/addeventController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/fatma/addeventController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/AddNewuserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/AddNewuserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/AddTestimonyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/AddTestimonyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/DisplayTestimonyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/DisplayTestimonyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/DisplayUsersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/DisplayUsersController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/ForgottenPwdController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/ForgottenPwdController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/LogInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/ModifTestimonyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/ModifTestimonyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/ModifUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/ModifUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/ParticipDashController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/ParticipDashController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/ParticipViewTestimController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/ParticipViewTestimController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/ResetPwd.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/feriel/AddNewuser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/feriel/AddNewuser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/feriel/AddTestimony.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/feriel/AddTestimony.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/feriel/DisplayTestimonies.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/feriel/DisplayTestimonies.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/feriel/DisplayUsers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/feriel/DisplayUsers.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/feriel/ForgottenPwd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/feriel/ForgottenPwd.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/feriel/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/feriel/LogIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/feriel/ParticipDash.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/feriel/ParticipDash.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/feriel/ParticipViewTestim.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/feriel/ParticipViewTestim.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/feriel/ResetPwd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/feriel/ResetPwd.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/feriel/style/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/feriel/style/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/feriel/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/feriel/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/feriel/MainFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/feriel/MainFX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolkit/MyTools.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/toolkit/MyTools.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +222,7 @@
       <workItem from="1708897619533" duration="730000" />
       <workItem from="1709285300810" duration="11971000" />
       <workItem from="1709317935328" duration="1220000" />
-      <workItem from="1709353845196" duration="17189000" />
+      <workItem from="1709353845196" duration="33294000" />
     </task>
     <task id="LOCAL-00001" summary="-add all files">
       <option name="closed" value="true" />

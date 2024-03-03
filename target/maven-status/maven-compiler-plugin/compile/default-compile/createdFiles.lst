@@ -1,4 +1,5 @@
 models/Notification.class
+controllers/Controller.class
 controllers/siwar/designationController.class
 services/siwar/PService.class
 toolkit/MyEmailSender$1.class
@@ -8,6 +9,7 @@ toolkit/MyEmailSender.class
 services/siwar/IService.class
 services/fatma/IService.class
 test/feriel/Main.class
+controllers/feriel/ResetPwdController.class
 controllers/feriel/AddTestimonyController.class
 models/siwar/User.class
 controllers/feriel/AddNewuserController.class
@@ -16,7 +18,6 @@ services/siwar/EmailService.class
 controllers/fatma/data.class
 controllers/feriel/DisplayUsersController.class
 controllers/feriel/ForgottenPwdController.class
-controllers/feriel/ResetPwd.class
 services/fatma/IServiceP.class
 controllers/siwar/UpdateCategoryController.class
 controllers/siwar/UpdateDonationController.class

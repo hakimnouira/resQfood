@@ -1,6 +1,8 @@
 package controllers.feriel;
 
+import controllers.Controller;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import org.jetbrains.annotations.NotNull;
 import toolkit.MyAnimation;
 import javafx.event.ActionEvent;
@@ -16,7 +18,7 @@ import toolkit.MyTools;
 import java.sql.SQLException;
 import java.util.List;
 
-public class AddNewuserController {
+public class AddNewuserController extends Controller {
 
     User user= new User();
     UserService us= new UserService();
@@ -74,6 +76,8 @@ public class AddNewuserController {
 
     @FXML
     private TextField pwdtf;
+    @FXML
+    private Label mailTaken;
 
 
 
@@ -101,15 +105,15 @@ public class AddNewuserController {
 
         MyTools.goTo("/feriel/DisplayUsers.fxml",fnametf);
 
-        //TODO: fix it so that admin can go back to his dash and user who just created acc goes to login
-
 
     }
 
     @FXML
     void signupBt(ActionEvent event) {
         System.out.println("in start signupBt ");
-        resetMailIndicator();
+        //resetMailIndicator();
+        emailAvailable=0;
+
 
         if (fnametf.getText().isEmpty() || !fnametf.getText().matches("^[a-zA-Z]+$")) {
             showInputIncorect(fnametf);
@@ -126,9 +130,10 @@ public class AddNewuserController {
             showInputIncorect(mailtf);
             return;
         }
-        if (mailIsUnique(mailtf.getText()) == 1) {
-            //TODO/ PUT LEABEL TO SET TO EMAIL ALREADY USED
+        if (mailIsUnique(mailtf.getText(),us,emailAvailable) == 1) {
+            //TODO/ PUT it in modif user
             showInputIncorect(mailtf);
+            mailTaken.setText("email already exists");
             return;
         }
         if (pwdtf.getText().isEmpty()){
@@ -157,7 +162,8 @@ public class AddNewuserController {
         user.setPhone(Integer.parseInt(phonetf.getText()));
         user.setArea(areacombobox.getSelectionModel().getSelectedItem());
         user.setRole(roleCombo.getSelectionModel().getSelectedItem());
-        resetMailIndicator();
+        //resetMailIndicator();
+        emailAvailable=0;
 
 
         try {
@@ -165,6 +171,7 @@ public class AddNewuserController {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
             alert.setContentText("User added successfully");
+            mailTaken.setText("");
             alert.showAndWait();
         }catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -174,7 +181,7 @@ public class AddNewuserController {
 
     }
 
-    private void showInputIncorect(Node n) {
+    public static void showInputIncorect(Node n) {
         n.requestFocus();
         MyAnimation.shake(n);
     }
@@ -189,34 +196,35 @@ public class AddNewuserController {
         return roleCombo.getSelectionModel().getSelectedItem();
     }
 
+
+    
+
     /**
      *
-     * @param mail : (String) mail
-     * @return : (int) 0 if its available or one if its not
+     * @param mail: (String)
+     * @param us : (UserService)
+     * @param indicator: (int)
+     * @return : (int) 0 if its available or one if it's not
      */
-    public int mailIsUnique(String mail){
+    public static int mailIsUnique(String mail,UserService us, int indicator){
 
         try {
-
-            allUsers=us.read();
+            List<User> allUsers=us.read();
             System.out.println("called mailIsUnique after read");
             for (int i = 0; i < allUsers.size(); i++) {
                 if (allUsers.get(i).getEmail().equals(mail)){
-                    System.out.println("mailIsUnique in if");
-                    emailAvailable= 1;
+                    indicator= 1;
                     return 1;
-
                 }
             }
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
-
         }
-        System.out.println("this is emailAvailable :"+emailAvailable);
+        System.out.println("this is emailAvailable :"+indicator);
         return 0;
     }
+
 
     void resetMailIndicator(){
         emailAvailable=0;

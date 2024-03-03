@@ -1,5 +1,6 @@
 package controllers.feriel;
 
+import controllers.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import models.feriel.Testimony;
 import services.feriel.TestimonyService;
+import toolkit.MyTools;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -22,7 +24,7 @@ import java.util.List;
  *
  */
 
-public class DisplayTestimonyController {
+public class DisplayTestimonyController extends Controller {
     TestimonyService ts= new TestimonyService();
 
     @FXML
@@ -62,8 +64,8 @@ public class DisplayTestimonyController {
     @FXML
     private TableColumn<Testimony, String> statusv;
 
-    @FXML
-    private ComboBox<String> filtrerSearchcombobox;
+   // @FXML
+   // private ComboBox<String> filtrerSearchcombobox=new ComboBox<>();
     private final String[] filter= {"By first or last name","By id","By email","By role", "By area"};
 
     private ObservableList<Testimony> observableList;
@@ -77,7 +79,7 @@ public class DisplayTestimonyController {
     @FXML
     void initialize() {
 
-        filtrerSearchcombobox.getItems().addAll(filter);
+      //  filtrerSearchcombobox.getItems().addAll(filter);
 
         try {
             testimonyList = ts.read();
@@ -157,6 +159,7 @@ public class DisplayTestimonyController {
 
         }
         observableList = FXCollections.observableList(testimonyList);
+        reloadTestimony(event);
 
     }
 
@@ -166,14 +169,14 @@ public class DisplayTestimonyController {
      */
     @FXML
     void reloadTestimony(ActionEvent event) {
-        goTo("/feriel/DisplayTestimonies.fxml");
+       MyTools.goTo("/feriel/DisplayTestimonies.fxml",addtestbt);
 
     }
 
 
     @FXML
     void logoutDash(ActionEvent event) {
-        goTo("/feriel/LogIn.fxml");
+        MyTools.goTo("/feriel/LogIn.fxml",addtestbt);
 
     }
 
@@ -182,7 +185,7 @@ public class DisplayTestimonyController {
      */
     @FXML
     void usersBt(ActionEvent event) {
-        goTo("/feriel/DisplayUsers.fxml");
+        MyTools.goTo("/feriel/DisplayUsers.fxml",addtestbt);
 
     }
 
@@ -191,10 +194,8 @@ public class DisplayTestimonyController {
 
     }
 
-    @FXML
-    void searchFor(ActionEvent event) {
 
-    }
+
 
 
     @FXML

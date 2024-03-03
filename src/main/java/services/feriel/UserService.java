@@ -92,9 +92,11 @@ public class UserService implements IService<User>{
         return people;
     }
 
-    public void setLoggedInUser(User user){
+   /* public void setLoggedInUser(User user){
         loggedIn= user;
     }
+
+    */
 
     public User userByMail(String mail){
         User user1;
@@ -123,14 +125,39 @@ public class UserService implements IService<User>{
         //TODO FAUT QUE MAIL SOIT UNIQ
     }
 
+    /**
+     *
+     * @param email (String)
+     * @param newPassword (String) new Password after resetting
+     * @throws SQLException pb w sql
+     */
+    public void updatePassword(String email, String newPassword) throws SQLException {
+        String sql = "UPDATE user SET pwd=? WHERE email=?";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, newPassword);
+            ps.setString(2, email);
 
-
-
-
-
-
-
-
-
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected == 0) {
+                // No user found with the provided email
+                throw new SQLException("User with email " + email + " not found.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error updating password: " + e.getMessage());
+            throw e;
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+}
 

@@ -1,5 +1,6 @@
 package controllers.feriel;
 
+import controllers.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,6 +18,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import models.feriel.User;
 import services.feriel.UserService;
+import toolkit.MyTools;
 import toolkit.PDFGenerator;
 
 import java.io.IOException;
@@ -24,7 +26,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParticipDashController {
+public class ParticipDashController extends Controller {
 
     List<User> usersList= new ArrayList<>();
     User currUser= new User();
@@ -193,8 +195,13 @@ public class ParticipDashController {
     }
 
     @FXML
+    void donationBt(ActionEvent event) {
+
+    }
+
+    @FXML
     void logoutDash(ActionEvent event) {
-        goTo("/feriel/LogIn.fxml",deluserbt);
+        MyTools.goTo("/feriel/LogIn.fxml",deluserbt);
     }
 
 
@@ -204,17 +211,7 @@ public class ParticipDashController {
 
     }
 
-    void goTo(String file, Node node){
 
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
-            Parent root= loader.load();
-            node.getScene().setRoot(root);
-        } catch (IOException e) {
-            System.out.println("error"+e.getMessage());
-        }
-
-    }
 
 
 

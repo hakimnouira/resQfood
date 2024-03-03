@@ -43,15 +43,16 @@
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/services/siwar/UService.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/models/siwar/Donation.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/controllers/fatma/ShowUsersController.java
-/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/controllers/feriel/ResetPwd.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/utils/SiwarDatabase.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/controllers/siwar/PDFGenerator.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/controllers/fatma/ShowpController.java
+/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/controllers/Controller.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/controllers/feriel/AddNewuserController.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/controllers/feriel/ParticipViewTestimController.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/controllers/siwar/designationController.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/services/fatma/ParticipationService.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/services/fatma/IService.java
+/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/controllers/feriel/ResetPwdController.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/controllers/feriel/DisplayUsersController.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/services/siwar/NotificationService.java
 /Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/java/test/feriel/MainFX.java

@@ -61,7 +61,8 @@ public class addeventController {
     private Image image ;
     public void Importbtn(){
         FileChooser openFile = new FileChooser();
-        openFile.getExtensionFilters().add(new ExtensionFilter("Open Image File", "*png", "*jpg"));
+        openFile.getExtensionFilters().add(new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+        //        openFile.getExtensionFilters().add(new ExtensionFilter("Open Image File","*png",  "*jpg"));
         File file = openFile.showOpenDialog(main.getScene().getWindow());
         if (file != null) {
 

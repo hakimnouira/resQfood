@@ -1,5 +1,6 @@
 package controllers.feriel;
 
+import controllers.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,7 +30,7 @@ import java.util.stream.Collectors;
  *
  */
 
-public class ParticipViewTestimController {
+public class ParticipViewTestimController extends Controller {
     Testimony tt= new Testimony();
     TestimonyService ts= new TestimonyService();
     User currUser= new User();

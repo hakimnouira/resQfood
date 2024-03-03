@@ -1,5 +1,6 @@
 package controllers.feriel;
 
+import controllers.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +15,7 @@ import toolkit.MyAnimation;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class AddTestimonyController {
+public class AddTestimonyController extends Controller {
     Testimony t= new Testimony();
     TestimonyService ts= new TestimonyService();
     User currUser= new User();

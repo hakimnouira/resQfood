@@ -1,5 +1,6 @@
 package controllers.feriel;
 
+import controllers.Controller;
 import toolkit.MyAnimation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +15,10 @@ import services.feriel.UserService;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class ModifUserController {
+import static controllers.feriel.AddNewuserController.mailIsUnique;
+import static controllers.feriel.AddNewuserController.showInputIncorect;
+
+public class ModifUserController extends Controller {
     User user= new User();
 
     UserService us= new UserService();
@@ -67,6 +71,7 @@ public class ModifUserController {
     private ComboBox<String> rolecbox;
 
     String caller= "";
+    int emailAvailable=0;
 
 
 
@@ -182,6 +187,15 @@ public class ModifUserController {
             MyAnimation.shake(mailtf_modif);
             return;
         }
+
+       if ( mailIsUnique(mailtf_modif.getText(),us,emailAvailable) == 1) {
+//            //TODO/ PUT it in modif user FXML >  mailTaken.setText("email already exists");
+           showInputIncorect(mailtf_modif);
+//            mailTaken.setText("email already exists");
+           return;
+
+       }
+
         if (pwdtf_modif.getText().isEmpty()  ) {
             pwdtf_modif.requestFocus();
             MyAnimation.shake(pwdtf_modif);
@@ -211,6 +225,8 @@ public class ModifUserController {
         user.setArea(areacombobox_modif.getSelectionModel().getSelectedItem());
         user.setRole(rolecbox.getSelectionModel().getSelectedItem());
 
+
+        emailAvailable=0;
 
         try {
             us.update(user);
