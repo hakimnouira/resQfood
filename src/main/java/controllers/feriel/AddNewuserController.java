@@ -145,8 +145,6 @@ public class AddNewuserController extends Controller {
             return;
         }
         if (areacombobox.getSelectionModel().getSelectedItem() == null || areacombobox.getSelectionModel().getSelectedItem().equals("Area")) {
-//            areacombobox.requestFocus();
-//            MyAnimation.shake(areacombobox);
             showInputIncorect(areacombobox);
             return;
         }
@@ -168,11 +166,10 @@ public class AddNewuserController extends Controller {
 
         try {
             us.create(user);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setContentText("User added successfully");
-            mailTaken.setText("");
-            alert.showAndWait();
+            MyTools.showAlertInfo("Success","User added successfully");
+            mailTaken.setText("");//TODO CAREFUL HERE TEST IT
+            canceladd(event);
+
         }catch (SQLException e) {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
@@ -197,7 +194,7 @@ public class AddNewuserController extends Controller {
     }
 
 
-    
+
 
     /**
      *
@@ -226,7 +223,5 @@ public class AddNewuserController extends Controller {
     }
 
 
-    void resetMailIndicator(){
-        emailAvailable=0;
-    }
+
 }

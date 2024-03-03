@@ -35,6 +35,12 @@ public class ForgottenPwdController extends Controller {
     User currUser;
     int OTP ;
 
+
+    @FXML
+    void cancel(ActionEvent event) {
+        MyTools.goTo("/feriel/LogIn.fxml",mailTf);
+    }
+
     @FXML
     void resetPassword(ActionEvent event) {
 

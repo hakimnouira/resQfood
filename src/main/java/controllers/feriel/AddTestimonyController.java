@@ -11,9 +11,13 @@ import models.feriel.Testimony;
 import models.feriel.User;
 import services.feriel.TestimonyService;
 import toolkit.MyAnimation;
+import toolkit.MyTools;
 
 import java.io.IOException;
 import java.sql.SQLException;
+
+import static controllers.feriel.AddNewuserController.showInputIncorect;
+import static toolkit.MyTools.showAlertInfo;
 
 public class AddTestimonyController extends Controller {
     Testimony t= new Testimony();
@@ -32,7 +36,6 @@ public class AddTestimonyController extends Controller {
      * @param user (User): cuurent user
      */
     public void initData(User user){
-       // assert user !=null;
         currUser = user;
     }
 
@@ -41,15 +44,11 @@ public class AddTestimonyController extends Controller {
         //TODO: ds displayTest d'admin rajouter bouton pour accepter les testim
 
         if (titleFl.getText().isEmpty() || !titleFl.getText().matches("^[a-zA-Z]+$")) {
-            titleFl.requestFocus();
-            MyAnimation.shake(titleFl);
-
+            showInputIncorect(titleFl);
             return;
         }
         if (txtFl.getText().isEmpty()) {
-            txtFl.requestFocus();
-            MyAnimation.shake(txtFl);
-
+            showInputIncorect(txtFl);
             return;
         }
 
@@ -67,18 +66,13 @@ public class AddTestimonyController extends Controller {
 
         try {
             ts.create(t);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setContentText("User added successfully");
-            alert.showAndWait();
+            showAlertInfo("Success","User added successfully");
+            cancelbt(event);
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
-
         }
-
-
-
     }
 
     /**

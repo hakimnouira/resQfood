@@ -11,9 +11,12 @@ import models.feriel.Testimony;
 import models.feriel.User;
 import services.feriel.TestimonyService;
 import toolkit.MyAnimation;
+import toolkit.MyTools;
 
 import java.io.IOException;
 import java.sql.SQLException;
+
+import static controllers.feriel.AddNewuserController.showInputIncorect;
 
 public class ModifTestimonyController extends Controller {
 
@@ -67,15 +70,11 @@ public class ModifTestimonyController extends Controller {
     @FXML
     void modifTestimonyBt(ActionEvent event) {
         if (titleFl.getText().isEmpty() || !titleFl.getText().matches("^[a-zA-Z]+$")) {
-            titleFl.requestFocus();
-            MyAnimation.shake(titleFl);
-
+            showInputIncorect(titleFl);
             return;
         }
         if (txtFl.getText().isEmpty()) {
-            txtFl.requestFocus();
-            MyAnimation.shake(txtFl);
-
+            showInputIncorect(txtFl);
             return;
         }
 
@@ -92,12 +91,10 @@ public class ModifTestimonyController extends Controller {
 
         try{
             ts.update(t);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setContentText("User added successfully");
-            alert.showAndWait();
+            MyTools.showAlertInfo("Success","User added successfully");
+            cancelbt(event);
         } catch (SQLException e) {
-            System.out.println("l 182 modiftestimcontr"+e.getMessage());
+           // System.out.println("l 182 modiftestimcontr"+e.getMessage());
             throw new RuntimeException(e);
 
         }

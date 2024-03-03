@@ -30,5 +30,6 @@
          </image>
       </ImageView>
       <Pane opacity="0.32" prefHeight="85.0" prefWidth="484.0" style="-fx-background-color: #F6D2DC;" />
+      <Button layoutX="316.0" layoutY="282.0" mnemonicParsing="false" onAction="#cancel" prefHeight="33.0" prefWidth="107.0" style="-fx-border-radius: 50px; -fx-background-radius: 20px;" text="Cancel" />
    </children>
 </AnchorPane>

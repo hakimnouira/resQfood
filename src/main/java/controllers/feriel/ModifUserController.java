@@ -11,6 +11,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import models.feriel.User;
 import services.feriel.UserService;
+import toolkit.MyTools;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -169,22 +170,20 @@ public class ModifUserController extends Controller {
     void modifybt(ActionEvent event) {
 
         if (fnametf_modif.getText().isEmpty() || ! (fnametf_modif.getText().matches("^[a-zA-Z]+$"))) {
-            fnametf_modif.requestFocus();
-            MyAnimation.shake(fnametf_modif);
+            showInputIncorect(fnametf_modif);
 
             return;
         }
 
         if (lnametf_modif.getText().isEmpty()|| ! lnametf_modif.getText().matches("^[a-zA-Z]+$")) {
-            lnametf_modif.requestFocus();
-            MyAnimation.shake(lnametf_modif);
+            showInputIncorect(lnametf_modif);
+
 
             return;
         }
         //"^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"
         if (mailtf_modif.getText().isEmpty() || !mailtf_modif.getText().matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$") ) {
-            mailtf_modif.requestFocus();
-            MyAnimation.shake(mailtf_modif);
+            showInputIncorect(mailtf_modif);
             return;
         }
 
@@ -197,23 +196,22 @@ public class ModifUserController extends Controller {
        }
 
         if (pwdtf_modif.getText().isEmpty()  ) {
-            pwdtf_modif.requestFocus();
-            MyAnimation.shake(pwdtf_modif);
+            showInputIncorect(pwdtf_modif);
             return;
 
         }if (phonetf_modif.getText().isEmpty() || phonetf_modif.getText().length() > 9 || !phonetf_modif.getText().matches("[0-9]+")){
-            phonetf_modif.requestFocus();
-            MyAnimation.shake(phonetf_modif);
+            showInputIncorect(phonetf_modif);
+
             return;
         }
         if (areacombobox_modif.getSelectionModel().getSelectedItem() == null || areacombobox_modif.getSelectionModel().getSelectedItem().equals("Area")) {
-            areacombobox_modif.requestFocus();
-            MyAnimation.shake(areacombobox_modif);
+            showInputIncorect(areacombobox_modif);
+
             return;
         }
         if (rolecbox.getSelectionModel().getSelectedItem() == null || rolecbox.getSelectionModel().getSelectedItem().equals("Role")) {
-            rolecbox.requestFocus();
-            MyAnimation.shake(rolecbox);
+            showInputIncorect(rolecbox);
+
             return;
         }
 
@@ -230,10 +228,8 @@ public class ModifUserController extends Controller {
 
         try {
             us.update(user);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setContentText("User modified successfully");
-            alert.showAndWait();
+            MyTools.showAlertInfo("Success","User added successfully");
+            cancel(event);
         } catch (SQLException e) {
             System.out.println("l 182 modifusrcontr"+e.getMessage());
             throw new RuntimeException(e);
