@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="337.0" prefWidth="542.0" stylesheets="@donationadddesign.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.siwar.AddDonationController">
+<AnchorPane prefHeight="345.0" prefWidth="706.0" stylesheets="@donationadddesign.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.siwar.AddDonationController">
 
    <children>
       <ComboBox fx:id="comb" layoutX="169.0" layoutY="110.0" onAction="#Select" prefHeight="26.0" prefWidth="231.0" promptText="Select your chosen category" />
@@ -29,9 +29,9 @@
       <TextField fx:id="moneyamountid" layoutX="260.0" layoutY="194.0" prefHeight="26.0" prefWidth="110.0" visible="false" />
       <TextField fx:id="namefoodid" layoutX="260.0" layoutY="159.0" prefHeight="26.0" prefWidth="150.0" visible="false" />
       <TextField fx:id="quantityfoodid" layoutX="260.0" layoutY="232.0" visible="false" />
-      <AnchorPane prefHeight="72.0" prefWidth="552.0" style="-fx-background-color: #083A39;">
+      <AnchorPane prefHeight="72.0" prefWidth="735.0" style="-fx-background-color: #083A39;">
          <children>
-            <Text fill="WHITE" layoutX="249.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello Donor" wrappingWidth="200.0">
+            <Text fill="WHITE" layoutX="322.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello Donor" wrappingWidth="200.0">
                <font>
                   <Font name="Tahoma Bold" size="15.0" />
                </font>
@@ -41,17 +41,17 @@
                   <Image url="@Imagesdesignf/don.png" />
                </image>
             </ImageView>
-            <Button layoutX="138.0" layoutY="34.0" mnemonicParsing="false" onAction="#showChatGPTWindow" text="If you don't know which category to choose, click me" />
+            <Button layoutX="217.0" layoutY="41.0" mnemonicParsing="false" onAction="#showChatGPTWindow" prefHeight="26.0" prefWidth="384.0" text="What's the difference between category food and raw materials?" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="301.0" prefHeight="26.0" prefWidth="554.0" style="-fx-background-color: #083A39;">
+      <AnchorPane layoutY="301.0" prefHeight="42.0" prefWidth="735.0" style="-fx-background-color: #083A39;">
          <children>
             <Text fill="WHITE" layoutX="195.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Banking Application" wrappingWidth="200.0">
                <font>
                   <Font name="Tahoma Bold" size="15.0" />
                </font>
             </Text>
-            <Button fx:id="Backb" layoutX="517.0" layoutY="1.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="34.0" prefWidth="35.0">
+            <Button fx:id="Backb" layoutX="660.0" layoutY="5.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="34.0" prefWidth="35.0">
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>

@@ -1,4 +1,5 @@
 controllers\fatma\eventCardController.class
+models\hakim\Bans.class
 controllers\feriel\AdminDashController.class
 objects\Post.class
 controllers\feriel\ParticipDashController.class
@@ -24,6 +25,7 @@ test\feriel\MainFX.class
 services\hakim\IService.class
 models\siwar\User.class
 services\siwar\EmailService$1.class
+services\hakim\banService.class
 services\siwar\DonationService.class
 toolkit\MyEmailSender.class
 controllers\siwar\AddDonationController.class
@@ -76,6 +78,7 @@ services\ali\IService.class
 controllers\feriel\ParticipViewTestimController.class
 controllers\feriel\LogInController.class
 controllers\hakim\AddUser.class
+utils\ChatGPTController.class
 services\fatma\IService.class
 services\ali\BasketService.class
 services\siwar\CategoryService.class
@@ -89,7 +92,6 @@ services\ali\LineService.class
 controllers\fatma\CalendarController.class
 controllers\feriel\DisplayUsersController.class
 toolkit\MyEmailSender$1.class
-controllers\siwar\ChatGPTClient.class
 controllers\fatma\ShowpController.class
 services\ali\NotificationService.class
 services\siwar\SMSService.class

@@ -256,8 +256,7 @@ public class DisplayUsersController extends Controller {
     }
     @FXML
     void goStats(ActionEvent event) {
-        UserService.loggedIn=null;
-        MyTools.goTo("/feriel/LogIn.fxml",btn_users);
+        MyTools.goTo("/feriel/StatsFeriel.fxml",btn_users);
 
     }
 

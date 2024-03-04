@@ -1,4 +1,5 @@
 package controllers.siwar;
+import controllers.hakim.AddUser;
 import javafx.scene.chart.PieChart;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,6 +27,8 @@ import services.siwar.SMSService;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.*;
+
+import static services.feriel.UserService.loggedIn;
 
 public class DashboardController {
 
@@ -87,6 +90,10 @@ public class DashboardController {
     private PieChart categoryPieChart;
     @FXML
     private BarChart<String, Number> categoryChart;
+    @FXML
+    private AnchorPane Hakimbtn;
+
+
     private ObservableList<Donation> originalDonations;
     private CategoryService categoryService;
     private DonationService donationService;
@@ -245,7 +252,7 @@ public class DashboardController {
     private void sendSMS(String message) {
         try {
             // Create an instance of SMSService
-            SMSService smsService = new SMSService("ACc207e59b220efa71db01db8b4e6a7ac0", "cdf14e1f760fcd9077abd8ee74a0ef6d", "+15186013093");
+            SMSService smsService = new SMSService("ACc207e59b220efa71db01db8b4e6a7ac0", "0b8c3f40eb9891a634055f1b6b83d205", "+15186013093");
 
             // Initialize Twilio client
             smsService.initializeTwilio();
@@ -532,9 +539,49 @@ public class DashboardController {
     }
 
     public void EventBtn(ActionEvent actionEvent) {
+        try {
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fatma/Showevent.fxml"));
+            Parent root = loader.load();
+
+            // Create the scene
+            Scene scene = new Scene(root);
+
+            // Get the stage from the action event
+            Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+
+            // Set the scene on the stage
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the IOException here
+        }
     }
 
     public void ForumBtn(ActionEvent actionEvent) {
+        try {
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/hakim/addUser.fxml"));
+            Parent root = loader.load();
+            AddUser a=loader.getController();
+            if (loggedIn!=null) {
+                a.userid = loggedIn.getId();
+            }else {
+                a.userid =46;
+                System.out.println("defaut is Feriel");
+            }
+            // Create the scene
+            Scene scene = new Scene(root);
+           // Hakimbtn.getChildren().add(scene);
+            // Get the stage from the action event
+            Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+         //  Hakimbtn.getChildren().add(root);
+            // Set the scene on the stage
+          stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the IOException here
+        }
     }
 
     @FXML
@@ -567,6 +614,69 @@ public class DashboardController {
             e.printStackTrace();
             showAlert("Error", "Failed to load Favorites interface: " + e.getMessage());
         }
+    }
+
+    public void stockbtn(ActionEvent actionEvent) {
+        try {
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ali/showProduct.fxml"));
+            Parent root = loader.load();
+
+            // Create the scene
+            Scene scene = new Scene(root);
+
+            // Get the stage from the action event
+            Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+
+            // Set the scene on the stage
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the IOException here
+        }
+
+    }
+
+    public void Testimoniesbtn(ActionEvent actionEvent) {
+        try {
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/DisplayTestimonies.fxml"));
+            Parent root = loader.load();
+
+            // Create the scene
+            Scene scene = new Scene(root);
+
+            // Get the stage from the action event
+            Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+
+            // Set the scene on the stage
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the IOException here
+        }
+
+    }
+
+    public void usersbtn(ActionEvent actionEvent) {
+        try {
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/DisplayUsers.fxml"));
+            Parent root = loader.load();
+
+            // Create the scene
+            Scene scene = new Scene(root);
+
+            // Get the stage from the action event
+            Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+
+            // Set the scene on the stage
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the IOException here
+        }
+
     }
 
     /*@FXML
@@ -631,6 +741,7 @@ public class DashboardController {
         }
     }
 */
+
 
 
 

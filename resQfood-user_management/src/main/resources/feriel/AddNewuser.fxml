@@ -58,8 +58,8 @@
                   <Font name="Avenir Roman" size="13.0" />
                </font>
             </Label>
-            <Button layoutX="216.0" layoutY="498.0" mnemonicParsing="false" onAction="#signupBt" text="Confirm" />
-            <Button layoutX="296.0" layoutY="498.0" mnemonicParsing="false" onAction="#canceladd" text="Cancel" />
+            <Button layoutX="216.0" layoutY="475.0" mnemonicParsing="false" onAction="#signupBt" text="Confirm" />
+            <Button layoutX="296.0" layoutY="475.0" mnemonicParsing="false" onAction="#canceladd" text="Cancel" />
             <Pane blendMode="LIGHTEN" layoutX="-5.0" layoutY="-7.0" prefHeight="110.0" prefWidth="550.0" style="-fx-background-color: pink;" />
             <ComboBox fx:id="roleCombo" layoutX="206.0" layoutY="423.0" onAction="#getRolecb" prefWidth="150.0" promptText="Role" />
             <Label fx:id="mailTaken" layoutX="390.0" layoutY="231.0" />

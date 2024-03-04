@@ -17,12 +17,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import models.hakim.Bans;
 import models.hakim.Comment;
 import models.hakim.Post;
 //import org.json.JSONObject;
 import org.json.JSONObject;
 import services.hakim.CommentService;
 import services.hakim.PostService;
+import services.hakim.banService;
 
 import java.awt.*;
 import java.io.IOException;
@@ -47,7 +49,7 @@ ChoiceBox<String> lan =new ChoiceBox<>();
     @FXML
     private BorderPane mainBorderPane;
     public VBox wiow;
-   public int userid=5;
+   public int userid;
 
     private final CommentService Cs =new CommentService();
 
@@ -410,7 +412,7 @@ vbox.getChildren().remove(b);
             );
             try {
                 comment_read(comment ,id, root,vbox);
-            } catch (IOException e) {
+            } catch (IOException | SQLException e) {
                 throw new RuntimeException(e);
             }
 
@@ -435,7 +437,7 @@ vbox.getChildren().remove(b);
 
 
 
-    public void comment_read(Label comment ,Post id,Parent root ,VBox vbox) throws IOException {
+    public void comment_read(Label comment ,Post id,Parent root ,VBox vbox) throws IOException, SQLException {
         System.out.println("comment pressed!");
 
 
@@ -673,6 +675,8 @@ VBox vbox=p.get_comment_section();
                 try {
                     comment_read(comment ,id, root,vbox);
                 } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
 

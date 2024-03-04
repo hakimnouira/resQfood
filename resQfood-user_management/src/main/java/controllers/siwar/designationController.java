@@ -1,5 +1,6 @@
 package controllers.siwar;
 
+import controllers.ali.AddLine;
 import controllers.ali.ShowProduct;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,9 +27,11 @@ public class designationController {
             // Load the AddDonation.fxml file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/siwar/AddDonation.fxml"));
             Parent root = loader.load();
-
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 730, 343)); // Set width and height according to the preferred dimensions in the FXML
+            stage.show();
             // Get the stage from the action event
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+           // Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
 
             // Set the new scene on the stage
             Scene scene = new Scene(root);
@@ -82,11 +85,11 @@ public class designationController {
     public void StockBtnClick(ActionEvent actionEvent) {
         try {
             // Load the FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ali/showProduct.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ali/addLine.fxml"));
             Parent root = loader.load();
 
             // Get the controller associated with the FXML file
-            ShowProduct showProductController = loader.getController();
+            AddLine showProductController = loader.getController();
 
             // Optionally, pass any data to the controller before showing the scene
 
@@ -123,6 +126,42 @@ public class designationController {
             stage.show();
         } catch (IOException e) {
             e.printStackTrace(); // Handle the exception appropriately
+        }
+    }
+
+    public void TestimoniesBtnClick(ActionEvent actionEvent) {
+        try {
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/ParticipViewTestim.fxml"));
+            Parent root = loader.load();
+
+            // Get the stage from the ActionEvent
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+            // Set the new scene
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void UsersBtnClick(ActionEvent actionEvent) {
+        try {
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/ParticipDash.fxml"));
+            Parent root = loader.load();
+
+            // Get the stage from the ActionEvent
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+            // Set the new scene
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

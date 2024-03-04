@@ -12,7 +12,7 @@ import models.ali.Product;
 import services.ali.BasketService;
 import services.ali.LineService;
 import services.ali.ProductService;
-
+import services.ali.SmsSender;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -169,10 +169,16 @@ public class AddLine {
         // Refresh the TableView
         loadLinesIntoTable(selectedUserId);
 
+        // Check if the updated product quantity is below 50 and send an SMS notification
+        if (selectedProduct.getQuantity() < 50) {
+            String phoneNumber = "+21694856009";  // Replace with the actual phone number
+            String message = "Product " + selectedProduct.getProductName() + " quantity is below 50!";
+            SmsSender.sendSms(phoneNumber, message);
+        }
+
         // Optionally, you can display a success message or update the UI
         System.out.println("Line added to the basket successfully. Product quantity updated.");
     }
-
 
     @FXML
     void rowClick(MouseEvent mouseEvent) {

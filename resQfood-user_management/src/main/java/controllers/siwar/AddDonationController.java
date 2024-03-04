@@ -4,9 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import controllers.siwar.ChatGPTClient;
 //import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -16,8 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.siwar.Category;
 import models.siwar.Donation;
@@ -34,6 +29,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javax.mail.*;
 import javafx.scene.control.Alert;
+import utils.ChatGPTController;
 
 
 public class AddDonationController implements Initializable  {
@@ -300,9 +296,12 @@ public class AddDonationController implements Initializable  {
             // Load ShowDonation.fxml
             FXMLLoader showDonationLoader = new FXMLLoader(getClass().getResource("/siwar/ShowDonation.fxml"));
             Parent showDonationRoot = showDonationLoader.load();
+            double preferredWidth = 873.0; // Adjust this value according to your FXML
+            double preferredHeight = 585.0; // Adjust this value according to your FXML
+            Scene scene = new Scene(showDonationRoot, preferredWidth, preferredHeight);
             ShowDonationController showDonationController = showDonationLoader.getController();
             showDonationController.initialize(1); // Assuming udonor_id is 1
-            Scene scene = new Scene(showDonationRoot);
+            //Scene scene = new Scene(showDonationRoot);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
@@ -425,40 +424,14 @@ public class AddDonationController implements Initializable  {
     }*/
 
 
+
+
     @FXML
     void showChatGPTWindow(ActionEvent event) {
-        // Create UI components
-        TextArea userInputArea = new TextArea();
-        userInputArea.setPromptText("Type your message here...");
-        TextArea chatDisplayArea = new TextArea();
-        chatDisplayArea.setEditable(false);
-        Button closeButton = new Button("Close");
-
-        // Set event handler for close button
-        closeButton.setOnAction(e -> {
-            Stage stage = (Stage) closeButton.getScene().getWindow();
-            stage.close(); // Close the window
-        });
-
-        // Set event handler for user input using Enter key
-        userInputArea.setOnKeyPressed(keyEvent -> {
-            if (keyEvent.getCode() == KeyCode.ENTER) {
-                String message = userInputArea.getText().trim();
-                String response = ChatGPTClient.chatgpt(message); // Get response from ChatGPT
-                chatDisplayArea.appendText("You: " + message + "\n");
-                chatDisplayArea.appendText("ChatGPT: " + response + "\n");
-                userInputArea.clear(); // Clear user input
-                keyEvent.consume(); // Consume the event to prevent further handling
-            }
-        });
-
-        // Create layout and stage
-        VBox vbox = new VBox(userInputArea, chatDisplayArea, closeButton);
-        Stage chatStage = new Stage();
-        chatStage.setScene(new Scene(vbox, 400, 300));
-        chatStage.setTitle("Chat with ChatGPT");
-        chatStage.show();
+        ChatGPTController.showChatGPTWindow();
     }
+
+
 
 
 

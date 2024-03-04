@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import models.feriel.User;
 import nl.captcha.Captcha;
 
@@ -70,7 +72,6 @@ public class LogInController extends Controller {
     public void initialize() {
         generateCaptcha();
         captchaIsCorrect=false;
-        //captchaInput= new TextField();
 
 
     }
@@ -85,14 +86,17 @@ public class LogInController extends Controller {
 
             System.out.println("captchaInput.getText().isEmpty()"+captchaInput.getText().isEmpty());
             if (captchaInput.getText().isEmpty()) {
+                MyAnimation.shake(captchaInput);
                 MyTools.showAlertError("Captcha is required. Please enter the captcha.");
+
                 return;
             }
 
-            System.out.println("!isValidCaptcha()"+isValidCaptcha());
-            if (isValidCaptcha()) {
+            System.out.println("isValidCaptcha()"+isValidCaptcha());
+            if (!isValidCaptcha()) {
+               MyAnimation.shake(captchaInput);
                 MyTools.showAlertError("Captcha is incorrect. Please try again");
-                return; // Arrêter le traitement si le captcha est incorrect
+                return;
             }
 
 
@@ -120,10 +124,17 @@ public class LogInController extends Controller {
 
                            if (!user.getRole().equals("Admin")){
                             try {
-                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/ParticipDash.fxml"));
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/siwar/designation.fxml"));
                                // FXMLLoader loader = new FXMLLoader(getClass().getResource("/siwar/designation.fxml"));
 
                                 Parent root= loader.load();
+                                // Set dimensions for the window
+                                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                stage.setWidth(872); // Set width
+                                stage.setHeight(300); // Set height
+
+                                // Set the loaded FXML file as the root of the scene
+                                stage.setScene(new Scene(root));
                                 createAcc.getScene().setRoot(root);
                                 ParticipDashController controller = loader.getController();
                               controller.initData(user);
@@ -133,7 +144,7 @@ public class LogInController extends Controller {
                             }
 
                         }else {
-                            MyTools.goTo("/feriel/DisplayUsers.fxml",createAcc);
+                            MyTools.goTo("/siwar/dashboard.fxml",createAcc);
 
                         }
                 }
@@ -175,7 +186,6 @@ public class LogInController extends Controller {
         Captcha captcha = builder.build();
         System.out.println(captcha.getAnswer());
         captchImg.setImage(SwingFXUtils.toFXImage(captcha.getImage(), null));
-        //captchaInput.clear();
         return captcha;
 
 
@@ -187,13 +197,17 @@ public class LogInController extends Controller {
         if (captcha != null) {
             System.out.println(captcha.getAnswer());
 
-            if (captcha.isCorrect(captchaInput.getText())) {
-                captchaIsCorrect = true;
+           // if (captcha.isCorrect(captchaInput.getText())) {
+                if (captcha.getAnswer().equals(captchaInput.getText())) {
+
+                    System.out.println("isValidCaptcha if");
+                    captchaIsCorrect = true;
                 return true;
             } else {
+                System.out.println("isValidCaptcha else");
                 MyAnimation.shake(captchaInput);
                 captcha = generateCaptcha();
-                captchaInput.clear();
+                //captchaInput.clear();
                 return false;
             }
         }

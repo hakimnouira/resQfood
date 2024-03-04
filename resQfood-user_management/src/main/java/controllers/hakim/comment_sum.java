@@ -3,6 +3,7 @@ package controllers.hakim;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import models.hakim.Comment;
 

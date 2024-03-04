@@ -17,7 +17,7 @@
    <children>
       <Pane maxHeight="531.0" maxWidth="797.0" minHeight="400.0" minWidth="629.0" prefHeight="531.0" prefWidth="797.0">
          <children>
-            <Label id="umLbLog1" fx:id="umLbLog1" alignment="CENTER" layoutX="455.0" layoutY="17.0" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: pink;" text=" Log In " textAlignment="CENTER">
+            <Label id="umLbLog1" fx:id="umLbLog1" alignment="CENTER" layoutX="455.0" layoutY="17.0" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #FBEDF1; -fx-background-radius: 20px;" text=" Log In " textAlignment="CENTER">
                <font>
                   <Font name="Avenir Black" size="23.0" />
                </font>
@@ -33,7 +33,7 @@
                   <Blend />
                </effect>
             </TextField>
-            <Button fx:id="idlogbt" alignment="CENTER" layoutX="496.0" layoutY="379.0" mnemonicParsing="false" onAction="#logInbt" prefHeight="26.0" prefWidth="146.0" style="-fx-background-color: pink;" text="Log in " />
+            <Button fx:id="idlogbt" alignment="CENTER" layoutX="496.0" layoutY="379.0" mnemonicParsing="false" onAction="#logInbt" prefHeight="26.0" prefWidth="146.0" style="-fx-background-color: #FBEDF1; -fx-background-radius: 20px;" text="Log in " />
             <Text fx:id="createAcc" layoutX="660.0" layoutY="438.0" onMouseClicked="#createUserfromlogin" strokeType="OUTSIDE" strokeWidth="0.0" text="Create an account" underline="true" wrappingWidth="136.15283203125">
                <font>
                   <Font name="Avenir Roman" size="16.0" />
@@ -42,7 +42,7 @@
                <children>
                   <ImageView fitHeight="531.0" fitWidth="390.0" layoutX="-6.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/Vegetables%20Terry%20Wild%20Stock.jpg" />
+                        <Image url="@../img/loginTof.jpg" />
                      </image>
                   </ImageView>
                </children>
