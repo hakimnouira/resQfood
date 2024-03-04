@@ -63,7 +63,7 @@ class SendMailSSL{
         String mail= fpdc.getHtmlContent(String.valueOf(code));
 
 
-        MyEmailSender.send("feriel.bouguecha@gmail.com","hello ",mail);
+        MyEmailSender.send("feriel.bouguecha@gmail.com","Reset your password ",mail);
 
 
         //change from, password and to

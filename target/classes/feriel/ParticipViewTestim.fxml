@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -20,14 +19,13 @@
                 <children>
                     <AnchorPane fx:id="side_ankerpane" prefHeight="700.0" prefWidth="234.0" styleClass="side_ankerpane" stylesheets="style/styles.css">
                         <children>
-                            <Pane fx:id="inner_panel" layoutX="5.0" layoutY="35.0" prefHeight="118.0" prefWidth="202.0" styleClass="inner_panel" stylesheets="@style/styles.css">
+                            <Pane fx:id="inner_panel" layoutX="5.0" layoutY="46.0" prefHeight="103.0" prefWidth="202.0" styleClass="inner_panel" stylesheets="@style/styles.css">
                                 <children>
-                                    <ImageView fitHeight="48.0" fitWidth="54.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="50.0" fitWidth="68.0" layoutX="7.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                                         <image>
                                             <Image url="@../img/logoRSF.png" />
                                         </image>
                                     </ImageView>
-                                    <Pane id="most_inner_pane" fx:id="most_inner_pane" layoutX="151.0" layoutY="5.0" prefHeight="61.0" prefWidth="48.0" styleClass="most_inner_pane" stylesheets="@style/styles.css" />
                                 </children></Pane>
                             <Button fx:id="btn_users" layoutX="4.0" layoutY="194.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="202.0" styleClass="btn_users" stylesheets="@style/styles.css" text="   Users" textAlignment="CENTER" textFill="#f8f7f7">
                                 <font>
@@ -135,7 +133,6 @@
                      <Font name="Avenir Heavy" size="15.0" />
                   </font>
                </Button>
-               <ScrollBar layoutX="536.0" orientation="VERTICAL" prefHeight="147.0" prefWidth="16.0" />
                 </children>
             </AnchorPane>
         </children>

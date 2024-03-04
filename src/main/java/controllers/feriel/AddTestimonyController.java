@@ -41,7 +41,6 @@ public class AddTestimonyController extends Controller {
 
     @FXML
     void addTestimonyBt(ActionEvent event) {
-        //TODO: ds displayTest d'admin rajouter bouton pour accepter les testim
 
         if (titleFl.getText().isEmpty() || !titleFl.getText().matches("^[a-zA-Z]+$")) {
             showInputIncorect(titleFl);

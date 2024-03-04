@@ -13,6 +13,7 @@ controllers/feriel/ResetPwdController.class
 controllers/feriel/AddTestimonyController.class
 models/siwar/User.class
 controllers/feriel/AddNewuserController.class
+controllers/feriel/StatsFerielController.class
 controllers/feriel/ModifUserController.class
 services/siwar/EmailService.class
 controllers/fatma/data.class

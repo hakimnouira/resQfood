@@ -26,6 +26,7 @@ import services.feriel.UserService;
 import javafx.embed.swing.SwingFXUtils;
 import toolkit.MyAnimation;
 import toolkit.MyTools;
+import toolkit.PasswordEncryptor;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -36,11 +37,10 @@ public class LogInController extends Controller {
     User user= new User();
     UserService us= new UserService();
 
-    @FXML
-    private ImageView captchaImg;
+
 
     @FXML
-    private TextField captchaInput= new TextField();
+    private TextField captchaInput;
     ;
 
     @FXML
@@ -62,14 +62,16 @@ public class LogInController extends Controller {
     @FXML
     private ImageView captchImg;
     Captcha captcha= new Captcha.Builder(250, 150).build();
-    boolean captchaIsCorrect=false;
+    boolean captchaIsCorrect;
 
 
 
 
     public void initialize() {
         generateCaptcha();
-        //TODO/
+        captchaIsCorrect=false;
+
+
     }
 
     @FXML
@@ -78,15 +80,32 @@ public class LogInController extends Controller {
         try {
             //get all users
             List<User> usersL= us.read();
+            System.out.println(captchaInput.getText()+" c le input");
+
+            System.out.println("captchaInput.getText().isEmpty()"+captchaInput.getText().isEmpty());
+            if (captchaInput.getText().isEmpty()) {
+                MyAnimation.shake(captchaInput);
+                MyTools.showAlertError("Captcha is required. Please enter the captcha.");
+
+                return;
+            }
+
+            System.out.println("isValidCaptcha()"+isValidCaptcha());
+            if (!isValidCaptcha()) {
+               MyAnimation.shake(captchaInput);
+                MyTools.showAlertError("Captcha is incorrect. Please try again");
+                return;
+            }
+
+
             //loop through all users
             for (User value : usersL) {
-                //decrypt pwd to compare it w input from usr
-               // decrpyted=PasswordEncryptor.decrypt(value.getPwd());
-
+                //encrypt pwd to compare it w input from usr
+               String encrypted= PasswordEncryptor.encrypt(pwdInput.getText());
+                String normal=pwdInput.getText();
             // find user with matching email and pswd
                 if (value.getEmail().equals(loginMail_input.getText())) {
-
-                    if (value.getPwd().equals(pwdInput.getText())) {
+                    if (value.getPwd().equals(encrypted)) {
                         user = value;
                         UserService.loggedIn=user;
                         System.out.println("user" + user);
@@ -94,16 +113,16 @@ public class LogInController extends Controller {
                     }
                 }
             }
-            if (isValidCaptcha()){
 
-                if (user != null && user.getRole() != null && isValidCaptcha()){
+
+                if (user != null && user.getRole() != null  ){
                     MyTools.showAlertInfo("exists","exists");
 
                 //find role to redirect to appropriate interface
 
                            if (!user.getRole().equals("Admin")){
                             try {
-                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fereil/ParticipDash.fxml"));
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/ParticipDash.fxml"));
                                // FXMLLoader loader = new FXMLLoader(getClass().getResource("/siwar/designation.fxml"));
 
                                 Parent root= loader.load();
@@ -119,14 +138,11 @@ public class LogInController extends Controller {
                             MyTools.goTo("/feriel/DisplayUsers.fxml",createAcc);
 
                         }
-
                 }
                 else {
                    MyTools.showAlertError("User credentials incorrect. Please try again");
                 }
-            }else {
-                MyTools.showAlertError("Captcha is incorrect. Please try again");
-            }
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -161,7 +177,6 @@ public class LogInController extends Controller {
         Captcha captcha = builder.build();
         System.out.println(captcha.getAnswer());
         captchImg.setImage(SwingFXUtils.toFXImage(captcha.getImage(), null));
-        captchaInput.clear();
         return captcha;
 
 
@@ -173,13 +188,17 @@ public class LogInController extends Controller {
         if (captcha != null) {
             System.out.println(captcha.getAnswer());
 
-            if (captcha.isCorrect(captchaInput.getText())) {
-                //captchaIsCorrect = true;
+           // if (captcha.isCorrect(captchaInput.getText())) {
+                if (captcha.getAnswer().equals(captchaInput.getText())) {
+
+                    System.out.println("isValidCaptcha if");
+                    captchaIsCorrect = true;
                 return true;
             } else {
+                System.out.println("isValidCaptcha else");
                 MyAnimation.shake(captchaInput);
                 captcha = generateCaptcha();
-                captchaInput.clear();
+                //captchaInput.clear();
                 return false;
             }
         }

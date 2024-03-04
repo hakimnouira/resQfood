@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -20,14 +19,13 @@
                 <children>
                     <AnchorPane fx:id="side_ankerpane" prefHeight="687.0" prefWidth="209.0" style="-fx-background-color: #1b3d38; -fx-border-color: #c8d4d3; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 50px; -fx-background-radius: 50px; -fx-border-style: solid;" stylesheets="style/styles.css">
                         <children>
-                            <Pane fx:id="inner_panel" layoutX="14.0" layoutY="35.0" prefHeight="71.0" prefWidth="178.0" style="-fx-background-color: #FBEDF1;" styleClass="inner_panel" stylesheets="@style/styles.css">
+                            <Pane fx:id="inner_panel" layoutX="14.0" layoutY="35.0" prefHeight="91.0" prefWidth="178.0" style="-fx-background-color: #FBEDF1;" styleClass="inner_panel" stylesheets="@style/styles.css">
                                 <children>
-                                    <ImageView fitHeight="48.0" fitWidth="54.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="60.0" fitWidth="84.0" layoutX="7.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                                         <image>
                                             <Image url="@../img/logoRSF.png" />
                                         </image>
                                     </ImageView>
-                                    <Pane id="most_inner_pane" fx:id="most_inner_pane" layoutX="107.0" layoutY="5.0" prefHeight="61.0" prefWidth="48.0" styleClass="most_inner_pane" stylesheets="@style/styles.css" />
                                 </children></Pane>
                             <Button fx:id="btn_users" layoutX="3.0" layoutY="142.0" mnemonicParsing="false" onAction="#usersBt" prefHeight="50.0" prefWidth="202.0" styleClass="btn_users" stylesheets="@style/styles.css" text="   Users" textAlignment="CENTER" textFill="#f8f7f7">
                                 <font>
@@ -124,7 +122,6 @@
                      <Font name="Avenir Heavy" size="15.0" />
                   </font>
                </Button>
-               <TextField fx:id="searchTf" layoutX="188.0" layoutY="40.0" />
                 </children>
             </AnchorPane>
         </children>

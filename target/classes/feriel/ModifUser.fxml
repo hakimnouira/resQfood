@@ -59,7 +59,7 @@
                         <Font name="Avenir Roman" size="13.0" />
                     </font>
                 </Label>
-                <Button layoutX="376.0" layoutY="548.0" mnemonicParsing="false" onAction="#modifybt" text="modify" />
+                <Button layoutX="376.0" layoutY="548.0" mnemonicParsing="false" onAction="#modifybt" text="Modify" />
                 <Button layoutX="450.0" layoutY="548.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
                 <Pane blendMode="LIGHTEN" layoutX="-5.0" layoutY="-7.0" prefHeight="110.0" prefWidth="550.0" style="-fx-background-color: pink;" />
             <ComboBox fx:id="rolecbox" layoutX="206.0" layoutY="423.0" prefWidth="150.0" promptText="Role" />

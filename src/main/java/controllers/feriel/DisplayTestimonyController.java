@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import models.feriel.Testimony;
 import services.feriel.TestimonyService;
+import services.feriel.UserService;
 import toolkit.MyTools;
 
 import java.io.IOException;
@@ -122,7 +123,6 @@ public class DisplayTestimonyController extends Controller {
      */
     @FXML
     public void delTestbt(ActionEvent actionEvent) {
-        //TODO : a tester
 
 
         Testimony selectedItem = userTable.getSelectionModel().getSelectedItem();
@@ -148,7 +148,6 @@ public class DisplayTestimonyController extends Controller {
             // Accept the selected user
                 selectedItem.setStatus("Accepted");
             try {
-                //TODO : l'afficher
 
                 // Update the user from the database
                 ts.update(selectedItem);
@@ -176,6 +175,7 @@ public class DisplayTestimonyController extends Controller {
 
     @FXML
     void logoutDash(ActionEvent event) {
+        UserService.loggedIn=null;
         MyTools.goTo("/feriel/LogIn.fxml",addtestbt);
 
     }

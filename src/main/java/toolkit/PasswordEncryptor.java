@@ -46,9 +46,10 @@ public class PasswordEncryptor {
     }
 
     public static void main(String[] args) {
-        String password = "pwd";
-        //String encryptedPassword = encrypt(password);
-        String encryptedPassword =" hL9jBTVvRn4E+QgcFpYMPA==";
+        String password = "oAPM2//fZUcHld1xrxdf7w==";
+        System.out.println(password);
+        String encryptedPassword = encrypt(password);
+       // String encryptedPassword =" ";
         System.out.println("Encrypted Password: " + encryptedPassword);
         String decryptedPassword = decrypt(encryptedPassword);
         System.out.println("Decrypted Password: " + decryptedPassword);

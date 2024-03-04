@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 
 public class ForgottenPwdController extends Controller {
 
-    //TODO : complete class !!
+    //  complete class !!
 
     @FXML
     private TextField codeTf;
@@ -77,7 +77,7 @@ public class ForgottenPwdController extends Controller {
             currUser.setCode(OTP);
             System.out.println("userToResetPwd: "+currUser);
 
-            MyEmailSender.send(mail, "hii", getHtmlContent(generateOTP()));
+            MyEmailSender.send(mail, "Reset your password !", getHtmlContent(generateOTP()));
             MyTools.showAlertInfo("Message sent","Your code was sent by email successfully");
         }
 

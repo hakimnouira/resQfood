@@ -1,5 +1,7 @@
 package models.feriel;
 
+import toolkit.PasswordEncryptor;
+
 import java.util.Objects;
 
 /**
@@ -28,8 +30,6 @@ public class User {
 
     private String role;
 
-
-
     private int code;
 
 
@@ -47,7 +47,7 @@ public class User {
     public User( String fname, String lName, String pwd, String email, int number, String area, String role) {
         this.firstName = fname;
         this.lName = lName;
-        this.pwd = pwd;
+       this.pwd = pwd;
         this.email = email;
         this.phone = number;
         this.area = area;
@@ -120,6 +120,7 @@ public class User {
 
     public void setPwd(String pwd) {
         this.pwd = pwd;
+       // this.pwd = PasswordEncryptor.encrypt(pwd);
     }
 
     public String getEmail() {

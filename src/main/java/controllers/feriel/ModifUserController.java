@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import models.feriel.User;
 import services.feriel.UserService;
 import toolkit.MyTools;
+import toolkit.PasswordEncryptor;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -171,35 +172,33 @@ public class ModifUserController extends Controller {
 
         if (fnametf_modif.getText().isEmpty() || ! (fnametf_modif.getText().matches("^[a-zA-Z]+$"))) {
             showInputIncorect(fnametf_modif);
-
             return;
         }
 
         if (lnametf_modif.getText().isEmpty()|| ! lnametf_modif.getText().matches("^[a-zA-Z]+$")) {
             showInputIncorect(lnametf_modif);
-
-
             return;
         }
-        //"^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"
+
         if (mailtf_modif.getText().isEmpty() || !mailtf_modif.getText().matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$") ) {
             showInputIncorect(mailtf_modif);
             return;
         }
 
-       if ( mailIsUnique(mailtf_modif.getText(),us,emailAvailable) == 1) {
-//            //TODO/ PUT it in modif user FXML >  mailTaken.setText("email already exists");
-           showInputIncorect(mailtf_modif);
-//            mailTaken.setText("email already exists");
-           return;
+        if (!mailtf_modif.getText().equals(user.getEmail())) {
+            if ( mailIsUnique(mailtf_modif.getText(),us,emailAvailable) == 1) {
+     //  PUT it in modif user FXML >  mailTaken.setText("email already exists");
+                showInputIncorect(mailtf_modif);
+     //           mailTaken.setText("email already exists");
+                return;
+            }
+        }
 
-       }
-
-        if (pwdtf_modif.getText().isEmpty()  ) {
+        if (pwdtf_modif.getText().isEmpty()){
             showInputIncorect(pwdtf_modif);
             return;
 
-        }if (phonetf_modif.getText().isEmpty() || phonetf_modif.getText().length() > 9 || !phonetf_modif.getText().matches("[0-9]+")){
+        }if (phonetf_modif.getText().isEmpty() || phonetf_modif.getText().length() !=8 || !phonetf_modif.getText().matches("[0-9]+")){
             showInputIncorect(phonetf_modif);
 
             return;
@@ -218,11 +217,11 @@ public class ModifUserController extends Controller {
         user.setFirstName(fnametf_modif.getText());
         user.setlName(lnametf_modif.getText());
         user.setEmail(mailtf_modif.getText());
-        user.setPwd(pwdtf_modif.getText());
+        user.setPwd(PasswordEncryptor.encrypt( pwdtf_modif.getText()));
         user.setPhone(Integer.parseInt(phonetf_modif.getText()));
         user.setArea(areacombobox_modif.getSelectionModel().getSelectedItem());
         user.setRole(rolecbox.getSelectionModel().getSelectedItem());
-
+//TODO notes on encryp ds modif il crypte le mdp deja crypte, genre il crypte le code qui est ds la bd
 
         emailAvailable=0;
 

@@ -6,7 +6,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -138,7 +137,6 @@ public class ParticipDashController extends Controller {
     @FXML
     void deleteUserD(ActionEvent event) {
 
-        //TODO TEST deleteUserD for partic
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("attention");
 
@@ -175,13 +173,11 @@ public class ParticipDashController extends Controller {
 
 
     @FXML
-    void dowloadInfo(ActionEvent event) {
-
-//TODO dowloadInfo
-        PDFGenerator.createPdf(usersList, currUser.getLName() + "  " + currUser.getFirstName());
+    void downloadInfo(ActionEvent event) {
+        System.out.println("dowloadInfo pressed");
+        PDFGenerator.createPdf(usersList, currUser.getLName() + "_" + currUser.getFirstName());
     }
 
-    //TODO AJOUTER UN GOTO USERS URGG
 
     @FXML
     void eventsBt(ActionEvent event) {
@@ -201,6 +197,7 @@ public class ParticipDashController extends Controller {
 
     @FXML
     void logoutDash(ActionEvent event) {
+        UserService.loggedIn=null;
         MyTools.goTo("/feriel/LogIn.fxml",deluserbt);
     }
 

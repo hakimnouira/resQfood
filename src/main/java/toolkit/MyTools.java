@@ -19,12 +19,16 @@ public class MyTools {
         try {
             FXMLLoader loader = new FXMLLoader(MyTools.class.getResource(file));
             Parent root = loader.load();
+            System.out.println("root in my tools"+root);
 
             // Get the controller instance
             if (node.getScene() != null) {
+                System.out.println(" node.getScene() in my tools"+ node.getScene());
                 node.getScene().setRoot(root);
             }else {
                 System.err.println("Scene is null, cannot navigate.");
+                throw new RuntimeException();
+
             }
 
         } catch (IOException e) {

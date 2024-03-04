@@ -5,21 +5,123 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ca77840-0faa-409c-8c20-6f70faecd38c" name="Changes" comment="-add all files">
+      <change afterPath="$PROJECT_DIR$/UserTableAdmin.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserTableferiel.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserTableketata_noussa.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/StatsFerielController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/feriel/StatsFeriel.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/facebook-app-symbol.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/instagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/loginTof.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/style/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2e2a9fa1-fc60-42d2-83dc-23a962881143.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2e2a9fa1-fc60-42d2-83dc-23a962881143.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/AddNewuserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/AdminDashController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/IService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/LogInController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/MainFX.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/ModifUserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/MyDatabase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/PersonService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/Screenshot 2024-02-24 at 7.32.32 PM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/Testimony.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/TestimonyService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/brooke-lark-08bOYnH_r_E-unsplash.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/build-by-maven-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/build-by-maven-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/close.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/collapsed.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/dose-juice-ocnsb17U6FE-unsplash.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/dose-juice-sTPy-oeA3h0-unsplash(1).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/expanded.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/external.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/group.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/icon_error_sml.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/icon_info_sml.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/icon_success_sml.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/icon_warning_sml.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/icons8-download-48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/icons8-event-30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/icons8-forum-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/icons8-repository-30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/icons8-search-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/icons8-users-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/icons8testimony.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/loginpage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/logoRSF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/maven-feather.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/nadine-primeau-l5Mjl9qH8VU-unsplash.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/newwindow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/projresqfood-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/testimGraph.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserTable.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/UserTable.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/AddNewuserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/AddNewuserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/AddTestimonyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/AddTestimonyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/DisplayTestimonyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/DisplayTestimonyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/DisplayUsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/DisplayUsersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ForgottenPwdController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ForgottenPwdController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/LogInController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ModifTestimonyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ModifTestimonyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ModifUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ModifUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/ForgottenPwd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ForgottenPwd.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/fatma/addeventController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/fatma/addeventController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ParticipDashController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ParticipDashController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ParticipViewTestimController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ParticipViewTestimController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/feriel/ResetPwdController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/feriel/ResetPwdController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/feriel/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/feriel/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/feriel/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/feriel/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/feriel/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/feriel/MainFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/toolkit/MyEmailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/toolkit/MyEmailSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/toolkit/MyTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/toolkit/MyTools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/toolkit/PDFGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/toolkit/PDFGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/toolkit/PasswordEncryptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/toolkit/PasswordEncryptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/AddNewuser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/AddNewuser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/AddTestimony.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/AddTestimony.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/DisplayTestimonies.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/DisplayTestimonies.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/DisplayUsers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/DisplayUsers.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/ForgottenPwdmail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ForgottenPwdmail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/LogIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/ModifUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ModifUser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/ParticipDash.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ParticipDash.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/ParticipViewTestim.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/ParticipViewTestim.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/feriel/style/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/feriel/style/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/Screenshot 2024-02-24 at 7.32.32 PM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/Vegetables Terry Wild Stock.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/bingGen1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/groceries-5216715_640.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/loginpage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/nadine-primeau-l5Mjl9qH8VU-unsplash.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/AddNewuserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/AddNewuserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/AddTestimonyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/AddTestimonyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/DisplayTestimonyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/DisplayTestimonyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/DisplayUsersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/DisplayUsersController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/ForgottenPwdController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/ForgottenPwdController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/LogInController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/ModifTestimonyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/ModifTestimonyController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/ModifUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/ModifUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/feriel/ForgottenPwd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/feriel/ForgottenPwd.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/ParticipDashController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/ParticipDashController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/ParticipViewTestimController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/ParticipViewTestimController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/feriel/ResetPwdController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/feriel/ResetPwdController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/feriel/DisplayUsers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/feriel/DisplayUsers.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/feriel/ForgottenPwdmail.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/feriel/ForgottenPwdmail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/feriel/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/feriel/LogIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/feriel/ParticipDash.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/feriel/ParticipDash.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/abondantCourses.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/feriel/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/feriel/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/feriel/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/feriel/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/style/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/style/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/test/feriel/MainFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/feriel/MainFX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolkit/MyTools.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/toolkit/MyTools.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolkit/PDFGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/toolkit/PDFGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolkit/PasswordEncryptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/toolkit/PasswordEncryptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolkit/SendMailSSL.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/toolkit/SendMailSSL.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +131,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -53,39 +156,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.MainFX.executor": "Run",
-    "Application.SendMailSSL.executor": "Run",
-    "Maven.projresqfood [compile].executor": "Run",
-    "Maven.projresqfood [install].executor": "Run",
-    "Maven.projresqfood [javafx:run].executor": "Run",
-    "Maven.projresqfood [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
-    "Maven.projresqfood [test].executor": "Run",
-    "Maven.projresqfood [verify].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "user__management",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/resources/style",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.MainFX.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PDFGenerator.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PasswordEncryptor.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SendMailSSL.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.projresqfood [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.projresqfood [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.projresqfood [javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.projresqfood [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.projresqfood [test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.projresqfood [verify].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;user__management&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/feridbouguecha/Desktop/dossier_esprit /3A2/SE2/PI/resQfood/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/style" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -98,6 +204,32 @@
     </key>
   </component>
   <component name="RunManager" selected="Maven.projresqfood [javafx:run]">
+    <configuration name="PDFGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="toolkit.PDFGenerator" />
+      <module name="projresqfood" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="toolkit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PasswordEncryptor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="toolkit.PasswordEncryptor" />
+      <module name="projresqfood" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="toolkit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SendMailSSL" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="toolkit.SendMailSSL" />
       <module name="projresqfood" />
@@ -156,6 +288,8 @@
       <list>
         <item itemvalue="Maven.projresqfood [javafx:run]" />
         <item itemvalue="Application.SendMailSSL" />
+        <item itemvalue="Application.PasswordEncryptor" />
+        <item itemvalue="Application.PDFGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -178,6 +312,10 @@
       <workItem from="1709285300810" duration="11971000" />
       <workItem from="1709317935328" duration="1220000" />
       <workItem from="1709353845196" duration="35288000" />
+      <workItem from="1709457053756" duration="17884000" />
+      <workItem from="1709492584800" duration="5222000" />
+      <workItem from="1709527641072" duration="8636000" />
+      <workItem from="1709545275633" duration="2448000" />
     </task>
     <task id="LOCAL-00001" summary="-add all files">
       <option name="closed" value="true" />
@@ -205,5 +343,23 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="-add all files" />
     <option name="LAST_COMMIT_MESSAGE" value="-add all files" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.RuntimeException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/toolkit/MyTools.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint log-message="true" log-stack="true" type="java-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -44,7 +44,6 @@ public class ModifTestimonyController extends Controller {
 
     @FXML
     void cancelbt(ActionEvent event) {
-        //TODO / MODIF INIT DATA PR QU4ELLE PRENNE CURR PR QUE CANCEL MARCHE
 
 
             try {

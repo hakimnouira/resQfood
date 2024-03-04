@@ -18,6 +18,7 @@ import javafx.scene.layout.Pane;
 import models.feriel.Testimony;
 import models.feriel.User;
 import services.feriel.TestimonyService;
+import services.feriel.UserService;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -218,6 +219,7 @@ public class ParticipViewTestimController extends Controller {
 
     @FXML
     void logoutDash(ActionEvent event) {
+        UserService.loggedIn=null;
         goTo("/feriel/LogIn.fxml",btn_users);
     }
 

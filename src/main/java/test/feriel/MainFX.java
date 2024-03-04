@@ -10,8 +10,10 @@ public class MainFX extends Application {
     @Override
     public void start(Stage stage) throws Exception {
        // load the fxml file
-     FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/LogIn.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/LogIn.fxml"));
       // FXMLLoader loader = new FXMLLoader(getClass().getResource("/fatma/Showevent.fxml"));
+     // FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/StatsFeriel.fxml"));
+
 
         //  FXMLLoader loader = new FXMLLoader(getClass().getResource("/AdminDash.fxml"));
        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/ModifUser.fxml"));
@@ -19,7 +21,6 @@ public class MainFX extends Application {
       //  FXMLLoader loader = new FXMLLoader(getClass().getResource("/AddTestimony.fxml"));
        // FXMLLoader loader = new FXMLLoader(getClass().getResource("/AddNewuser.fxml"));
         // FXMLLoader loader = new FXMLLoader(getClass().getResource("/ParticipViewTestim.fxml"));
-//         FXMLLoader loader = new FXMLLoader(getClass().getResource("/DisplayTestimonies.fxml"));
 
         //FXMLLoader loader = new FXMLLoader(getClass().getResource("/ForgottenPwd.fxml"));
 

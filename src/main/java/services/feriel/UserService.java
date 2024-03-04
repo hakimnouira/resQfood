@@ -122,7 +122,6 @@ public class UserService implements IService<User>{
 
         return null;
 
-        //TODO FAUT QUE MAIL SOIT UNIQ
     }
 
     /**

@@ -14,9 +14,11 @@ import javafx.scene.control.TextField;
 import models.feriel.User;
 import services.feriel.UserService;
 import toolkit.MyTools;
+import toolkit.PasswordEncryptor;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Objects;
 
 public class AddNewuserController extends Controller {
 
@@ -24,7 +26,6 @@ public class AddNewuserController extends Controller {
     UserService us= new UserService();
 
     List<User> allUsers;
-    //TODO/ indicator whether this email is available
     //indicator whether this email is available
     int emailAvailable= 0;
 
@@ -63,7 +64,7 @@ public class AddNewuserController extends Controller {
            " Zaghouan"};
 
     @FXML
-    private TextField fnametf;
+    private TextField fnametf = new TextField();
 
     @FXML
     private TextField lnametf;
@@ -99,12 +100,14 @@ public class AddNewuserController extends Controller {
      */
     @FXML
     public void canceladd(ActionEvent event) {
-        if (UserService.loggedIn== null){
+        System.out.println("cancel called");
+        if (UserService.loggedIn== null || !Objects.equals(UserService.loggedIn.getRole(),"Admin")){
+            System.out.println("fnametf :"+fnametf);
             MyTools.goTo("/feriel/LogIn.fxml",fnametf);
+        }else {
+            System.out.println("DisplayUsers   fnametf :" + fnametf);
+            MyTools.goTo("/feriel/DisplayUsers.fxml", fnametf);
         }
-
-        MyTools.goTo("/feriel/DisplayUsers.fxml",fnametf);
-
 
     }
 
@@ -113,6 +116,8 @@ public class AddNewuserController extends Controller {
         System.out.println("in start signupBt ");
         //resetMailIndicator();
         emailAvailable=0;
+        mailTaken.setText("");
+
 
 
         if (fnametf.getText().isEmpty() || !fnametf.getText().matches("^[a-zA-Z]+$")) {
@@ -140,7 +145,7 @@ public class AddNewuserController extends Controller {
             showInputIncorect(pwdtf);
             return;
 
-        }if (phonetf.getText().isEmpty() || phonetf.getText().length() > 9 || !phonetf.getText().matches("[0-9]+")){
+        }if (phonetf.getText().isEmpty() || phonetf.getText().length() !=8 || !phonetf.getText().matches("[0-9]+")){
             showInputIncorect(phonetf);
             return;
         }
@@ -156,7 +161,7 @@ public class AddNewuserController extends Controller {
         user.setFirstName(fnametf.getText());
         user.setlName(lnametf.getText());
         user.setEmail(mailtf.getText());
-        user.setPwd(pwdtf.getText());
+        user.setPwd(PasswordEncryptor.encrypt(pwdtf.getText()));
         user.setPhone(Integer.parseInt(phonetf.getText()));
         user.setArea(areacombobox.getSelectionModel().getSelectedItem());
         user.setRole(roleCombo.getSelectionModel().getSelectedItem());
@@ -167,8 +172,10 @@ public class AddNewuserController extends Controller {
         try {
             us.create(user);
             MyTools.showAlertInfo("Success","User added successfully");
-            mailTaken.setText("");//TODO CAREFUL HERE TEST IT
-            canceladd(event);
+            mailTaken.setText("");
+            System.out.println("event"+ event);
+
+           canceladd(event);
 
         }catch (SQLException e) {
             System.out.println(e.getMessage());

@@ -14,6 +14,7 @@ import javafx.scene.layout.Pane;
 import models.feriel.User;
 import services.feriel.UserService;
 import toolkit.MyTools;
+import toolkit.PDFGenerator;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -200,7 +201,8 @@ public class DisplayUsersController extends Controller {
 
     @FXML
     void logoutDash(ActionEvent event) {
-       MyTools.goTo("/feriel/LogIn.fxml",btn_users);
+        UserService.loggedIn=null;
+        MyTools.goTo("/feriel/LogIn.fxml",btn_users);
 
     }
 
@@ -227,6 +229,11 @@ public class DisplayUsersController extends Controller {
 
 
     }
+    @FXML
+    void downloadInfo(ActionEvent event) {
+        System.out.println("dowloadInfo pressed");
+        PDFGenerator.createPdf(usersList, "Admin");
+    }
 
     @FXML
     void searchFor(ActionEvent event) {
@@ -249,6 +256,7 @@ public class DisplayUsersController extends Controller {
     }
     @FXML
     void goStats(ActionEvent event) {
+        MyTools.goTo("/feriel/StatsFeriel.fxml",btn_users);
 
     }
 

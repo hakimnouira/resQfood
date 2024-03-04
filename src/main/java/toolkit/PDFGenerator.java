@@ -19,7 +19,7 @@ public class PDFGenerator {
     public static void createPdf(List<User> usersList ,String name) {
         Document document = new Document();
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("UserTable.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("UserTable"+name+".pdf"));
             document.open();
 
 
