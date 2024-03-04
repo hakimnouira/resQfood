@@ -4,7 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
+import controllers.siwar.FavoritesController;
 //import services.NotificationService;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import models.Category;
+import models.siwar.Category;
 import models.siwar.Donation;
 import services.siwar.DonationService;
 import services.siwar.CategoryService;
@@ -90,6 +90,8 @@ public class DashboardController {
     private ObservableList<Donation> originalDonations;
     private CategoryService categoryService;
     private DonationService donationService;
+    private ObservableList<Category> favorites = FXCollections.observableArrayList();
+
 
     public DashboardController() {
         this.categoryService = new CategoryService();
@@ -533,6 +535,38 @@ public class DashboardController {
     }
 
     public void ForumBtn(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    void addToFavorites(ActionEvent actionEvent) {
+        // Get the selected category from the addCategory_tableView
+        Category selectedCategory = addCategory_tableView.getSelectionModel().getSelectedItem();
+        if (selectedCategory == null) {
+            showAlert("Error", "Please select a category to add to favorites.");
+            return;
+        }
+
+        try {
+            // Add the selected category to the list of favorites
+            favorites.add(selectedCategory);
+
+            // Load the Favorites.fxml interface
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/siwar/Favorites.fxml"));
+            Parent root = loader.load();
+
+            // Pass the list of favorites to the FavoritesController
+            FavoritesController favoritesController = loader.getController();
+            favoritesController.setFavorites(favorites);
+
+            // Create a new stage for the Favorites interface
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Favorites");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to load Favorites interface: " + e.getMessage());
+        }
     }
 
     /*@FXML

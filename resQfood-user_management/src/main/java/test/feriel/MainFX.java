@@ -10,7 +10,9 @@ public class MainFX extends Application {
     @Override
     public void start(Stage stage) throws Exception {
        // load the fxml file
-     FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/LogIn.fxml"));
+   // FXMLLoader loader = new FXMLLoader(getClass().getResource("/feriel/LogIn.fxml"));
+       FXMLLoader loader = new FXMLLoader(getClass().getResource("/siwar/dashboard.fxml"));
+        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/siwar/AddDonation.fxml"));
         //FXMLLoader loader = new FXMLLoader(getClass().getResource("/ali/addLine.fxml"));
        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/fatma/Showevent.fxml"));
        // FXMLLoader loader = new FXMLLoader(getClass().getResource("/fatma/ShowUsers.fxml"));

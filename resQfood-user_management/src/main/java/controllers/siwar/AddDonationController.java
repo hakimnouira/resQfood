@@ -4,21 +4,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import controllers.siwar.ChatGPTClient;
+//import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import models.Category;
+import models.siwar.Category;
 import models.siwar.Donation;
 import models.siwar.User;
 import javafx.scene.image.ImageView;
@@ -71,7 +72,13 @@ public class AddDonationController implements Initializable  {
     @FXML
     private ImageView fnameimageid;
 
-     private CategoryService categoryservice = new CategoryService();
+    @FXML
+    private TextArea chatTextArea;
+    @FXML
+    private TextArea chatDisplayArea;
+
+
+    private CategoryService categoryservice = new CategoryService();
     private final UserService userService = new UserService();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -418,4 +425,43 @@ public class AddDonationController implements Initializable  {
     }*/
 
 
+    @FXML
+    void showChatGPTWindow(ActionEvent event) {
+        // Create UI components
+        TextArea userInputArea = new TextArea();
+        userInputArea.setPromptText("Type your message here...");
+        TextArea chatDisplayArea = new TextArea();
+        chatDisplayArea.setEditable(false);
+        Button closeButton = new Button("Close");
+
+        // Set event handler for close button
+        closeButton.setOnAction(e -> {
+            Stage stage = (Stage) closeButton.getScene().getWindow();
+            stage.close(); // Close the window
+        });
+
+        // Set event handler for user input using Enter key
+        userInputArea.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                String message = userInputArea.getText().trim();
+                String response = ChatGPTClient.chatgpt(message); // Get response from ChatGPT
+                chatDisplayArea.appendText("You: " + message + "\n");
+                chatDisplayArea.appendText("ChatGPT: " + response + "\n");
+                userInputArea.clear(); // Clear user input
+                keyEvent.consume(); // Consume the event to prevent further handling
+            }
+        });
+
+        // Create layout and stage
+        VBox vbox = new VBox(userInputArea, chatDisplayArea, closeButton);
+        Stage chatStage = new Stage();
+        chatStage.setScene(new Scene(vbox, 400, 300));
+        chatStage.setTitle("Chat with ChatGPT");
+        chatStage.show();
+    }
+
+
+
+    public void closeChatWindow(ActionEvent actionEvent) {
+    }
 }

@@ -258,6 +258,16 @@
                                              </image>
                                           </ImageView>
                                           <ComboBox fx:id="sortcategoriesbckComboBox" layoutX="423.0" layoutY="22.0" prefHeight="26.0" prefWidth="230.0" promptText="Sort By" styleClass="sortcategoriesbckComboBox" />
+                                          <Button layoutX="839.0" layoutY="10.0" mnemonicParsing="false" onAction="#addToFavorites" prefHeight="49.0" prefWidth="50.0" styleClass="transparent-button">
+                                             <graphic>
+                                                <ImageView fitHeight="38.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@Imagesdesignf/fav.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+
                                        </children>
                                     </AnchorPane>
                                     <Label layoutX="48.0" layoutY="400.0" text="Category_name:" />

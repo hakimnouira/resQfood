@@ -57,6 +57,8 @@ public class addeventController {
     @FXML
     private Button import_btn;
     private event selectedEvent;
+    @FXML
+    private Button submit;
     private eventService Eventservice = new eventService() ;
     private Image image ;
     public void Importbtn(){
@@ -126,6 +128,7 @@ public class addeventController {
                 timetf.setText("");
                 data.path = null ;
                 import_btn.setVisible(true);
+                submit.setVisible(false);
 
             }
 
@@ -167,6 +170,8 @@ public class addeventController {
             selectedEvent.setTime(timetf.getText());
             selectedEvent.setLocation(locationtf.getText());
             selectedEvent.setName(nametf.getText());
+            String selectedStatus = combo.getValue();
+            selectedEvent.setStatus(selectedStatus);
             if (imagePath != null && !imagePath.isEmpty()) {
                 // Update the event's image path
                 selectedEvent.setImage(imagePath);

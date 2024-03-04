@@ -47,7 +47,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <TextField layoutX="484.0" layoutY="319.0" prefHeight="26.0" prefWidth="174.0" />
+            <TextField fx:id="captchaInput" layoutX="484.0" layoutY="319.0" prefHeight="26.0" prefWidth="174.0" />
             <Text layoutX="535.0" layoutY="192.0" onMouseClicked="#pwdForgotten" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot your password ?" underline="true" wrappingWidth="136.15283203125">
                <font>
                   <Font name="Avenir Roman" size="12.0" />

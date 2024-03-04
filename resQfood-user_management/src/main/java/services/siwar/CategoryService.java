@@ -1,6 +1,6 @@
 package services.siwar;
 
-import models.Category;
+import models.siwar.Category;
 import utils.MyDataBase;
 import java.sql.*;
 import java.util.ArrayList;

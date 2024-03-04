@@ -51,9 +51,9 @@ controllers\siwar\designationController.class
 controllers\Controller.class
 controllers\hakim\PostController$1.class
 services\ali\SmsSender.class
-models\Category.class
 toolkit\SendMailSSL.class
 controllers\ali\Stat.class
+controllers\siwar\FavoritesController.class
 controllers\siwar\ShowDonationController.class
 controllers\fatma\addeventController.class
 controllers\hakim\PostController.class
@@ -70,6 +70,7 @@ controllers\fatma\DesignationController.class
 models\hakim\Post.class
 objects\Reactions.class
 services\siwar\PService.class
+models\siwar\Category.class
 controllers\fatma\ShowUsersController.class
 services\ali\IService.class
 controllers\feriel\ParticipViewTestimController.class
@@ -88,6 +89,7 @@ services\ali\LineService.class
 controllers\fatma\CalendarController.class
 controllers\feriel\DisplayUsersController.class
 toolkit\MyEmailSender$1.class
+controllers\siwar\ChatGPTClient.class
 controllers\fatma\ShowpController.class
 services\ali\NotificationService.class
 services\siwar\SMSService.class

@@ -36,16 +36,12 @@
                   <Font name="Tahoma Bold" size="15.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="140.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Donate to those in need, perform a selfless deed.&quot;" wrappingWidth="329.6000213623047">
-               <font>
-                  <Font name="Tahoma" size="14.0" />
-               </font>
-            </Text>
             <ImageView fitHeight="47.0" fitWidth="41.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Imagesdesignf/don.png" />
                </image>
             </ImageView>
+            <Button layoutX="138.0" layoutY="34.0" mnemonicParsing="false" onAction="#showChatGPTWindow" text="If you don't know which category to choose, click me" />
          </children>
       </AnchorPane>
       <AnchorPane layoutY="301.0" prefHeight="26.0" prefWidth="554.0" style="-fx-background-color: #083A39;">

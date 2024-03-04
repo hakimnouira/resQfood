@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.siwar.FavoritesController">
+    <TableView fx:id="favoritesTableView" layoutX="93.0" layoutY="50.0" prefHeight="300.0" prefWidth="414.0">
+        <columns>
+            <TableColumn prefWidth="200.800048828125" text="Category Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="dcategory_name" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="219.199951171875" text="Category Description">
+                <cellValueFactory>
+                    <PropertyValueFactory property="dcategory_description" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+</AnchorPane>

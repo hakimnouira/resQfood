@@ -1,6 +1,6 @@
 package services.siwar;
 
-import models.Category;
+import models.siwar.Category;
 import java.sql.SQLException;
 import java.util.List;
 
