@@ -1,37 +1,108 @@
 package controllers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
+
+
+
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 import objects.Account;
 import objects.Post;
 import objects.PostAudience;
 import objects.Reactions;
+import okhttp3.*;
+import org.json.JSONObject;
 import services.CommentService;
 import services.LikesService;
 import services.PostService;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+
+import java.awt.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+
+import javax.sound.sampled.*;
+import java.io.*;
+import java.net.*;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.sql.SQLException;
 import java.util.*;
 
+
+
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import org.json.JSONObject;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 public class PostController implements Initializable {
     @FXML
     public HBox thisone;
+    String jsonResponse = "{\n" +
+            "  \"audioFormat\": \"mp3\",\n" +
+            "  \"paragraphChunks\": [\"This is paragraph 1.\", \"This is paragraph 2.\"],\n" +
+            "  \"voiceParams\": {\n" +
+            "    \"name\": \"John\",\n" +
+            "    \"engine\": \"neural\",\n" +
+            "    \"languageCode\": \"en-US\"\n" +
+            "  }\n" +
+            "}";
     public HBox getThisone(){return thisone ;}
 
     @FXML VBox comment_section;
@@ -105,6 +176,7 @@ public class PostController implements Initializable {
 
     @FXML
     private Label reactionName;
+    public int userid;
 
     @FXML
     private Label cat;
@@ -131,8 +203,7 @@ public class PostController implements Initializable {
 
     public models.Post update_button_pressed() throws SQLException {
         System.out.println(cat1.getId());
-int A;
-
+        int A;
 
         if (title.getText() == null || title.getText().trim().isEmpty()) {
             // Display an alert indicating that the title is required
@@ -141,22 +212,8 @@ int A;
             alert.setHeaderText(null);
             alert.setContentText("Please enter a title.");
             alert.showAndWait();
-
-            // Return null or handle the error as needed in your application
             return null;
         }
-PostService p5 = new PostService();
-if (p5.TITLETEST(title.getText() ) > 0) {
-    Alert alert = new Alert(Alert.AlertType.WARNING);
-    alert.setTitle("Input Error");
-    alert.setHeaderText(null);
-    alert.setContentText("the  title excite .");
-    alert.showAndWait();
-
-    // Return null or handle the error as needed in your application
-    return null;
-}
-
 
         if (caption1.getText() == null || caption1.getText().trim().isEmpty()) {
             // Display an alert indicating that the caption is required
@@ -165,8 +222,19 @@ if (p5.TITLETEST(title.getText() ) > 0) {
             alert.setHeaderText(null);
             alert.setContentText("Please enter a caption.");
             alert.showAndWait();
+            return null;
+        }
 
-            // Return null or handle the error as needed in your application
+        // Check for inappropriate words in the caption
+        boolean containsBadWords = checkForBadWords(caption1.getText());
+        System.out.println(caption1.getText());
+        if (containsBadWords) {
+            // Display an alert indicating that the caption contains inappropriate words
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Inappropriate Content");
+            alert.setHeaderText(null);
+            alert.setContentText("The caption contains inappropriate words.");
+            alert.showAndWait();
             return null;
         }
 
@@ -178,8 +246,6 @@ if (p5.TITLETEST(title.getText() ) > 0) {
             alert.setHeaderText(null);
             alert.setContentText("Please enter a valid image URL.");
             alert.showAndWait();
-
-            // Return null or handle the error as needed in your application
             return null;
         } else {
             // Validate if the URL ends with a common image file extension
@@ -191,30 +257,74 @@ if (p5.TITLETEST(title.getText() ) > 0) {
                 alert.setHeaderText(null);
                 alert.setContentText("Please enter a valid image URL.");
                 alert.showAndWait();
-
-                // Return null or handle the error as needed in your application
                 return null;
             }
         }
 
         switch (cat1.getValue()) {
-            case "user problem":
+            case "News":
                 A=1;
                 break;
-            case "event problem":
+            case "Events":
                 A=2;
                 break;
-            case "donation problem":
+            case "Discussion":
                 A=3;
                 break;
-            default:     A=4;
+            default:
+                A=4;
         }
 
-        models.Post p=new models.Post( data.getPostId() ,data.getUserId(), A,title.getText() , caption1.getText() , img.getText()          );
-p.toString();
-        return  p;
+        models.Post p = new models.Post(data.getPostId(), data.getUserId(), A, title.getText(), caption1.getText(), img.getText());
 
+        return p;
     }
+
+    // Method to check for inappropriate words using Bad Words API
+    public boolean checkForBadWords(String text) {
+        String apiKey = "c04594c4f1msh2b4d264a498950fp12d670jsnbf94b1272a2a";
+        String host = "neutrinoapi-bad-word-filter.p.rapidapi.com";
+        String endpoint = "https://neutrinoapi-bad-word-filter.p.rapidapi.com/bad-word-filter";
+
+        try {
+            // Encode the text to be checked
+            String encodedText = URLEncoder.encode(text, "UTF-8");
+
+            // Construct the API request
+            String requestBody = "content=" + encodedText;
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(endpoint))
+                    .header("content-type", "application/x-www-form-urlencoded")
+                    .header("X-RapidAPI-Key", apiKey)
+                    .header("X-RapidAPI-Host", host)
+                    .POST(HttpRequest.BodyPublishers.ofString(requestBody))
+                    .build();
+
+            // Send the API request and process the response
+            HttpResponse<String> httpResponse = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+            int statusCode = httpResponse.statusCode();
+            if (statusCode == 200) {
+                // Check if the response contains any bad words
+                System.out.println(httpResponse.body());
+                System.out.println( Boolean.parseBoolean(httpResponse.body()));
+                String responseBody = httpResponse.body();
+                if (responseBody != null && responseBody.contains("true")) {
+                    return true;
+                }
+
+                return false;
+               // return Boolean.parseBoolean(httpResponse.body());
+
+            } else {
+                System.out.println("Error: " + statusCode);
+                return false;
+            }
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
     @FXML
     public void onLikeContainerPressed(MouseEvent me){
@@ -239,22 +349,23 @@ public void img_change( ){
             if(currentReaction == Reactions.NON){
                 setReaction(Reactions.LIKE);
          if (user_liked==0) {
-                    LS.addLike(data.getPostId(), data.getUserId(), "LIKE");}//kifkif
+                    LS.addLike(data.getPostId(), userid, "LIKE");}//kifkif
 
 
             }else{
                 setReaction(Reactions.NON);
-               LS.deleteLike(data.getPostId(),data.getUserId() ) ;// badlha
+               LS.deleteLike(data.getPostId(),userid ) ;// badlha
 
                 user_liked=0;
 
             }
-            post.setTotalReactions(LS.getTotalLikesForPost(data.getPostId()));
-            nbReactions.setText(String.valueOf(post.getTotalReactions()));
-            setmost_rection(data.getPostId());
+
 
 
         }
+        post.setTotalReactions(LS.getTotalLikesForPost(data.getPostId()));
+        nbReactions.setText(String.valueOf(post.getTotalReactions()));
+        setmost_rection(data.getPostId());
     }
 
     @FXML
@@ -265,57 +376,57 @@ public void img_change( ){
             case "imgLove":
                 setReaction(Reactions.LOVE);
                 if (user_liked == 0) {
-                    LS.addLike(data.getPostId(), data.getUserId(), "LOVE");
+                    LS.addLike(data.getPostId(), userid, "LOVE");
                 } else {
-                    LS.updateLike(data.getPostId(), data.getUserId(), "LOVE");
+                    LS.updateLike(data.getPostId(), userid, "LOVE");
                 }
 
                 break;
             case "imgCare":
                 setReaction(Reactions.CARE);
                 if (user_liked == 0) {
-                    LS.addLike(data.getPostId(), data.getUserId(), "CARE");
+                    LS.addLike(data.getPostId(), userid, "CARE");
                 } else {
-                    LS.updateLike(data.getPostId(), data.getUserId(), "CARE");
+                    LS.updateLike(data.getPostId(), userid, "CARE");
                 }
                 break;
             case "imgHaha":
                 setReaction(Reactions.HAHA);
                 if (user_liked == 0) {
-                    LS.addLike(data.getPostId(), data.getUserId(), "HAHA");
+                    LS.addLike(data.getPostId(), userid, "HAHA");
                 } else {
-                    LS.updateLike(data.getPostId(), data.getUserId(), "HAHA");
+                    LS.updateLike(data.getPostId(), userid, "HAHA");
                 }
                 break;
             case "imgWow":
                 setReaction(Reactions.WOW);
                 if (user_liked == 0) {
-                    LS.addLike(data.getPostId(), data.getUserId(), "WOW");
+                    LS.addLike(data.getPostId(), userid, "WOW");
                 } else {
-                    LS.updateLike(data.getPostId(), data.getUserId(), "WOW");
+                    LS.updateLike(data.getPostId(),userid, "WOW");
                 }
                 break;
             case "imgSad":
                 setReaction(Reactions.SAD);
                 if (user_liked == 0) {
-                    LS.addLike(data.getPostId(), data.getUserId(), "SAD");
+                    LS.addLike(data.getPostId(), userid, "SAD");
                 } else {
-                    LS.updateLike(data.getPostId(), data.getUserId(), "SAD");
+                    LS.updateLike(data.getPostId(), userid, "SAD");
                 }
                 break;
             case "imgAngry":
                 setReaction(Reactions.ANGRY);
                 if (user_liked == 0) {
-                    LS.addLike(data.getPostId(), data.getUserId(), "ANGRY");
+                    LS.addLike(data.getPostId(),userid, "ANGRY");
                 } else {
-                    LS.updateLike(data.getPostId(), data.getUserId(), "ANGRY");
+                    LS.updateLike(data.getPostId(), userid, "ANGRY");
                 }
                 break;
             default:
                 setReaction(Reactions.LIKE); if (user_liked==0) {
-                LS.addLike(data.getPostId(), data.getUserId(), "LIKE");
+                LS.addLike(data.getPostId(), userid, "LIKE");
             } else {
-                LS.updateLike(data.getPostId(), data.getUserId(), "LOVE");
+                LS.updateLike(data.getPostId(), userid, "LOVE");
             }
                 break;
         }
@@ -328,7 +439,7 @@ public void img_change( ){
 
     public void setReaction(Reactions reaction) throws SQLException {
         Image image = new Image("file:src/main/java/"+reaction.getImgSrc());
-        System.out.println(reaction.getImgSrc());
+
 
         imgReaction.setImage(image);
         reactionName.setText(reaction.getName());
@@ -361,27 +472,46 @@ public void img_change( ){
     public ImageView mostliked3 ;
 
     LikesService LS = new LikesService();
+    public static <K, V extends Comparable<? super V>> Map<K, V> sortByValues(Map<K, V> map) {
+        List<Map.Entry<K, V>> entries = new LinkedList<>(map.entrySet());
+
+        // Sort the list based on values
+        Collections.sort(entries, new Comparator<Map.Entry<K, V>>() {
+            @Override
+            public int compare(Map.Entry<K, V> o1, Map.Entry<K, V> o2) {
+                return o2.getValue().compareTo(o1.getValue());
+            }
+        });
+
+        // Populate a LinkedHashMap to maintain the insertion order
+        Map<K, V> sortedMap = new LinkedHashMap<>();
+        for (Map.Entry<K, V> entry : entries) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+
+        return sortedMap;
+    }
 
 public void setmost_rection(int id) throws SQLException {
 
 
     Map<String, Integer> sortedMap = new TreeMap<> (LS.readLikesForPost(id ));
     TreeMap<Integer, String> sortedByValueMap = new TreeMap<>();
-    sortedMap.forEach((key, value) -> sortedByValueMap.put(value, key));
-    System.out.println( sortedByValueMap.toString() );
-    NavigableMap<String, Integer> reverseByKeyMap = ((TreeMap<String, Integer>) sortedMap).descendingMap();
-    NavigableMap<Integer, String> reverseByValueMap = sortedByValueMap.descendingMap();
-   // System.out.println(sortedMap.toString());
+    sortedMap= sortByValues(sortedMap);
+
+   // System.out.println( sortedByValueMap.toString() );
+
+
 
     int count = 0;
-    for (Map.Entry<Integer, String> entry : reverseByValueMap.entrySet()) {
+    for (Map.Entry<String, Integer> entry : sortedMap.entrySet()) {
         if (count >= 3) {
             break;
         }
         Image image ;
 
 
-        String imgSrc = "file:src/main/java/" + Reactions.valueOf(entry.getValue()).getImgSrc();
+        String imgSrc = "file:src/main/java/" + Reactions.valueOf(entry.getKey()).getImgSrc();
 
         switch (count+1 ) {
             case 1: mostliked1.setImage(new Image(imgSrc)); break;
@@ -407,8 +537,36 @@ public void setmost_rection(int id) throws SQLException {
 
 
 
-}
+}@FXML
+    Button play;
 
+    public static void getTextToSpeechResponse(String text) throws IOException, InterruptedException, UnirestException {
+        String apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNGNiZTRmMGMtZDNkNi00M2E0LWIyNzMtYmQ4M2FjZDU1Y2NkIiwidHlwZSI6ImFwaV90b2tlbiJ9.LylbBwbYfKT6Dry_gNjCRLQSW6IE-x4WyC7mHe9eT2g";
+        String url = "https://api.edenai.run/v2/audio/text_to_speech";
+        String payload = "{\"providers\":\"amazon,google,ibm,microsoft\",\"language\":\"fr\",\"text\":\"Bonjour Je m'appelle Jane\",\"option\":\"FEMALE\",\"fallback_providers\":\"\"}";
+
+        HttpClient httpClient = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + apiKey)
+                .POST(HttpRequest.BodyPublishers.ofString(payload))
+                .build();
+
+        httpClient.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                .thenApply(HttpResponse::body)
+                .thenAccept(response -> {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    String audioUrl = jsonResponse.getString("audio_resource_url");
+                    Media media = new Media(audioUrl);
+                    MediaPlayer mediaPlayer = new MediaPlayer(media);
+                    mediaPlayer.play();
+                })
+                .exceptionally(e -> {
+                    System.err.println("Error: " + e.getMessage());
+                    return null;
+                });
+    }
 
 
     private int user_liked=0;
@@ -417,14 +575,14 @@ public void setData(Post post) throws MalformedURLException, SQLException {
         Image img;
         setmost_rection(data.getPostId());
 
-        System.out.println(post.getAccount().getProfileImg());
+
         // img = new Image("file:src\\main\\java\\img\\user.png");
 
 
 
-        if ( LS.hasUserLikedPost(data.getPostId(), data.getUserId())) {
-            Image image = new Image("file:src/main/java/"+Reactions.valueOf(     LS.currentRection(data.getPostId(), data.getUserId())).getImgSrc());
-            System.out.println("wiow");
+        if ( LS.hasUserLikedPost(data.getPostId(),userid)) {
+            Image image = new Image("file:src/main/java/"+Reactions.valueOf(     LS.currentRection(data.getPostId(), userid)).getImgSrc());
+
 
             imgReaction.setImage(image);
             user_liked=1;
@@ -437,13 +595,13 @@ public void setData(Post post) throws MalformedURLException, SQLException {
         imgProfile.setImage(img);
         switch (data.getCategoryId()) {
         case 1:
-        cat.setText("user problem");
+        cat.setText("NEWS");
         break;
         case 2:
-        cat.setText("event problem");
+        cat.setText("Events");
         break;
         case 3:
-        cat.setText("donation problem");
+        cat.setText("Discussion");
         break;
             default:     cat.setText("......... problem");
     }
@@ -528,6 +686,13 @@ public void setData(Post post) throws MalformedURLException, SQLException {
     }
 
 CommentService CS=new CommentService();
+    private void openWebPage(String url) {
+        try {
+            Desktop.getDesktop().browse(new URI(url));
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -539,7 +704,43 @@ models.Post data;
         setData(getPost());
         titre.setText(data.getTitle());
 
+
+        share.setOnMouseClicked(event ->         {
+            WebView webView = new WebView();
+            WebEngine webEngine = webView.getEngine();
+            String description = data.getContent();
+            String imageUrl = data.getImage();
+
+
+            // Encode the description and image URL
+            try {
+                description = URLEncoder.encode(description, "UTF-8");
+                imageUrl = URLEncoder.encode(imageUrl, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+            // Construct the Facebook share URL with the encoded description and image URL
+            String shareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + imageUrl + "&quote=" + description;
+            webEngine.load(shareUrl);
+            openWebPage(shareUrl);
+          post.setNbShares(post.getNbShares()+1);
+//wiow.getChildren().add(shareUrl);
+        });
+
+
     }
+    @FXML
+VBox wiow;
+
+
+    @FXML
+  public HBox  share;
+
+    public HBox getShare() {
+        return share;
+    }
+
     public void receiveData1(models.Post data) throws SQLException {
         this.data=data;
         setData1(getPost());
@@ -612,15 +813,15 @@ this.caption1.setWrapText(true);
 
         switch (data.getCategoryId()) {
             case 1:
-                cat1.setValue("user problem");
+                cat1.setValue("News");
                 break;
             case 2:
-                cat1.setValue("event problem");
+                cat1.setValue("Events");
                 break;
             case 3:
-                cat1.setValue("donation problem");
+                cat1.setValue("Discussion");
                 break;
-            default:     cat1.setValue("athor problem");
+            default:     cat1.setValue("Discussion");
         }
         username.setText(post.getAccount().getName());
         if(post.getAccount().isVerified()){

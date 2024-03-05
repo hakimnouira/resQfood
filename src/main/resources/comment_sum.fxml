@@ -35,7 +35,7 @@
                         <Text fx:id="create_date" fill="#aaaaaa" strokeType="OUTSIDE" strokeWidth="0.0" />
                     </children>
                 </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox fx:id="ban88" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button fx:id="update" mnemonicParsing="false" prefHeight="26.0" prefWidth="96.0" text="update" />
                   <Button fx:id="delete" text="delete" />

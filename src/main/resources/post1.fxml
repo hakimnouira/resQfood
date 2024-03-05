@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="all" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="915.0" prefWidth="565.0" spacing="10.0" styleClass="post-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PostController">
+<VBox fx:id="all" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="915.0" prefWidth="565.0" spacing="10.0" style="-fx-background-color: black;" styleClass="post-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PostController">
    <children>
 
       <HBox prefHeight="60.0" spacing="10.0">
@@ -65,7 +66,7 @@
       </HBox>
       <HBox prefHeight="49.0" prefWidth="566.0">
          <children>
-            <Label prefHeight="62.0" prefWidth="105.0" text="titre">
+            <Label prefHeight="62.0" prefWidth="105.0" text="title">
                <font>
                   <Font name="Bauhaus 93" size="29.0" />
                </font></Label>
@@ -88,6 +89,7 @@
             <Font name="Segue UI Historic" size="18.0" />
          </font>
       </Label>
+      <Button fx:id="play" mnemonicParsing="false" style="-fx-background-color: orange;" text="play" textFill="#bf1919" />
       <ImageView fx:id="imgPost" fitHeight="556.0" fitWidth="568.0" pickOnBounds="true" preserveRatio="true" />
       <StackPane alignment="CENTER_LEFT">
          <children>
@@ -203,7 +205,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
+            <HBox fx:id="share" alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
                   <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>

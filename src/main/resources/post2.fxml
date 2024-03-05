@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="565.0" spacing="10.0" styleClass="post-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PostController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="565.0" spacing="10.0" style="-fx-background-color: black;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PostController">
    <children>
 
       <HBox prefHeight="60.0" spacing="10.0">
@@ -71,7 +71,7 @@
       </HBox>
       <HBox prefHeight="38.0" prefWidth="566.0">
          <children>
-            <Label prefHeight="18.0" prefWidth="56.0" text="titre">
+            <Label prefHeight="18.0" prefWidth="56.0" text="titre" textFill="#9c234b">
                <font>
                   <Font name="Cambria Italic" size="24.0" />
                </font>
@@ -95,15 +95,18 @@
          </FXCollections>
       </items>
       </ChoiceBox>
-      <Label prefHeight="30.0" prefWidth="125.0" text="content">
+      <Label prefHeight="30.0" prefWidth="125.0" text="content" textFill="#a67878">
          <font>
             <Font name="Cambria Italic" size="24.0" />
          </font>
       </Label>
-      <TextArea fx:id="caption1" prefHeight="200.0" prefWidth="200.0" />
+      <TextArea fx:id="caption1" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red; -fx-text-fill: black;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></TextArea>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <TextArea fx:id="img" onInputMethodTextChanged="#img_change" prefHeight="94.0" prefWidth="456.0" />
+            <TextArea fx:id="img" onInputMethodTextChanged="#img_change" prefHeight="94.0" prefWidth="456.0" style=" -fx-text-fill: black;" />
             <Button mnemonicParsing="false" onAction="#check_me" text="check" />
          </children>
       </HBox>
@@ -218,5 +221,9 @@
       </HBox>
 
    </children>
+   <styleClass>
+      <String fx:value="post-background" />
+      <String fx:value="post-background" />
+   </styleClass>
 
 </VBox>

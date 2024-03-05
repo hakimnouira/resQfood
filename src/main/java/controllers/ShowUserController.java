@@ -14,6 +14,11 @@ import services.PostService;
 import java.sql.SQLException;
 import java.util.List;
 
+
+
+
+
+
 public class ShowUserController {
 private final PostService ps = new PostService();
   private  ObservableList<Post> observableList;

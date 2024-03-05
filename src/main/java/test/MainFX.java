@@ -16,11 +16,8 @@ public class MainFX extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/addUser.fxml"));
         // load fxml code in a sceen
         Parent root= loader.load();
-        SearchController s;
-       /* s=loader.getController();
-        s.waaaa();*/
-        // put the fxml file in a sceene
-        Scene scene = new Scene(root);
+       Scene scene = new Scene(root);
+
 
 
         // set a scene in stage

@@ -3,6 +3,7 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import models.Comment;
 
@@ -15,7 +16,12 @@ Text content;
     Button update;
 @FXML
 Button delete;
+    @FXML
+    HBox ban88;
+    public HBox getBan88(){
+        return ban88;
 
+    }
 
     void initialize(Comment c ) {
 

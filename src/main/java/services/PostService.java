@@ -67,6 +67,123 @@ public class PostService implements IService<Post> {
         return posts;
     }
 
+
+
+    public List<Post> search(int category, Date fromDate, Date toDate,
+                             String reaction, int reactionCount, String reactionComparison,
+                             int commentCount, String commentComparison,
+                             String title, Date fromDate_updated, Date toDate_updated) throws SQLException {
+
+        StringBuilder queryBuilder = new StringBuilder("SELECT DISTINCT p.* FROM posts p");
+
+        if (category != 0 ) {
+            queryBuilder.append(" INNER JOIN likes l ON p.post_id = l.post_id");
+        }
+
+        queryBuilder.append(" WHERE 1=1");
+
+        if (category !=0) {
+            queryBuilder.append(" AND p.category_id = ?");
+        }
+
+        if (fromDate != null && toDate != null) {
+            queryBuilder.append(" AND p.created_at BETWEEN ? AND ?");
+        }
+
+        if (reaction != null && !reaction.isEmpty()) {
+            queryBuilder.append(" AND l.reaction_type = ?");
+        }
+
+        if (reactionCount > 0) {
+            queryBuilder.append(" GROUP BY p.post_id HAVING COUNT(l.like_id) ");
+            if (reactionComparison.equals("Equal to")) {
+                queryBuilder.append("= ?");
+            } else if (reactionComparison.equals("More than")) {
+                queryBuilder.append("> ?");
+            } else if (reactionComparison.equals("Less than")) {
+                queryBuilder.append("< ?");
+            }
+        }
+
+        if (commentCount > 0) {
+            queryBuilder.append(" AND p.post_id IN (SELECT post_id FROM comments GROUP BY post_id HAVING COUNT(comment_id) ");
+            if (commentComparison.equals("Equal to")) {
+                queryBuilder.append("= ?");
+            } else if (commentComparison.equals("More than")) {
+                queryBuilder.append("> ?");
+            } else if (commentComparison.equals("Less than")) {
+                queryBuilder.append("< ?");
+            }
+            queryBuilder.append(")");
+        }
+
+        if (title != null && !title.isEmpty()) {
+            queryBuilder.append(" AND p.title LIKE ?");
+        }
+
+        if (fromDate_updated != null && toDate_updated != null) {
+            queryBuilder.append(" AND p.updated_at BETWEEN ? AND ?");
+        }
+
+        try (PreparedStatement statement = connection.prepareStatement(queryBuilder.toString())) {
+            int parameterIndex = 1;
+
+            if (category !=0) {
+
+                statement.setInt(parameterIndex++,category );
+            }
+
+            if (fromDate != null && toDate != null) {
+                statement.setDate(parameterIndex++, new java.sql.Date(fromDate.getTime()));
+                statement.setDate(parameterIndex++, new java.sql.Date(toDate.getTime()));
+            }
+
+            if (reaction != null && !reaction.isEmpty()) {
+                statement.setString(parameterIndex++, reaction);
+            }
+
+            if (reactionCount > 0) {
+                statement.setInt(parameterIndex++, reactionCount);
+            }
+
+            if (commentCount > 0) {
+                statement.setInt(parameterIndex++, commentCount);
+            }
+
+            if (title != null && !title.isEmpty()) {
+                statement.setString(parameterIndex++, "%" + title + "%");
+            }
+
+            if (fromDate_updated != null && toDate_updated != null) {
+                statement.setDate(parameterIndex++, new java.sql.Date(fromDate_updated.getTime()));
+                statement.setDate(parameterIndex++, new java.sql.Date(toDate_updated.getTime()));
+            }
+
+            ResultSet resultSet = statement.executeQuery();
+            System.out.println(statement.toString());
+            List<Post> posts = new ArrayList<>();
+
+            while (resultSet.next()) {
+                Post post = new Post();
+                post.setPostId(resultSet.getInt("post_id"));
+                post.setUserId(resultSet.getInt("user_id"));
+                post.setCategoryId(resultSet.getInt("category_id"));
+                post.setTitle(resultSet.getString("title"));
+                post.setContent(resultSet.getString("content"));
+                post.setCreated_at(resultSet.getDate("created_at"));
+                post.setUpdated_at(resultSet.getDate("updated_at"));
+                post.setImage(resultSet.getString("image"));
+                posts.add(post);
+            }
+
+            return posts;
+        }}
+
+
+
+
+
+
     @Override
     public List<Post> read(int id) throws SQLException {
         return null;

@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import models.Post;
 
 import java.sql.SQLException;
@@ -41,6 +42,7 @@ return delete;
 
 
     }
+
 
     void initialize(models.Comment c) {
         messageTextArea.setText(c.getContent());

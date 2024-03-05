@@ -13,9 +13,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="456.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SearchController">
+<AnchorPane fx:id="aa" prefHeight="456.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SearchController">
+   <stylesheets>
+      <String fx:value="cupertino-dark.css" />
+
+   </stylesheets>
    <children>
-      <VBox alignment="CENTER" layoutY="56.0" spacing="10">
+      <VBox fx:id="op" alignment="CENTER" layoutY="56.0" spacing="10">
 
          <!-- Title -->
          <HBox spacing="10">
@@ -71,11 +75,11 @@
          </HBox>
 
          <!-- Search Button -->
-         <Button text="Search" />
+         <Button fx:id="wa" text="Search" />
       </VBox>
       <!-- Search Criteria -->
       <Label layoutX="166.0" layoutY="29.0" style="-fx-font-weight: bold;" text="Search Criteria" />
-      <TitledPane fx:id="wa" animated="false" layoutX="498.0" layoutY="29.0" text="untitled">
+      <TitledPane  animated="false" layoutX="498.0" layoutY="29.0" text="untitled">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
         </content>

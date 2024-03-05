@@ -1,5 +1,6 @@
 package controllers;
 
+import controllers.atlantafx.ModalPanePage;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -7,37 +8,58 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import models.Bans;
 import models.Comment;
 import models.Post;
+import org.json.JSONObject;
 import services.CommentService;
 import services.PostService;
+import services.banService;
 
 import java.awt.*;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.UnsupportedEncodingException;
+import java.net.*;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.List;
+import java.awt.Desktop;
+
+
+import static atlantafx.sampler.page.Page.FAKER;
+
 
 public class AddUser  {
-
+@FXML
+ChoiceBox<String> lan =new ChoiceBox<>();
     @FXML
     private BorderPane mainBorderPane;
     public VBox wiow;
+   public int userid=1;
+
 
     private final CommentService Cs =new CommentService();
 
     public   List<Parent> comment_section= new ArrayList<>();
+
+    @FXML
+   public AnchorPane all;
 
     public void initialize() throws IOException {
        /* FXMLLoader rechcerche = new FXMLLoader(new URL("file:src\\main\\resources\\search.fxml"));
@@ -50,6 +72,209 @@ public class AddUser  {
         s.waaaa();
         vbox_con_recherche.getChildren().add(root77 );*/
 try {
+
+    lan.getItems().addAll("en", "es", "fr", "de", "zh", "ja", "ar", "ru", "hi", "pt"
+
+    );
+
+
+    Button button69 = new Button("search");
+    var topDialog = new ModalPanePage.Dialog(843, 550);
+
+
+
+    DatePicker fromUpdatedDatePicker = new DatePicker();
+
+    DatePicker toUpdatedDatePicker = new DatePicker();
+
+
+
+    Label fromUpdatedLabel = new Label("From (Updated):");
+    Label toUpdatedLabel = new Label("To (Updated):");
+
+    TextField titleTextField = new TextField();
+    titleTextField.setPromptText("Search by Title");
+
+
+
+
+
+    Label titleLabel = new Label("Search Options");
+
+    // ComboBox for Category
+    ComboBox<String> categoryComboBox = new ComboBox<>();
+    categoryComboBox.getItems().addAll("News", "Events", "Discussion");
+    categoryComboBox.setPromptText("Select Category");
+
+    // Date Pickers for Date Range
+    DatePicker fromDateDatePicker = new DatePicker();
+    DatePicker toDateDatePicker = new DatePicker();
+    Label fromDateLabel = new Label("From:");
+    Label toDateLabel = new Label("To:");
+
+    // ComboBox for Likes/Reactions
+    ComboBox<String> reactionsComboBox = new ComboBox<>();
+    reactionsComboBox.getItems().addAll("LIKE", "LOVE", "CARE", "HAHA", "WOW", "SAD", "ANGRY");
+    reactionsComboBox.setPromptText("Select Reaction");
+    Spinner<Integer> reactionsSpinner = new Spinner<>(0, Integer.MAX_VALUE, 0);
+    ChoiceBox<String> comparisonChoiceBox_Reaction = new ChoiceBox<>();
+    comparisonChoiceBox_Reaction.getItems().addAll("Equal to", "More than", "Less than");
+    comparisonChoiceBox_Reaction.setValue("Equal to");
+    // Spinner for Number of Comments
+    Spinner<Integer> commentsSpinner = new Spinner<>(0, Integer.MAX_VALUE, 0);
+    Label commentsLabel = new Label("Number of Comments:");
+
+    // ChoiceBox for Comparison Operator
+    ChoiceBox<String> comparisonChoiceBox = new ChoiceBox<>();
+    comparisonChoiceBox.getItems().addAll("Equal to", "More than", "Less than");
+    comparisonChoiceBox.setValue("Equal to");
+
+    // Button to perform search
+    Button searchButton = new Button("Search");
+
+    searchButton.setOnAction( evenet -> {
+        int category =0 ;
+        categoryComboBox.setValue("nothing");
+        switch ( categoryComboBox.getValue()) {
+            case "News":
+                category=1;
+                break;
+            case "Events":
+                category=2;
+                break;
+            case "Discussion":
+                category=3;
+                break;
+            default:
+                category=0;
+        }
+
+        Date fromDate = (fromDateDatePicker.getValue() != null) ?
+                java.sql.Date.valueOf(fromDateDatePicker.getValue()) : null;
+        Date toDate = (toDateDatePicker.getValue() != null) ?
+                java.sql.Date.valueOf(toDateDatePicker.getValue()) : null;
+
+        String reaction = reactionsComboBox.getValue();
+        int reactionCount = reactionsSpinner.getValue();
+        String reactionComparison = comparisonChoiceBox_Reaction.getValue();
+        int commentCount = commentsSpinner.getValue();
+        String commentComparison = comparisonChoiceBox.getValue();
+        String title = titleTextField.getText();
+        Date fromDate_updated = (fromUpdatedDatePicker.getValue() != null) ?
+                java.sql.Date.valueOf(fromUpdatedDatePicker.getValue()) : null;
+        Date toDate_updated = (toUpdatedDatePicker.getValue() != null) ?
+                java.sql.Date.valueOf(toUpdatedDatePicker.getValue()) : null;
+        wiow.getChildren().clear();
+
+        try {
+            wiow.getChildren().removeAll();
+
+            load_post1(ps.search(category, (java.sql.Date) fromDate, (java.sql.Date) toDate, reaction, reactionCount, reactionComparison, commentCount, commentComparison, title, (java.sql.Date) fromDate_updated, (java.sql.Date) toDate_updated));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        all.getChildren().remove(topDialog);
+    });
+
+
+    // Set up grid pane for layout
+    GridPane gridPane = new GridPane();
+
+    gridPane.setVgap(10);
+    gridPane.setHgap(10);
+
+    gridPane.add(titleLabel, 0, 0, 2, 1);
+    gridPane.add(new Label("Category:"), 0, 1);
+    gridPane.add(categoryComboBox, 1, 1);
+    gridPane.add(new Label("Date Range:"), 0, 2);
+    gridPane.add(fromDateLabel, 1, 2);
+    gridPane.add(fromDateDatePicker, 2, 2);
+    gridPane.add(toDateLabel, 3, 2);
+    gridPane.add(toDateDatePicker, 4, 2);
+    gridPane.add(new Label("Reactions:"), 0, 3);
+    gridPane.add(reactionsComboBox, 1, 3);
+    gridPane.add(reactionsSpinner, 2, 3);
+    gridPane.add(comparisonChoiceBox_Reaction,3,3);
+    gridPane.add(commentsLabel, 0, 4);
+    gridPane.add(commentsSpinner, 1, 4);
+    gridPane.add(comparisonChoiceBox, 2, 4);
+
+    gridPane.add(fromUpdatedLabel, 0, 5);
+    gridPane.add(fromUpdatedDatePicker, 1, 5);
+    gridPane.add(toUpdatedLabel, 2, 5);
+    gridPane.add(toUpdatedDatePicker, 3, 5);
+    gridPane.add(new Label("Title:"), 0, 6);
+    gridPane.add(titleTextField, 1, 6);
+    gridPane.add(searchButton, 1, 8);
+
+
+
+    topDialog.getChildren().setAll(gridPane);
+
+
+
+
+    var closeBtn = new Button("Close");
+    closeBtn.setOnAction(evt -> all.getChildren().remove(topDialog));
+    topDialog.getChildren().add(closeBtn);
+
+
+
+    ModalPanePage modalPane= new ModalPanePage(1);
+  //  all.getChildren().add(topDialog);
+    vbox_con_recherche.getChildren().add(button69);
+    //vbox_con_recherche.getChildren().add(lan);
+    lan.setOnAction( event -> {
+wiow.getChildren().clear();
+
+        List<Post> usersList = null;
+        try {
+            usersList = ps.read();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        for (int i = 0; i < usersList.size(); i++) {
+            try {
+                HttpRequest request = HttpRequest.newBuilder()
+                        .uri(URI.create("https://google-translate113.p.rapidapi.com/api/v1/translator/text"))
+                        .header("content-type", "application/x-www-form-urlencoded")
+                        .header("X-RapidAPI-Key", "a9f2669049msh72c5dbce14e8059p15cc99jsn07406a61ed08")
+                        .header("X-RapidAPI-Host", "google-translate113.p.rapidapi.com")
+                        .method("POST", HttpRequest.BodyPublishers.ofString("from=auto&to="+lan.getValue()+"&text="+usersList.get(i).getContent()))
+                        .build();
+
+                HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+
+                // Parse JSON response
+                JSONObject jsonResponse = new JSONObject(response.body());
+                System.out.println(jsonResponse);
+                String translation = jsonResponse.getString("trans");
+                usersList.get(i).setContent(translation) ;
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+        load_post1( usersList          ) ;
+    });
+  //  vbox_con_recherche.getChildren().add( modalPane1.contentPositionExample());
+    button69.setOnAction(event -> {
+
+
+
+
+
+        all.getChildren().add(topDialog);
+
+
+            }
+
+    );
+
+
 
         Button button6 = new Button("create");
     button6.setStyle("-fx-background-color: orange;");
@@ -71,7 +296,8 @@ try {
                 wiow.getChildren().remove(button6);
 
                 PostController c = loader1.getController();
-                c.receiveData1( new Post(1));
+                c.receiveData1( new Post(userid));
+                c.userid=userid;
                 HBox hbox1;
                 hbox1=c.getThisone();
                 Button button5 = new Button("create");
@@ -156,6 +382,7 @@ loadFXML("file:src\\main\\resources\\post1.fxml", (o.get(o.size()-1)));
     @FXML
     VBox vbox_con_recherche;
 
+
     public void   load_post1 ( List<Post>    usersList          ) {
 
         for (int i = 0; i < usersList.size(); i++) {
@@ -191,6 +418,8 @@ vbox.getChildren().remove(b);
                 comment_read(comment ,id, root,vbox);
             } catch (IOException e) {
                 throw new RuntimeException(e);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
 
 
@@ -214,7 +443,7 @@ vbox.getChildren().remove(b);
 
 
 
-    public void comment_read(Label comment ,Post id,Parent root ,VBox vbox) throws IOException {
+    public void comment_read(Label comment ,Post id,Parent root ,VBox vbox) throws IOException, SQLException {
         System.out.println("comment pressed!");
 
 
@@ -246,14 +475,15 @@ Button create_comment_button =new Button("Create comment");
                         return; // Exit the event handler if the message is empty
                     }
                     cc.setContent(message);
-                    cc.setUserId(id.getUserId()); // hathi badlha ba3ed
+                    cc.setUserId(userid); // hathi badlha ba3ed
                     cc.setPostId(id.getPostId());
 
                     try {
                         Cs.create(cc);
                         vbox.getChildren().remove(root1);
                         FXMLLoader loader7 ;
-                        loader7 = new FXMLLoader(new URL("file:src\\main\\resources\\comment_sum.fxml"));
+
+                        loader7 = new FXMLLoader(new URL(" file:src/main/resources/comment_sum.fxml"));
                         Parent root7 = loader7.load();
                         controllers.comment_sum csum;
                         csum=loader7.getController();
@@ -296,17 +526,43 @@ Button create_comment_button =new Button("Create comment");
 
         System.out.println(usersList);
         for (int i = 0; i < usersList.size(); i++) {
+            //here
+            banService BS= new banService();
+            Bans b=BS.getUserInfo(usersList.get(i).getUserId());
+            int h=0;
+if(b ==null ) {
+    h=0  ;   }
+else { h= b.getUserID();
+    System.out.println(h);}
 
-            FXMLLoader loader1 = new FXMLLoader(new URL("file:src\\main\\resources\\comment_sum.fxml"));
+if(h != userid) {
 
-            Parent root1 = loader1.load();
+    FXMLLoader loader1 = new FXMLLoader(new URL(" file:src/main/resources/comment_sum.fxml"));
 
-            comment_section.add(root1);
-           comment_sum c;
-            c=loader1.getController();
-            c.initialize(usersList.get(i));
+    Parent root1 = loader1.load();
 
-           // comment_update_button_fn(c,root1,usersList.get(i),wiow);
+    comment_section.add(root1);
+    comment_sum c;
+
+    c = loader1.getController();
+
+    c.initialize(usersList.get(i));
+    // change here
+    if (usersList.get(i).getUserId() != userid && ( ps.readOne(usersList.get(i).getPostId()) ).getUserId() ==userid   ) {
+        Button bb = new Button("ban");
+        c.getBan88().getChildren().add(bb);
+        Comment finalUsersList = usersList.get(i);
+        bb.setOnAction(event -> {
+            banService BS1 = new banService();
+            BS1.banUser(finalUsersList.getUserId(), userid, "aaaaaaaaaa");
+            comment_read_delete(comment,id, root,create_comment_button,vbox);
+
+        });
+
+
+    }
+
+    // comment_update_button_fn(c,root1,usersList.get(i),wiow);
 
 
 
@@ -321,24 +577,20 @@ Button create_comment_button =new Button("Create comment");
             c.initialize(usersList.get(i));*/
 
 
-           Region spacer = new Region();
-            spacer.setMinHeight(root1.getScaleY()+200);
- spacer.setDisable(true);
-this. spacer.add(spacer);
+    Region spacer = new Region();
+    spacer.setMinHeight(root1.getScaleY() + 200);
+    spacer.setDisable(true);
+    this.spacer.add(spacer);
 
-           wiow.getChildren().add(    wiow.getChildren().indexOf(root) +1,  spacer        );
-            vbox.getChildren().add(root1);
-
-
-            comment_update_button_fn(root1 ,vbox,usersList.get(i) ,c);
-            delete_button_comment_fn(vbox,c,usersList.get(i),root1 );
+    wiow.getChildren().add(wiow.getChildren().indexOf(root) + 1, spacer);
+    vbox.getChildren().add(root1);
 
 
+    comment_update_button_fn(root1, vbox, usersList.get(i), c);
+    delete_button_comment_fn(vbox, c, usersList.get(i), root1);
 
 
-
-
-
+}
         }
 
       //  wiow.getChildren().add(root);
@@ -365,7 +617,7 @@ this. spacer.add(spacer);
             cm.setContent(c.get_content()   );
             vbox.getChildren().remove(root1);
             try {
-                FXMLLoader loader_comment_update = new FXMLLoader(new URL("file:src\\main\\resources\\comment.fxml"));
+                FXMLLoader loader_comment_update = new FXMLLoader(new URL(" file:src/main/resources/comment.fxml"));
                 Parent root_comment_update=  loader_comment_update.load();
                 controllers.Comment c_update ;
 
@@ -433,10 +685,12 @@ this. spacer.add(spacer);
 
 
             Parent root = loader.load();
+
             p = loader.getController();
 VBox vbox=p.get_comment_section();
-
+            p.userid=userid;
             p.receiveData(id);
+
             VBox v;
             v = p.getdeleteButton();
 
@@ -451,6 +705,8 @@ VBox vbox=p.get_comment_section();
                 try {
                     comment_read(comment ,id, root,vbox);
                 } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
 
@@ -476,10 +732,11 @@ VBox vbox=p.get_comment_section();
             button1.setOnAction(e -> {
 
                         try {
-                            FXMLLoader loader1 = new FXMLLoader(new URL("file:src\\main\\resources\\post2.fxml"));
+                            FXMLLoader loader1 = new FXMLLoader(new URL("file:src/main/resources/post2.fxml"));
 
                             Parent root1 = loader1.load();
                             PostController c = loader1.getController();
+                            c.userid=userid;
                             c.receiveData1(id);
                             HBox hbox;
                             hbox=c.getThisone();
@@ -502,7 +759,7 @@ VBox vbox=p.get_comment_section();
 
                                  Parent root8 = loader8.load();*/
                                 try {
-                                    loadFXML("file:src\\main\\resources\\post1.fxml",ps.readOne( c.update_button_pressed().getPostId()));
+                                    loadFXML(" file:src/main/resources/post1.fxml",ps.readOne( c.update_button_pressed().getPostId()));
                                 } catch (SQLException ex) {
                                     throw new RuntimeException(ex);
                                 }
