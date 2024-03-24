@@ -10,9 +10,9 @@
       <section class="breadcrumbs-custom-inset">
         <div class="breadcrumbs-custom context-dark bg-overlay-46">
           <div class="container">
-            <h2 class="breadcrumbs-custom-title">About Our Farm</h2>
+            <h2 class="breadcrumbs-custom-title">About ResQFood</h2>
             <ul class="breadcrumbs-custom-path">
-              <li><a href="index.html">Home</a></li>
+              <li><a href="{{ path('app_home')}}">Home</a></li>
               <li class="active">About Us</li>
             </ul>
           </div>
@@ -38,7 +38,7 @@
                 <!-- Tab panes-->
                 <div class="tab-content">
                   <div class="tab-pane fade show active" id="tabs-4-1">
-                    <p>Our goal with the Resqfood app is to tackle food waste and alleviate hunger by connecting surplus food with those in need. </p>
+                    <p>Our goal is to tackle food waste and alleviate hunger by connecting surplus food with those in need. </p>
                     <div class="text-center text-sm-left offset-top-30">
                       <ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">
                         <li>Reduce Food Waste.</li>
@@ -49,32 +49,32 @@
                         <li>Foster Community Engagement.</li>
                       </ul>
                     </div>
-                    <div class="group-md group-middle"><a class="button button-width-xl-230 button-primary button-pipaluk" href="#">Read more</a><a class="button button-width-xl-310 button-default-outline button-wapasha" href="contact-us.html">Contact us</a></div>
+                    <div class="group-md group-middle"><a class="button button-width-xl-230 button-primary button-pipaluk" href="#">Read more</a><a class="button button-width-xl-310 button-default-outline button-wapasha" href="{{ path('app_contact_us')}}">Contact us</a></div>
                   </div>
                   <div class="tab-pane fade" id="tabs-4-2">
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>At ResQfood, our values are deeply rooted in compassion, sustainability, and community. We believe in fostering a culture of empathy and responsibility towards reducing food waste.</p>
                     <div class="text-center text-sm-left offset-top-30">
                       <ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">
-                        <li>Nostrud exercitation</li>
-                        <li>Laboris nisi</li>
-                        <li>Officia deserunt</li>
-                        <li>Eiusmod tempor</li>
-                        <li>Dolore magna</li>
-                        <li>Minim veniam</li>
+                        <li>Compassion.</li>
+                        <li>Sustainability.</li>
+                        <li>Collaboration.</li>
+                        <li>Integrity.</li>
+                        <li>Innovation.</li>
+                        <li>Empowerment.</li>
                       </ul>
                     </div>
                     <div class="group-md group-middle"><a class="button button-width-xl-230 button-primary button-pipaluk" href="#">Read more</a><a class="button button-width-xl-310 button-default-outline button-wapasha" href="contact-us.html">Contact us</a></div>
                   </div>
                   <div class="tab-pane fade" id="tabs-4-3">
-                    <p>Sed ut perspiciatis unde omnis iste natu doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    <p>Our mission at Resqfood is to alleviate hunger, promote food security, and empower communities through the efficient redistribution of surplus food. We strive to connect food donors with those in need, ensuring that no edible food goes to waste while addressing the urgent issue of food insecurity.</p>
                     <div class="text-center text-sm-left offset-top-30">
                       <ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">
-                        <li>Minim veniam</li>
-                        <li>Nostrud exercitation</li>
-                        <li>Eiusmod tempor</li>
-                        <li>Dolore magna</li>
-                        <li>Laboris nisi</li>
-                        <li>Officia deserunt</li>
+                        <li>Rescue food from waste.</li>
+                        <li>Support local communities.</li>
+                        <li>Provide food to those in need.</li>
+                        <li>Encourage food donation. </li>
+                        <li>Facilitate easy access to food donation opportunities.</li>
+                        <li>connect food donors with those in need.</li>
                       </ul>
                     </div>
                     <div class="group-md group-middle"><a class="button button-width-xl-230 button-primary button-pipaluk" href="#">Read more</a><a class="button button-width-xl-310 button-default-outline button-wapasha" href="contact-us.html">Contact us</a></div>
@@ -85,17 +85,17 @@
           </div>
         </div>
       </section>
-
+<!--HISTORY PART-->
       <!-- Latest Projects-->
-      <section class="section section-md section-fluid bg-default">
+      <!--<section class="section section-md section-fluid bg-default">
         <div class="container">
           <h2>Our History</h2>
-        </div>
+        </div>-->
         <!-- Owl Carousel-->
-        <div class="owl-carousel owl-classic owl-timeline" data-items="1" data-md-items="2" data-lg-items="3" data-xl-items="4" data-margin="30" data-stage-padding="15" data-xxl-stage-padding="0" data-autoplay="true" data-nav="true" data-dots="true">
-          <div class="owl-item">
+       <!-- <div class="owl-carousel owl-classic owl-timeline" data-items="1" data-md-items="2" data-lg-items="3" data-xl-items="4" data-margin="30" data-stage-padding="15" data-xxl-stage-padding="0" data-autoplay="true" data-nav="true" data-dots="true">
+          <div class="owl-item">-->
             <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary thumbnail-md">
+<!--            <article class="thumbnail thumbnail-mary thumbnail-md">
               <div class="thumbnail-mary-figure"><img src="images/project-1-420x308.jpg" alt="" width="420" height="308"/>
               </div>
               <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="images/gallery-original-11-800x1200.jpg" data-lightgallery="item"><img src="images/project-1-420x308.jpg" alt="" width="420" height="308"/></a>
@@ -108,9 +108,9 @@
               </h5>
             </div>
           </div>
-          <div class="owl-item">
+          <div class="owl-item">-->
             <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary thumbnail-md">
+            <!--<article class="thumbnail thumbnail-mary thumbnail-md">
               <div class="thumbnail-mary-figure"><img src="images/project-2-420x308.jpg" alt="" width="420" height="308"/>
               </div>
               <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="images/gallery-original-5-800x1200.jpg" data-lightgallery="item"><img src="images/project-2-420x308.jpg" alt="" width="420" height="308"/></a>
@@ -123,9 +123,9 @@
               </h5>
             </div>
           </div>
-          <div class="owl-item">
+          <div class="owl-item">-->
             <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary thumbnail-md">
+           <!-- <article class="thumbnail thumbnail-mary thumbnail-md">
               <div class="thumbnail-mary-figure"><img src="images/project-3-420x308.jpg" alt="" width="420" height="308"/>
               </div>
               <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="images/gallery-original-4-800x1200.jpg" data-lightgallery="item"><img src="images/project-3-420x308.jpg" alt="" width="420" height="308"/></a>
@@ -138,9 +138,9 @@
               </h5>
             </div>
           </div>
-          <div class="owl-item">
+          <div class="owl-item">-->
             <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary thumbnail-md">
+            <!--<article class="thumbnail thumbnail-mary thumbnail-md">
               <div class="thumbnail-mary-figure"><img src="images/project-4-420x308.jpg" alt="" width="420" height="308"/>
               </div>
               <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="images/gallery-original-3-800x1200.jpg" data-lightgallery="item"><img src="images/project-4-420x308.jpg" alt="" width="420" height="308"/></a>
@@ -153,9 +153,9 @@
               </h5>
             </div>
           </div>
-          <div class="owl-item">
+          <div class="owl-item">-->
             <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary thumbnail-md">
+           <!-- <article class="thumbnail thumbnail-mary thumbnail-md">
               <div class="thumbnail-mary-figure"><img src="images/project-5-420x308.jpg" alt="" width="420" height="308"/>
               </div>
               <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="images/gallery-original-1-1200x800.jpg" data-lightgallery="item"><img src="images/project-5-420x308.jpg" alt="" width="420" height="308"/></a>
@@ -168,12 +168,12 @@
               </h5>
             </div>
           </div>
-        </div>
+        </div>-->
       </section>
 
       <!-- What people say-->
       <section class="section context-dark">
-        <div class="parallax-container" data-parallax-img="images/bg-parallax-2.jpg">
+        <div class="parallax-container" data-parallax-img="{{ asset('images/orange.jpg') }}">
           <div class="parallax-content section-md bg-overlay-2-21">
             <div class="container">
               <div class="oh">
@@ -183,32 +183,32 @@
               <div class="owl-carousel owl-modern" data-items="1" data-stage-padding="15" data-margin="30" data-dots="true" data-animation-in="fadeIn" data-animation-out="fadeOut" data-autoplay="true">
                 <!-- Quote Lisa-->
                 <article class="quote-lisa">
-                  <div class="quote-lisa-body"><a class="quote-lisa-figure" href="#"><img class="img-circles" src="images/user-16-100x100.jpg" alt="" width="100" height="100"/></a>
+                  <div class="quote-lisa-body"><a class="quote-lisa-figure" href="#"><img class="img-circles" src="{{ asset('images/sarra.jpg') }}"alt="" width="100" height="100"/></a>
                     <div class="quote-lisa-text">
-                      <p class="q">I picked up a head of your lettuce at a local grocery store today. What an amazing and beautiful lettuce it is! I’ve never seen another so full and green and tempting.</p>
+                      <p class="q">Resqfood has made it incredibly easy for me to donate surplus food from my business. It feels great knowing that it's going to those who need it most.</p>
                     </div>
-                    <h5 class="quote-lisa-cite"><a href="#">Samantha Peterson</a></h5>
-                    <p class="quote-lisa-status">Regular Client</p>
+                    <h5 class="quote-lisa-cite"><a href="#">Sarra</a></h5>
+                    <p class="quote-lisa-status">Local Restaurant Owner</p>
                   </div>
                 </article>
                 <!-- Quote Lisa-->
                 <article class="quote-lisa">
-                  <div class="quote-lisa-body"><a class="quote-lisa-figure" href="#"><img class="img-circles" src="images/user-17-100x100.jpg" alt="" width="100" height="100"/></a>
+                  <div class="quote-lisa-body"><a class="quote-lisa-figure" href="#"><img class="img-circles" src="{{ asset('images/raslen.jpg') }}" alt="" width="100" height="100"/></a>
                     <div class="quote-lisa-text">
-                      <p class="q">I wanted to tell you how amazing it was to see the farm and how much we love the food. Your apples and carrots are just wonderful and their taste is great.</p>
+                      <p class="q">As a recipient of food donations through Resqfood, I can't express how much it means to me and my family. It's a lifeline during tough times, and I'm so grateful for the support.</p>
                     </div>
-                    <h5 class="quote-lisa-cite"><a href="#">John Wilson</a></h5>
-                    <p class="quote-lisa-status">Regular Client</p>
+                    <h5 class="quote-lisa-cite"><a href="#">Raslen</a></h5>
+                    <p class="quote-lisa-status">Regular User</p>
                   </div>
                 </article>
                 <!-- Quote Lisa-->
                 <article class="quote-lisa">
-                  <div class="quote-lisa-body"><a class="quote-lisa-figure" href="#"><img class="img-circles" src="images/user-18-100x100.jpg" alt="" width="100" height="100"/></a>
+                  <div class="quote-lisa-body"><a class="quote-lisa-figure" href="#"><img class="img-circles" src="{{ asset('images/asma.jpg') }}"alt="" width="100" height="100"/></a>
                     <div class="quote-lisa-text">
-                      <p class="q">The food from your farm is wonderful. So many nights when we sit down to dinner we can say everything on this plate is locally grown and delicious. Thank you!</p>
+                      <p class="q">I've been using Resqfood to find local food donation events, and it's been such a rewarding experience. The app has connected me with organizations in my community that I never knew existed. Thank you!</p>
                     </div>
-                    <h5 class="quote-lisa-cite"><a href="#">Kate Anderson</a></h5>
-                    <p class="quote-lisa-status">Regular Client</p>
+                    <h5 class="quote-lisa-cite"><a href="#">Asma</a></h5>
+                    <p class="quote-lisa-status">Volunteer</p>
                   </div>
                 </article>
               </div>
@@ -217,14 +217,14 @@
         </div>
       </section>
 
-      <section class="section section-md section-last bg-gray-100">
-        <div class="container">
+     <section class="section section-md section-last bg-gray-100">
+        <!--<div class="container">
           <div class="oh">
             <h2 class="wow slideInUp" data-wow-delay="0s">Our Partners</h2>
-          </div>
+          </div>-->
           <!-- Owl Carousel-->
-          <div class="owl-carousel owl-clients owl-dots-secondary" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="4" data-margin="30" data-dots="true" data-animation-in="fadeIn" data-animation-out="fadeOut"><a class="clients-modern" href="#"><img src="images/clients-1-270x145.png" alt="" width="270" height="145"/></a><a class="clients-modern" href="#"><img src="images/clients-2-270x145.png" alt="" width="270" height="145"/></a><a class="clients-modern" href="#"><img src="images/clients-3-270x145.png" alt="" width="270" height="145"/></a><a class="clients-modern" href="#"><img src="images/clients-4-270x145.png" alt="" width="270" height="145"/></a></div>
-        </div>
+         <!-- <div class="owl-carousel owl-clients owl-dots-secondary" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="4" data-margin="30" data-dots="true" data-animation-in="fadeIn" data-animation-out="fadeOut"><a class="clients-modern" href="#"><img src="images/clients-1-270x145.png" alt="" width="270" height="145"/></a><a class="clients-modern" href="#"><img src="images/clients-2-270x145.png" alt="" width="270" height="145"/></a><a class="clients-modern" href="#"><img src="images/clients-3-270x145.png" alt="" width="270" height="145"/></a><a class="clients-modern" href="#"><img src="images/clients-4-270x145.png" alt="" width="270" height="145"/></a></div>
+        </div>-->
       </section>
 
 
