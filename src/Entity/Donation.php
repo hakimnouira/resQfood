@@ -1,34 +1,67 @@
 <?php
 
 namespace App\Entity;
-use App\Repository\DonationRepository;
+
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: DonationRepository::class)]
+/**
+ * Donation
+ *
+ * @ORM\Table(name="donation")
+ * @ORM\Entity
+ */
 class Donation
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $donationId = null;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="donation_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $donationId;
 
-    #[ORM\Column(length: 255)]
-    private ?string $donationCategory = null;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="donation_category", type="string", length=255, nullable=false)
+     */
+    private $donationCategory;
 
-    #[ORM\Column]
-    private ?float $donationAmount = null;
+    /**
+     * @var float|null
+     *
+     * @ORM\Column(name="donation_amount", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $donationAmount;
 
-    #[ORM\Column(length: 255)]
-    private ?string $foodName = null;
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="food_name", type="string", length=255, nullable=true)
+     */
+    private $foodName;
 
-    #[ORM\Column]
-    private ?float $foodQuantity = null;
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="food_quantity", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $foodQuantity;
 
-    #[ORM\ManyToOne(targetEntity: Dcategory::class)]
-    #[ORM\JoinColumn(name: "dcategory_id", referencedColumnName: "dcategoryId")]
-    private ?Dcategory $dcategory = null;
-    #[ORM\Column]
-    private ?int $udonorId = null;
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="dcategory_id", type="integer", nullable=true)
+     */
+    private $dcategoryId;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="udonor_id", type="integer", nullable=false)
+     */
+    private $udonorId;
 
     public function getDonationId(): ?int
     {

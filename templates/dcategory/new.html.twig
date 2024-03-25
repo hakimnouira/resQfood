@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Dcategory{% endblock %}
+
+{% block body %}
+    <h1>Create new Dcategory</h1>
+
+    {{ include('dcategory/_form.html.twig') }}
+
+    <a href="{{ path('app_dcategory_index') }}">back to list</a>
+{% endblock %}

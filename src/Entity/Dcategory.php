@@ -2,24 +2,38 @@
 
 namespace App\Entity;
 
-use App\Repository\DcategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: DcategoryRepository::class)]
+/**
+ * Dcategory
+ *
+ * @ORM\Table(name="dcategory")
+ * @ORM\Entity
+ */
 class Dcategory
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $dcategoryId = null;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="dcategory_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $dcategoryId;
 
-    #[ORM\Column(length: 255)]
-    private ?string $dcategoryName = null;
-   
-    #[ORM\Column(length: 255)]
-    private ?string $dcategoryDescription = null;
-   
-    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dcategory_name", type="string", length=255, nullable=false)
+     */
+    private $dcategoryName;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="dcategory_description", type="string", length=255, nullable=true)
+     */
+    private $dcategoryDescription;
 
     public function getDcategoryId(): ?int
     {

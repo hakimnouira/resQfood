@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Donation{% endblock %}
+
+{% block body %}
+    <h1>Donation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>DonationId</th>
+                <td>{{ donation.donationId }}</td>
+            </tr>
+            <tr>
+                <th>DonationCategory</th>
+                <td>{{ donation.donationCategory }}</td>
+            </tr>
+            <tr>
+                <th>DonationAmount</th>
+                <td>{{ donation.donationAmount }}</td>
+            </tr>
+            <tr>
+                <th>FoodName</th>
+                <td>{{ donation.foodName }}</td>
+            </tr>
+            <tr>
+                <th>FoodQuantity</th>
+                <td>{{ donation.foodQuantity }}</td>
+            </tr>
+            <tr>
+                <th>DcategoryId</th>
+                <td>{{ donation.dcategoryId }}</td>
+            </tr>
+            <tr>
+                <th>UdonorId</th>
+                <td>{{ donation.udonorId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_donation_index') }}">back to list</a>
+
+    <a href="{{ path('app_donation_edit', {'donationId': donation.donationId}) }}">edit</a>
+
+    {{ include('donation/_delete_form.html.twig') }}
+{% endblock %}
