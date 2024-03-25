@@ -3,65 +3,37 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\DonationRepository;
+use App\Entity\Dcategory;
 
-/**
- * Donation
- *
- * @ORM\Table(name="donation")
- * @ORM\Entity
- */
+#[ORM\Entity(repositoryClass: DonationRepository::class)]
 class Donation
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="donation_id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $donationId;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $donationId = null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="donation_category", type="string", length=255, nullable=false)
-     */
-    private $donationCategory;
+    #[ORM\Column(length: 150)]
+    private ?string $donationCategory = null;
 
-    /**
-     * @var float|null
-     *
-     * @ORM\Column(name="donation_amount", type="float", precision=10, scale=0, nullable=true)
-     */
-    private $donationAmount;
+    #[ORM\Column]
+    private ?float $donationAmount = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="food_name", type="string", length=255, nullable=true)
-     */
-    private $foodName;
+    #[ORM\Column(length: 150)]
+    private ?string $foodName = null;
 
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="food_quantity", type="float", precision=10, scale=0, nullable=false)
-     */
-    private $foodQuantity;
+    #[ORM\Column]
+    private ?float $foodQuantity = null;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="dcategory_id", type="integer", nullable=true)
-     */
-    private $dcategoryId;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="udonor_id", type="integer", nullable=false)
-     */
-    private $udonorId;
+    #[ORM\Column]
+    private ?int $dcategoryId = null;
+
+    #[ORM\Column]
+    private ?int $udonorId = null;
+
+    
 
     public function getDonationId(): ?int
     {
@@ -136,9 +108,6 @@ class Donation
     public function setUdonorId(int $udonorId): static
     {
         $this->udonorId = $udonorId;
-
         return $this;
     }
-
-
 }
