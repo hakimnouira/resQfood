@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DonationController!{% endblock %}
+
+{% block body %}
+           <section class="section text-center">
+        <div class="parallax-container" data-parallax-img="{{ asset('images/donations.jpg') }}">
+          <div class="parallax-content section-xl section-inset-custom-1 context-dark bg-overlay-40">
+            <div class="container">
+              <h2 class="oh font-weight-normal"><span class="d-inline-block wow slideInDown" data-wow-delay="0s">Make a difference today!</span></h2>
+              <p class="oh big text-width-large"><span class="d-inline-block wow slideInUp" data-wow-delay=".2s">Your generous donation can provide crucial support to those in need, offering hope, relief, and opportunities for a brighter tomorrow. Together, let's create positive change and uplift communities worldwide. Every contribution matters. Donate now and be a part of something truly impactful!</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section section-md bg-default section-top-image">
+      <div class="container">
+    <div class="bg-light p-4 mb-4">
+      <!-- <div style="border: 2px solid transparent; background-color: #083A39; padding: 20px; margin: 0 auto; width: 100%;">-->
+          <h2 class="text-left mb-4 text-center" style="color: #083A39;">What do you want to donate?</h2>
+             <hr>
+                       
+ <!-- Trending products-->
+      <section class="section section-md bg-default">
+        <div class="container">
+          <div class="row row-40 justify-content-center">
+         
+            <div class="col-md-5 col-lg-6">
+              <div class="row row-30 justify-content-center">
+                <div class="col-sm-6 col-md-12 col-lg-6">
+                  <div class="oh-desktop">
+                    <!-- Product-->
+                    <article class="product product-2 box-ordered-item wow slideInRight" data-wow-delay="0s">
+                      <div class="unit flex-row flex-lg-column">
+                        <div class="unit-left">
+                          <div class="product-figure"><img src="{{ asset('images/money.jpg') }}" alt="" width="270" height="280"/>
+                            <div class="product-button"><a class="button button-md button-white button-ujarak" href="#">Donate</a></div>
+                          </div>
+                        </div>
+                        <div class="unit-body">
+                          <h6 class="product-title"><a href="#">Money</a></h6>
+                          <div class="product-price-wrap">
+                           
+                       
+                        </div>
+                    </article>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-12 col-lg-6">
+                  <div class="oh-desktop">
+                    <!-- Product-->
+                    <article class="product product-2 box-ordered-item wow slideInLeft" data-wow-delay="0s">
+                      <div class="unit flex-row flex-lg-column">
+                        <div class="unit-left">
+                          <div class="product-figure"><img src="{{ asset('images/food.jpeg') }}" alt="" width="270" height="280"/>
+                            <div class="product-button"><a class="button button-md button-white button-ujarak" href="#">Donate</a></div>
+                          </div>
+                        </div>
+                        <div class="unit-body">
+                          <h6 class="product-title"><a href="#">Food</a></h6>
+                          <div class="product-price-wrap">
+                           
+                      </div>
+                    </article>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-12 col-lg-6">
+                  <div class="oh-desktop">
+                    <!-- Product-->
+                    <article class="product product-2 box-ordered-item wow slideInLeft" data-wow-delay="0s">
+                      <div class="unit flex-row flex-lg-column">
+                        <div class="unit-left">
+                          <div class="product-figure"><img src="{{ asset('images/rawmaterials.jpg') }}" alt="" width="270" height="280"/>
+                            <div class="product-button"><a class="button button-md button-white button-ujarak" href="#">Donate</a></div>
+                          </div>
+                        </div>
+                        <div class="unit-body">
+                          <h6 class="product-title"><a href="#">Raw Materials</a></h6>
+                          <div class="product-price-wrap">
+                           
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+        </section>
+    
+
+    
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
