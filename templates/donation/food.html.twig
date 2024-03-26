@@ -1,0 +1,16 @@
+{# food.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Food Donation{% endblock %}
+
+
+{% block body %}
+ <div style="margin-bottom: 50px;"> <!-- Add margin-bottom -->
+    <h1>Food Donation</h1>
+    {{ form_start(form) }}
+        {{ form_row(form.foodName) }}
+        {{ form_row(form.foodQuantity) }}
+         <button type="submit" class="btn btn-primary">Add Donation</button> <!-- Submit button -->
+    {{ form_end(form) }}
+{% endblock %}

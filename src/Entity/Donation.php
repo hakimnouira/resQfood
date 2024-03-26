@@ -26,9 +26,11 @@ class Donation
     #[ORM\Column]
     private ?float $foodQuantity = null;
 
+    //#[ORM\ManyToOne(inversedBy:'Donations')]
+    //private ?Dcategory $dcategory = null;
 
-    #[ORM\Column]
-    private ?int $dcategoryId = null;
+   // #[ORM\Column]
+   // private ?int $dcategoryId = null;
 
     #[ORM\Column]
     private ?int $udonorId = null;
@@ -110,4 +112,24 @@ class Donation
         $this->udonorId = $udonorId;
         return $this;
     }
+
+    public function __construct(string $donationCategory = null)
+{
+    // Initialize properties based on the donation category
+    // Only initialize if the category is known
+    if ($donationCategory === 'Money') {
+        $this->foodName = ''; // Set foodName to an empty string for money donations
+        $this->foodQuantity = 0; // Also set foodQuantity to 0
+    } elseif ($donationCategory === 'Food') {
+        // For food category, set only the common properties to 0
+        $this->donationAmount = 0;
+    }
+
+    // Common properties
+    $this->udonorId = 0;
+    $this->dcategoryId = 0;
+}
+
+
+   
 }

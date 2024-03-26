@@ -9,6 +9,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use App\Form\FoodType;
+use App\Form\RawMaterialsType;
+
+
 
 #[Route('/donation')]
 class DonationController extends AbstractController
@@ -89,5 +95,105 @@ class DonationController extends AbstractController
 
         return $this->redirectToRoute('app_donation_index', [], Response::HTTP_SEE_OTHER);
     }
-   
+    
+
+    #[Route('/donation/money', name: 'app_money')]
+    public function donateMoney(Request $request): Response
+    {
+        $donation = new Donation();
+        $donation->setDonationCategory('Money'); // Set the category here
+    
+        // Create the form with the DonationType
+        $form = $this->createForm(DonationType::class, $donation);
+    
+        // Handle form submission
+        $form->handleRequest($request);
+    
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Temporary workaround to set foodName to an empty string
+            if ($donation->getDonationCategory() === 'Money') {
+                $donation->setFoodName('');
+                $donation->setFoodQuantity(0);
+            }
+    
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($donation);
+            $entityManager->flush();
+    
+            // Redirect back to the money donation page
+            return $this->redirectToRoute('app_money');
+        }
+    
+        return $this->render('donation/money.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+    
+    #[Route('/donation/food', name: 'app_food')]
+    public function donateFood(Request $request): Response
+    {
+        $donation = new Donation();
+        $donation->setDonationCategory('Food'); // Set the category here
+    
+        // Create the form with the FoodType
+        $form = $this->createForm(FoodType::class, $donation);
+    
+        // Handle form submission
+        $form->handleRequest($request);
+    
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Temporary workaround to set foodName to an empty string
+            if ($donation->getDonationCategory() === 'Food') {
+            
+                $donation->setDonationAmount(0);
+            } 
+             $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($donation);
+            $entityManager->flush();
+    
+    
+    
+            // Redirect back to the food donation page
+            return $this->redirectToRoute('app_food');
+        }
+    
+        return $this->render('donation/food.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+    
+    #[Route('/donation/rawmaterials', name: 'app_raw_materials')]
+    public function donateRawMaterials(Request $request): Response
+    {
+        $donation = new Donation();
+        $donation->setDonationCategory('Raw Materials'); // Set the category here
+    
+        // Create the form with the appropriate form type for raw materials
+        $form = $this->createForm(RawMaterialsType::class, $donation); // Update RawMaterialsType with the correct form type
+    
+        // Handle form submission
+        $form->handleRequest($request);
+    
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Temporary workaround to set foodName to an empty string
+            if ($donation->getDonationCategory() === 'Raw Materials') {
+            
+                $donation->setDonationAmount(0);
+            } 
+             $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($donation);
+            $entityManager->flush();
+    
+            // Redirect back to the raw materials donation page
+            return $this->redirectToRoute('app_raw_materials');
+        }
+    
+        return $this->render('donation/raw_materials.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+    
+
+    
+
 }

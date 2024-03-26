@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Donate Money{% endblock %}
+
+{% block body %}
+    <div style="margin-bottom: 50px;"> <!-- Add margin-bottom -->
+        <h1>Donate Money</h1>
+
+        {{ form_start(form) }}
+        {{ form_row(form.donationAmount) }}
+        <button type="submit" class="btn btn-primary">Add Donation</button> <!-- Submit button -->
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

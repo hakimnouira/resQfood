@@ -34,7 +34,8 @@
                       <div class="unit flex-row flex-lg-column">
                         <div class="unit-left">
                           <div class="product-figure"><img src="{{ asset('images/money.jpg') }}" alt="" width="270" height="280"/>
-                            <div class="product-button"><a class="button button-md button-white button-ujarak" href="#">Donate</a></div>
+                            <div class="product-button"><a class="button button-md button-white button-ujarak" href="{{ path('app_money', {'donationCategory': 'Money'}) }}">Donate</a></div>
+                             
                           </div>
                         </div>
                         <div class="unit-body">
@@ -53,7 +54,7 @@
                       <div class="unit flex-row flex-lg-column">
                         <div class="unit-left">
                           <div class="product-figure"><img src="{{ asset('images/food.jpeg') }}" alt="" width="270" height="280"/>
-                            <div class="product-button"><a class="button button-md button-white button-ujarak" href="#">Donate</a></div>
+                            <div class="product-button"><a class="button button-md button-white button-ujarak" href="{{ path('app_food', {'donationCategory': 'Food'}) }}">Donate</a></div>
                           </div>
                         </div>
                         <div class="unit-body">
@@ -71,7 +72,7 @@
                       <div class="unit flex-row flex-lg-column">
                         <div class="unit-left">
                           <div class="product-figure"><img src="{{ asset('images/rawmaterials.jpg') }}" alt="" width="270" height="280"/>
-                            <div class="product-button"><a class="button button-md button-white button-ujarak" href="#">Donate</a></div>
+                            <div class="product-button"><a class="button button-md button-white button-ujarak" href="{{ path('app_raw_materials', {'donationCategory': 'Raw Materials'}) }}">Donate</a></div>
                           </div>
                         </div>
                         <div class="unit-body">
