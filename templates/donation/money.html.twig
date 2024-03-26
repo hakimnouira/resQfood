@@ -3,12 +3,30 @@
 {% block title %}Donate Money{% endblock %}
 
 {% block body %}
-    <div style="margin-bottom: 50px;"> <!-- Add margin-bottom -->
-        <h1>Donate Money</h1>
-
-        {{ form_start(form) }}
-        {{ form_row(form.donationAmount) }}
-        <button type="submit" class="btn btn-primary">Add Donation</button> <!-- Submit button -->
-        {{ form_end(form) }}
-    </div>
+   <!-- Donate Money-->
+      <section class="section section-md section-first bg-default text-md-left">
+        <div class="container">
+          <div class="row row-50 justify-content-center">
+            <div class="col-md-10 col-lg-5 col-xl-6">
+              <img src="{{ asset('images/donatemoney.png') }}" alt="" width="519" height="446"/>
+            </div>
+            <div class="col-md-10 col-lg-7 col-xl-6">
+              <div style="border: 2px solid transparent; background-color: #f2f2f2; padding: 20px; margin: 0 auto; width: 100%;">
+                <h2>Give Financial Support</h2>
+                <!-- Money donation form-->
+                <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-4">
+                  <div style="margin-bottom: 50px;"> <!-- Add margin-bottom -->
+                    {{ form_start(form, {'attr': {'class': 'donation-form'}}) }}
+                      <div class="form-group">
+                        {{ form_widget(form.donationAmount) }}
+                      </div>
+                      <button type="submit" class="btn btn-primary">Add Donation</button> <!-- Submit button -->
+                    {{ form_end(form) }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 {% endblock %}

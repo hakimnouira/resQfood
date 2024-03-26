@@ -105,6 +105,7 @@ class DonationController extends AbstractController
     
         // Create the form with the DonationType
         $form = $this->createForm(DonationType::class, $donation);
+        
     
         // Handle form submission
         $form->handleRequest($request);

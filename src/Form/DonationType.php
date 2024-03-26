@@ -37,10 +37,12 @@ class DonationType extends AbstractType
     {
         $builder
             ->add('donationAmount', NumberType::class, [
-                'label' => 'Donation Amount',
-                // Add any other options for this field
+                'label' => false, // Hide label
+                'attr' => [
+                    'placeholder' => 'Please enter your donation amount (in dinar)',
+                    'class' => 'form-control'
+                ],
             ]);
-          
     }
 
             
