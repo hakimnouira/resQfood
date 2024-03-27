@@ -39,8 +39,9 @@ class DonationType extends AbstractType
             ->add('donationAmount', NumberType::class, [
                 'label' => false, // Hide label
                 'attr' => [
-                    'placeholder' => 'Please enter your donation amount (in dinar)',
+                    'placeholder' => 'Please enter your donation amount (In tunisian dinar)',
                     'class' => 'form-control'
+                    
                 ],
             ]);
     }

@@ -3,30 +3,109 @@
 {% block title %}Donate Money{% endblock %}
 
 {% block body %}
-   <!-- Donate Money-->
-      <section class="section section-md section-first bg-default text-md-left">
-        <div class="container">
-          <div class="row row-50 justify-content-center">
-            <div class="col-md-10 col-lg-5 col-xl-6">
-              <img src="{{ asset('images/donatemoney.png') }}" alt="" width="519" height="446"/>
-            </div>
-            <div class="col-md-10 col-lg-7 col-xl-6">
-              <div style="border: 2px solid transparent; background-color: #f2f2f2; padding: 20px; margin: 0 auto; width: 100%;">
-                <h2>Give Financial Support</h2>
-                <!-- Money donation form-->
-                <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-4">
-                  <div style="margin-bottom: 50px;"> <!-- Add margin-bottom -->
-                    {{ form_start(form, {'attr': {'class': 'donation-form'}}) }}
-                      <div class="form-group">
-                        {{ form_widget(form.donationAmount) }}
-                      </div>
-                      <button type="submit" class="btn btn-primary">Add Donation</button> <!-- Submit button -->
-                    {{ form_end(form) }}
-                  </div>
+  <section class="breadcrumbs-custom-inset">
+    <div class="breadcrumbs-custom context-dark bg-overlay-46">
+      <div class="container">
+        <ul class="breadcrumbs-custom-path">
+        </ul>
+      </div>
+      <div class="box-position" style="background-image: url('{{ asset('images/donationtest.jpg') }}');"></div>
+    </div>
+  </section>
+
+  <section class="section section-md bg-default section-top-image mb-0">
+    <div class="container">
+      <div class="bg-light p-4 mb-4">
+      </div>
+    </div>
+    
+    <section class="section section-md section-first bg-default text-md-left d-flex align-items-center" style="background-color: #f8eff0; margin-top: -40px;">
+    <div class="container">
+      <div class="row row-50 justify-content-center">
+        <div class="col-md-10 col-lg-5 col-xl-6">
+          <img src="{{ asset('images/donatemoney.png') }}" alt="" width="519" height="446"/>
+        </div>
+        <div class="col-md-10 col-lg-7 col-xl-6">
+          <div style="border: 2px solid transparent; padding: 40px; width: 100%;">
+            <h2>Give Financial Support</h2>
+            <hr>
+            <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-4">
+              <div style="margin-bottom: 20px;">
+                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                <div class="form-group">
+                   {{ form_widget(form.donationAmount, {'attr': {'class': 'form-control', 'oninput': 'this.value = this.value.replace(/[^1-9]/g, \'\')'}}) }}
+                 {% if form_errors(form.donationAmount)|length > 0 and not form.vars.valid %}
+                    <div class="alert alert-danger mt-2">
+                       Please insert your donation amount first
+                    </div>
+                  {% endif %}
                 </div>
+                <br>
+                <div class="form-group text-center">
+                  <button type="submit" class="btn btn-primary" id="addDonationButton">Add Donation</button>
+                </div>
+                {{ form_end(form) }}
+               {% if donationAdded is not empty %}
+    <div class="alert alert-success mt-2">
+        {{ donationAdded[0] }}
+    </div>
+{% endif %}
+
+
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
+  </section>
+ <style>
+    /* Custom styling for error message */
+    .alert-danger {
+      background-color: #dddddd; /* Grey background */
+      color: red; /* Red text */
+      padding: 10px; /* Padding */
+      border-radius: 5px; /* Rounded corners */
+      margin-top: 10px; /* Margin from the top */
+    }
+
+    /* Custom styling for success message */
+    .alert-success {
+      background-color: #d4edda; /* Light green background */
+      color: green; /* Green text */
+      padding: 10px; /* Padding */
+      border-radius: 5px; /* Rounded corners */
+      margin-top: 10px; /* Margin from the top */
+    }
+  </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var donationAmountField = document.getElementById('donation_amount');
+    var donationAmountError = document.getElementById('donation-amount-error');
+    var successMessage = document.getElementById('success-message');
+    var addDonationButton = document.getElementById('addDonationButton');
+
+    donationAmountField.addEventListener('input', function() {
+      if (donationAmountField.value.trim() !== '') {
+        donationAmountError.style.display = 'none';
+        successMessage.style.display = 'none'; // Hide success message when typing in the field
+      } else {
+        donationAmountError.style.display = 'block';
+      }
+    });
+
+    addDonationButton.addEventListener('click', function(event) {
+      if (donationAmountField.value.trim() === '') {
+        donationAmountError.style.display = 'block';
+        successMessage.style.display = 'none'; // Hide success message if the field is empty
+        event.preventDefault(); // Prevent form submission
+      } else {
+        successMessage.style.display = 'block'; // Show success message when the form is submitted successfully
+      }
+    });
+  });
+</script>
+
 {% endblock %}

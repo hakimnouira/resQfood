@@ -13,6 +13,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use App\Form\FoodType;
 use App\Form\RawMaterialsType;
+use Symfony\Component\Form\FormError;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 
 
@@ -98,37 +100,47 @@ class DonationController extends AbstractController
     
 
     #[Route('/donation/money', name: 'app_money')]
-    public function donateMoney(Request $request): Response
-    {
-        $donation = new Donation();
-        $donation->setDonationCategory('Money'); // Set the category here
-    
-        // Create the form with the DonationType
-        $form = $this->createForm(DonationType::class, $donation);
-        
-    
-        // Handle form submission
-        $form->handleRequest($request);
-    
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Temporary workaround to set foodName to an empty string
-            if ($donation->getDonationCategory() === 'Money') {
-                $donation->setFoodName('');
-                $donation->setFoodQuantity(0);
-            }
-    
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($donation);
-            $entityManager->flush();
-    
-            // Redirect back to the money donation page
-            return $this->redirectToRoute('app_money');
+public function donateMoney(Request $request, SessionInterface $session): Response
+{
+    $donation = new Donation();
+    $donation->setDonationCategory('Money'); // Set the category here
+
+    // Create the form with the DonationType
+    $form = $this->createForm(DonationType::class, $donation);
+
+    // Handle form submission
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        // Temporary workaround to set foodName to an empty string
+        if ($donation->getDonationCategory() === 'Money') {
+            $donation->setFoodName('');
+            $donation->setFoodQuantity(0);
         }
-    
-        return $this->render('donation/money.html.twig', [
-            'form' => $form->createView(),
-        ]);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($donation);
+        $entityManager->flush();
+
+        // Store success message in session
+        $session->getFlashBag()->add('success', 'Donation added successfully!');
+
+        // Redirect back to the money donation page
+        return $this->redirectToRoute('app_money');
     }
+
+    // Handle empty field validation manually
+    if ($form->isSubmitted() && !$form->isValid() && $form->get('donationAmount')->getData() === null) {
+        $form->get('donationAmount')->addError(new FormError('Please fill in this field.'));
+    }
+
+    // Render the template with the donationAdded variable
+    return $this->render('donation/money.html.twig', [
+        'form' => $form->createView(),
+        'donationAdded' => $session->getFlashBag()->get('success'), // Pass the success message to the template
+    ]);
+}
+    
     
     #[Route('/donation/food', name: 'app_food')]
     public function donateFood(Request $request): Response

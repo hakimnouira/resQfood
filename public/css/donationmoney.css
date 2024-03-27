@@ -1,0 +1,77 @@
+/* I always reset all the html elements */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: sans-serif;
+	min-height: 100%;
+	color: #555;
+}
+.page{
+	max-width: 1000px;
+	margin: 0 auto;
+}
+h1{
+	/*margin: 40px 0;*/
+	margin-top: 50px;
+	margin-bottom: 100px;
+	text-align: center;
+}
+form{
+	margin: 50px auto;
+	max-width: 350px;
+}
+label{
+	display: block;
+	padding-bottom: 5px;
+	position: relative;
+	padding-left: 5px;
+	font-size: 17px;
+}
+label span{
+	position: absolute;
+	font-size: 16px;
+	padding-right: 5px;
+	/*font-style: italic;*/
+	color: #999;
+	right: 0;
+}
+input{
+	padding: 10px;
+	width:  100%;
+	margin-bottom: 10px;
+	border:  thin solid #d4d4d4;
+	font-size: 16px;
+	outline: none;
+	margin-bottom: 30px;
+}
+input:focus{
+	border-color: orange;
+}
+.error{
+	color: #af4242;
+	background-color: #fde8ec;
+	padding: 10px;
+	display: none;
+	transform: translateY(-20px);
+	margin-bottom: 20px;
+	font-size: 16px;
+}
+.success{
+	margin-bottom: 30px;
+	color: green;
+	background-color: #d2ffd2;
+	padding: 10px;
+	display: none;
+	font-size: 16px;
+}
+.success.display-success{
+	display: block;
+}
+input[type=submit]:active{
+	background-color: #6c9bc3;
+	color: #fff;
+}

@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\DonationRepository;
 use App\Entity\Dcategory;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: DonationRepository::class)]
 class Donation
@@ -18,6 +19,9 @@ class Donation
     private ?string $donationCategory = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'Please insert your donation amount first')]
+   
+   
     private ?float $donationAmount = null;
 
     #[ORM\Column(length: 150)]
